@@ -1,0 +1,51 @@
+/* src/pages/Workspace.module.css */
+.container {
+  display: flex;
+  height: 100vh;
+  font-family: Inter, sans-serif;
+}
+
+.sidebar {
+  width: 220px;
+  border-right: 2px solid #ddd;
+  padding: 1rem;
+  background-color: #f6f9fc;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 0.5rem 0;
+  cursor: grab;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.canvasArea {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.canvasPlaceholder {
+  flex: 1;
+  margin-top: 1rem;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 1rem;
+}

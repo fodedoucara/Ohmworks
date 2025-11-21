@@ -12,7 +12,7 @@ export default function Home() {
             <section className={styles.hero}>
                 <h1 className={styles.title}>Ohmworks -The Path of Least Resistance</h1>
                 <p className={styles.subtitle}>
-                    Build, simulate, and test real-world electronics online — no breadboard required.
+                    Build, simulate, and test real-world electronics online.
                 </p>
                 <div className={styles.buttons}>
                     <button
