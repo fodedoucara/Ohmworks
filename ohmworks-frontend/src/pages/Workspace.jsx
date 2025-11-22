@@ -2,6 +2,12 @@ import { useState, useRef } from "react";
 import styles from "./Workspace.module.css";
 import { COMPONENT_LIBRARY } from "../data/electronicComponents";
 
+const groupedComponents = COMPONENT_LIBRARY.reduce((acc, comp) => {
+  if (!acc[comp.category]) acc[comp.category] = [];
+  acc[comp.category].push(comp);
+  return acc;
+}, {});
+
 export default function Workspace() {
   //used for handling when components are placed inside canvas
   const [placedComponents, setPlacedComponents] = useState([])
@@ -68,15 +74,26 @@ export default function Workspace() {
     <div className={styles.container}>
       <aside className={styles.sidebar}>
         <h2>Components</h2>
-        <ul>
-          {COMPONENT_LIBRARY.map((component) => (
-            <li key={component.id} draggable onDragStart={(e) =>
-              e.dataTransfer.setData("Component", component.id)
-            }>
-              {component.name}
-            </li>
+        <div className={styles.sidebarContent}>
+          {Object.entries(groupedComponents).map(([category, components]) => (
+            <div key={category} className={styles.categoryGroup}>
+              <h3 className={styles.categoryTitle}>{category}</h3>
+              <ul>
+                {components.map((comp) => (
+                  <li
+                    key={comp.id}
+                    draggable
+                    onDragStart={(e) =>
+                      e.dataTransfer.setData("component", comp.id)
+                    }
+                  >
+                    {comp.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </aside>
       <main className={styles.canvasArea}>
         <h2>Canvas</h2>
