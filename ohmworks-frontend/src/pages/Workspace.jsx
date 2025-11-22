@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import styles from "./Workspace.module.css";
+import { COMPONENT_LIBRARY } from "../data/electronicComponents";
 
 export default function Workspace() {
   //used for handling when components are placed inside canvas
@@ -68,10 +69,13 @@ export default function Workspace() {
       <aside className={styles.sidebar}>
         <h2>Components</h2>
         <ul>
-          <li draggable onDragStart={(e) => e.dataTransfer.setData("component", "microcontroller")}>Microcontroller</li>
-          <li draggable onDragStart={(e) => e.dataTransfer.setData("component", "sensor")}>Sensor</li>
-          <li draggable onDragStart={(e) => e.dataTransfer.setData("component", "led")}>LED</li>
-          <li draggable onDragStart={(e) => e.dataTransfer.setData("component", "resistor")}>Resistor</li>
+          {COMPONENT_LIBRARY.map((component) => (
+            <li key={component.id} draggable onDragStart={(e) =>
+              e.dataTransfer.setData("Component", component.id)
+            }>
+              {component.name}
+            </li>
+          ))}
         </ul>
       </aside>
       <main className={styles.canvasArea}>
