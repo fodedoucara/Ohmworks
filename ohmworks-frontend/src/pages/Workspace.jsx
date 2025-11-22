@@ -1,8 +1,14 @@
-import{ useState } from "react";
+import { useState } from "react";
 import styles from "./Workspace.module.css";
 
 export default function Workspace() {
+  //used for handling when components are placed inside canvas
   const [placedComponents, setPlacedComponents] = useState([])
+  //used for handling components already inside canvas
+  const [draggingId, setDraggingId] = useState(null)
+  //used for handling positions of components inside canvas
+  const [offset, setOffset] = useState({ x: 0, y: 0 })
+
   const handleDrop = (e) => {
     e.preventDefault();
     const component = e.dataTransfer.getData("component");
@@ -43,6 +49,13 @@ export default function Workspace() {
           {placedComponents.map(c => (
             <div
               key={c.id}
+              onMouseDown={(e) => {
+                setDraggingId(c.id);
+                setOffset({
+                  x: e.clientX - c.x,
+                  y: e.clientY - c.y
+                });
+              }}
               style={{
                 position: "absolute",
                 top: c.y,
@@ -59,7 +72,7 @@ export default function Workspace() {
 
           <p>Drag components here to build your circuit</p>
         </div>
-      </main>
-    </div>
+      </main >
+    </div >
   );
 }
