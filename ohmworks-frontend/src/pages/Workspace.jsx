@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback} from "react";
 import styles from "./Workspace.module.css";
 import { COMPONENT_LIBRARY } from "../data/electronicComponents";
 
@@ -26,6 +26,8 @@ export default function Workspace() {
   //used to collapse down categories of components
   const [collapsed, setCollapsed] = useState({});
 
+  const selectedComponent = placedComponents.find(c => c.id === selectedId);
+
   const handleDrop = (e) => {
     e.preventDefault();
     const component = e.dataTransfer.getData("component");
@@ -40,6 +42,7 @@ export default function Workspace() {
     const clampedX = Math.max(0, Math.min(x, canvasBorder.width - 50))
     const clampedY = Math.max(0, Math.min(y, canvasBorder.height - 20))
 
+    const compData = COMPONENT_LIBRARY.find(c => c.id === component)
 
     setPlacedComponents(prev => [
       ...prev,
@@ -47,10 +50,18 @@ export default function Workspace() {
         id: crypto.randomUUID(),
         type: component,
         x: clampedX,
-        y: clampedY
+        y: clampedY,
+        props: { ...compData.defaultProps }
       }
     ]);
   };
+
+  const handlePropertyChange = (id, key, value) => {
+    setPlacedComponents(prev =>
+      prev.map(c => c.id === id ? { ...c, props: { ...c.props, [key]: value } } : c)
+    );
+  };
+
 
   const handleDragOver = (e) => e.preventDefault();
 
@@ -79,20 +90,21 @@ export default function Workspace() {
   };
 
   //listening for deleting item on canvas
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if ((e.key === "Delete" || e.key === "Backspace") && selectedId) {
-        setPlacedComponents(prev =>
-          prev.filter(item => item.id !== selectedId)
-        );
-        setSelectedId(null);
-      }
-    };
+const handleDelete = useCallback(() => {
+  setPlacedComponents(prev => prev.filter(c => c.id !== selectedId));
+  setSelectedId(null);
+}, [selectedId]); // depends on selectedId
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedId]);
+useEffect(() => {
+  const handleKeyDown = (e) => {
+    if ((e.key === "Delete" || e.key === "Backspace") && selectedId) {
+      handleDelete();
+    }
+  };
 
+  window.addEventListener("keydown", handleKeyDown);
+  return () => window.removeEventListener("keydown", handleKeyDown);
+}, [selectedId, handleDelete]);
 
   return (
     <div className={styles.container}>
@@ -137,7 +149,7 @@ export default function Workspace() {
                           e.dataTransfer.setData("component", comp.id)
                         }
                       >
-                      {comp.name}
+                        {comp.name}
                       </li>
                     ))}
                   </ul>
@@ -185,6 +197,26 @@ export default function Workspace() {
 
           <p>Drag components here to build your circuit</p>
         </div>
+        {/* Properties Panel */}
+        {selectedComponent && (
+          <div className={styles.propertiesPanel}>
+            <h3>{selectedComponent.type} Properties</h3>
+            {Object.entries(selectedComponent.props).map(([key, value]) => (
+              <div key={key} className={styles.propRow}>
+                <label>{key}</label>
+                <input
+                  type="text"
+                  value={value}
+                  onChange={(e) => handlePropertyChange(selectedComponent.id, key, e.target.value)}
+                />
+              </div>
+            ))}
+            <button onClick={handleDelete} className={styles.deleteButton}>
+              Delete
+            </button>
+          </div>
+        )}
+
       </main >
     </div >
   );
