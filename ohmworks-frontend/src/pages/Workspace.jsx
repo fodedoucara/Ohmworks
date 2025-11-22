@@ -18,6 +18,11 @@ export default function Workspace() {
   //used to get reference of canvas border
   const canvasRef = useRef(null)
 
+  //used to search for components
+  const [searchQuery, setSearchQuery] = useState("");
+  //used to collapse down categories of components
+  const [collapsed, setCollapsed] = useState({});
+
   const handleDrop = (e) => {
     e.preventDefault();
     const component = e.dataTransfer.getData("component");
@@ -74,25 +79,55 @@ export default function Workspace() {
     <div className={styles.container}>
       <aside className={styles.sidebar}>
         <h2>Components</h2>
+
+        <input
+          type="text"
+          placeholder="Search components..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className={styles.searchInput}
+        />
+
         <div className={styles.sidebarContent}>
-          {Object.entries(groupedComponents).map(([category, components]) => (
-            <div key={category} className={styles.categoryGroup}>
-              <h3 className={styles.categoryTitle}>{category}</h3>
-              <ul>
-                {components.map((comp) => (
-                  <li
-                    key={comp.id}
-                    draggable
-                    onDragStart={(e) =>
-                      e.dataTransfer.setData("component", comp.id)
-                    }
-                  >
-                    {comp.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {Object.entries(groupedComponents).map(([category, comps]) => {
+            // Filter components when searching
+            const filtered = comps.filter(c =>
+              c.name.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+
+            // Hide category if nothing matches search
+            if (filtered.length === 0) return null;
+
+            return (
+              <div key={category} className={styles.categoryGroup}>
+                <div
+                  className={styles.categoryHeader}
+                  onClick={() =>
+                    setCollapsed(prev => ({ ...prev, [category]: !prev[category] }))
+                  }
+                >
+                  <h3>{category}</h3>
+                  <span>{collapsed[category] ? "▸" : "▾"}</span>
+                </div>
+
+                {!collapsed[category] && (
+                  <ul>
+                    {filtered.map((comp) => (
+                      <li
+                        key={comp.id}
+                        draggable
+                        onDragStart={(e) =>
+                          e.dataTransfer.setData("component", comp.id)
+                        }
+                      >
+                        {comp.name}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            );
+          })}
         </div>
       </aside>
       <main className={styles.canvasArea}>
@@ -106,8 +141,6 @@ export default function Workspace() {
           onMouseUp={handleMouseUp}
           style={{ position: "relative" }}
         >
-
-          {/* === Render placed components here === */}
           {placedComponents.map(c => (
             <div
               key={c.id}
@@ -132,6 +165,7 @@ export default function Workspace() {
               }}
             >
               {c.type}
+  
             </div>
           ))}
 
