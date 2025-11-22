@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from "./Workspace.module.css";
 
 export default function Workspace() {
@@ -8,17 +8,31 @@ export default function Workspace() {
   const [draggingId, setDraggingId] = useState(null)
   //used for handling positions of components inside canvas
   const [offset, setOffset] = useState({ x: 0, y: 0 })
+  //used to get reference of canvas border
+  const canvasRef = useRef(null)
 
   const handleDrop = (e) => {
     e.preventDefault();
     const component = e.dataTransfer.getData("component");
+    if (!component) {
+      return
+    }
+    const canvas = canvasRef.current
+    const canvasBorder = canvas.getBoundingClientRect()
+    const x = e.clientX - canvasBorder.left;
+    const y = e.clientY - canvasBorder.top;
+
+    const clampedX = Math.max(0, Math.min(x, canvasBorder.width - 50))
+    const clampedY = Math.max(0, Math.min(y, canvasBorder.height - 20))
+
+
     setPlacedComponents(prev => [
       ...prev,
       {
         id: crypto.randomUUID(),
         type: component,
-        x: e.clientX,
-        y: e.clientY
+        x: clampedX,
+        y: clampedY
       }
     ]);
   };
@@ -26,17 +40,28 @@ export default function Workspace() {
   const handleDragOver = (e) => e.preventDefault();
 
   const handleMouseMove = (e) => {
-    if (!draggingId) return;
+    if (!draggingId) {
+      return
+    }
 
-    setPlacedComponents(prev => 
-      prev.map(c => 
-        c.id === draggingId ? {...c, x: e.clientX - offset.x, y: e.clientY - offset.y} : c
+    const canvas = canvasRef.current
+    const canvasBorder = canvas.getBoundingClientRect()
+
+    const mouseX = e.clientX - canvasBorder.left
+    const mouseY = e.clientY - canvasBorder.top
+
+    setPlacedComponents(prev =>
+      prev.map(c =>
+        c.id === draggingId ? {
+          ...c, x: Math.max(0, Math.min(mouseX - offset.x, canvasBorder.width - 50)),
+          y: Math.max(0, Math.min(mouseY - offset.y, canvasBorder.height - 20))
+        } : c
       )
     )
   }
   const handleMouseUp = () => {
-  setDraggingId(null);
-};
+    setDraggingId(null);
+  };
 
   return (
     <div className={styles.container}>
@@ -52,6 +77,7 @@ export default function Workspace() {
       <main className={styles.canvasArea}>
         <h2>Canvas</h2>
         <div
+          ref={canvasRef}
           className={styles.canvasPlaceholder}
           onDrop={handleDrop}
           onDragOver={handleDragOver}
@@ -65,17 +91,20 @@ export default function Workspace() {
             <div
               key={c.id}
               onMouseDown={(e) => {
+                const canvas = canvasRef.current;
+                const canvasBorder = canvas.getBoundingClientRect();
+
                 setDraggingId(c.id);
                 setOffset({
-                  x: e.clientX - c.x,
-                  y: e.clientY - c.y
+                  x: (e.clientX - canvasBorder.left) - c.x,
+                  y: (e.clientY - canvasBorder.top) - c.y
                 });
               }}
               style={{
                 position: "absolute",
                 top: c.y,
                 left: c.x,
-                background: "#eee",
+                background: "linear-gradient(90deg, #ff7a00, #ff4e00)",
                 padding: "5px 8px",
                 borderRadius: "6px",
                 border: "1px solid #ccc"
