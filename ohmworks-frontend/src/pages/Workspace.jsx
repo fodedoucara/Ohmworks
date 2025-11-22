@@ -113,8 +113,6 @@ export default function Workspace() {
             const filtered = comps.filter(c =>
               c.name.toLowerCase().includes(searchQuery.toLowerCase())
             );
-
-            // Hide category if nothing matches search
             if (filtered.length === 0) return null;
 
             return (
@@ -139,7 +137,7 @@ export default function Workspace() {
                           e.dataTransfer.setData("component", comp.id)
                         }
                       >
-                        {comp.name}
+                      {comp.name}
                       </li>
                     ))}
                   </ul>

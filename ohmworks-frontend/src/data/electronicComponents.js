@@ -1,3 +1,6 @@
+
+
+
 export const COMPONENT_LIBRARY = [
   // ===========================
   // Passive Components
@@ -6,7 +9,7 @@ export const COMPONENT_LIBRARY = [
     id: "resistor",
     name: "Resistor",
     category: "Passive",
-    defaultProps: { resistance: 1000 }   // 1kΩ common lab value
+    defaultProps: { resistance: 1000 }   
   },
   {
     id: "capacitor",
