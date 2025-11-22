@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./Workspace.module.css";
 import { COMPONENT_LIBRARY } from "../data/electronicComponents";
 
@@ -17,6 +17,9 @@ export default function Workspace() {
   const [offset, setOffset] = useState({ x: 0, y: 0 })
   //used to get reference of canvas border
   const canvasRef = useRef(null)
+  //used to track selected component
+  const [selectedId, setSelectedId] = useState(null);
+
 
   //used to search for components
   const [searchQuery, setSearchQuery] = useState("");
@@ -74,6 +77,22 @@ export default function Workspace() {
   const handleMouseUp = () => {
     setDraggingId(null);
   };
+
+  //listening for deleting item on canvas
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.key === "Delete" || e.key === "Backspace") && selectedId) {
+        setPlacedComponents(prev =>
+          prev.filter(item => item.id !== selectedId)
+        );
+        setSelectedId(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedId]);
+
 
   return (
     <div className={styles.container}>
@@ -139,8 +158,7 @@ export default function Workspace() {
           onDragOver={handleDragOver}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
-          style={{ position: "relative" }}
-        >
+          style={{ position: "relative" }}>
           {placedComponents.map(c => (
             <div
               key={c.id}
@@ -149,23 +167,21 @@ export default function Workspace() {
                 const canvasBorder = canvas.getBoundingClientRect();
 
                 setDraggingId(c.id);
+                setSelectedId(c.id);
+
                 setOffset({
                   x: (e.clientX - canvasBorder.left) - c.x,
                   y: (e.clientY - canvasBorder.top) - c.y
                 });
               }}
+              className={`${styles.canvasItem} ${selectedId === c.id ? styles.selected : ""}`}
               style={{
                 position: "absolute",
                 top: c.y,
-                left: c.x,
-                background: "linear-gradient(90deg, #ff7a00, #ff4e00)",
-                padding: "5px 8px",
-                borderRadius: "6px",
-                border: "1px solid #ccc"
+                left: c.x
               }}
             >
               {c.type}
-  
             </div>
           ))}
 
