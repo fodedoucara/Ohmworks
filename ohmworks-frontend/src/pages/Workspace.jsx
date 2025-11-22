@@ -8,10 +8,10 @@ export default function Workspace() {
       <aside className={styles.sidebar}>
         <h2>Components</h2>
         <ul>
-          <li>Microcontroller</li>
-          <li>Sensor</li>
-          <li>LED</li>
-          <li>Resistor</li>
+          <li draggable onDragStart={(e) => e.dataTransfer.setData("component", "microcontroller")}>Microcontroller</li>
+          <li draggable onDragStart={(e) => e.dataTransfer.setData("component", "sensor")}>Sensor</li>
+          <li draggable onDragStart={(e) => e.dataTransfer.setData("component", "led")}>LED</li>
+          <li draggable onDragStart={(e) => e.dataTransfer.setData("component", "resistor")}>Resistor</li>
         </ul>
       </aside>
       <main className={styles.canvasArea}>
