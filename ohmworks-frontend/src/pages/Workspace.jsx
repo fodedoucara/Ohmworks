@@ -25,6 +25,19 @@ export default function Workspace() {
 
   const handleDragOver = (e) => e.preventDefault();
 
+  const handleMouseMove = (e) => {
+    if (!draggingId) return;
+
+    setPlacedComponents(prev => 
+      prev.map(c => 
+        c.id === draggingId ? {...c, x: e.clientX - offset.x, y: e.clientY - offset.y} : c
+      )
+    )
+  }
+  const handleMouseUp = () => {
+  setDraggingId(null);
+};
+
   return (
     <div className={styles.container}>
       <aside className={styles.sidebar}>
@@ -42,6 +55,8 @@ export default function Workspace() {
           className={styles.canvasPlaceholder}
           onDrop={handleDrop}
           onDragOver={handleDragOver}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
           style={{ position: "relative" }}
         >
 
