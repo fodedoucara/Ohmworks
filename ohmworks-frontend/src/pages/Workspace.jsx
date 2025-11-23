@@ -6,6 +6,7 @@ import { useCanvasInteractions } from "../utils/useCanvasInteractions"
 import Sidebar from "../components/Sidebar"
 const groupedComponents = groupComponents(COMPONENT_LIBRARY)
 import Canvas from "../components/Canvas"
+import PropertiesPanel from "../components/PropertiesPanel"
 
 
 export default function Workspace() {
@@ -45,41 +46,27 @@ export default function Workspace() {
       />
       <main className={styles.canvasArea}>
         <h2>Canvas</h2>
-<Canvas
-    canvasRef={canvasRef}
-    placedComponents={placedComponents}
-    setPlacedComponents={setPlacedComponents}
-    draggingId={draggingId}
-    setDraggingId={setDraggingId}
-    selectedId={selectedId}
-    setSelectedId={setSelectedId}
-    offset={offset}
-    setOffset={setOffset}
-    handleDrop={handleDrop}
-    handleDragOver={handleDragOver}
-    handleMouseMove={handleMouseMove}
-    handleMouseUp={handleMouseUp}
-/>
+        <Canvas
+          canvasRef={canvasRef}
+          placedComponents={placedComponents}
+          setPlacedComponents={setPlacedComponents}
+          draggingId={draggingId}
+          setDraggingId={setDraggingId}
+          selectedId={selectedId}
+          setSelectedId={setSelectedId}
+          offset={offset}
+          setOffset={setOffset}
+          handleDrop={handleDrop}
+          handleDragOver={handleDragOver}
+          handleMouseMove={handleMouseMove}
+          handleMouseUp={handleMouseUp}
+        />
+        <PropertiesPanel
+          selectedComponent={selectedComponent}
+          handlePropertyChange={handlePropertyChange}
+          handleDelete={handleDelete}
+        />
 
-        {/* Properties Panel */}
-        {selectedComponent && (
-          <div className={styles.propertiesPanel}>
-            <h3>{selectedComponent.type} Properties</h3>
-            {Object.entries(selectedComponent.props).map(([key, value]) => (
-              <div key={key} className={styles.propRow}>
-                <label>{key}</label>
-                <input
-                  type="text"
-                  value={value}
-                  onChange={(e) => handlePropertyChange(selectedComponent.id, key, e.target.value)}
-                />
-              </div>
-            ))}
-            <button onClick={handleDelete} className={styles.deleteButton}>
-              Delete
-            </button>
-          </div>
-        )}
 
       </main >
     </div >
