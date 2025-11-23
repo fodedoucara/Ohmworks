@@ -89,6 +89,12 @@ export function useCanvasInteractions() {
 
     useEffect(() => {
         const handleKeyDown = (e) => {
+            const isTyping =
+                e.target.tagName === "INPUT" ||
+                e.target.tagName === "TEXTAREA" ||
+                e.target.isContentEditable;
+            if (isTyping) return;
+
             if ((e.key === "Delete" || e.key === "Backspace") && selectedId) {
                 handleDelete();
             }
@@ -98,26 +104,26 @@ export function useCanvasInteractions() {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [selectedId, handleDelete]);
 
-   return {
-    canvasRef,
-    placedComponents,
-    setPlacedComponents,
-    draggingId,
-    setDraggingId,
-    offset,
-    setOffset,
-    selectedId,
-    setSelectedId,
-    selectedComponent,
-    searchQuery,
-    setSearchQuery,
-    collapsed,
-    setCollapsed,
-    handleDrop,
-    handleDragOver,
-    handleMouseMove,
-    handleMouseUp,
-    handlePropertyChange,
-    handleDelete
-};
+    return {
+        canvasRef,
+        placedComponents,
+        setPlacedComponents,
+        draggingId,
+        setDraggingId,
+        offset,
+        setOffset,
+        selectedId,
+        setSelectedId,
+        selectedComponent,
+        searchQuery,
+        setSearchQuery,
+        collapsed,
+        setCollapsed,
+        handleDrop,
+        handleDragOver,
+        handleMouseMove,
+        handleMouseUp,
+        handlePropertyChange,
+        handleDelete
+    };
 }
