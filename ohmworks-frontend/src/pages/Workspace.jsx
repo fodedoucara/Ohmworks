@@ -1,12 +1,9 @@
 import { useState, useRef, useEffect, useCallback} from "react";
 import styles from "./Workspace.module.css";
 import { COMPONENT_LIBRARY } from "../data/electronicComponents";
+import {groupComponents} from "../utils/groupComponents.js"
 
-const groupedComponents = COMPONENT_LIBRARY.reduce((acc, comp) => {
-  if (!acc[comp.category]) acc[comp.category] = [];
-  acc[comp.category].push(comp);
-  return acc;
-}, {});
+const groupedComponents = groupComponents(COMPONENT_LIBRARY)
 
 export default function Workspace() {
   //used for handling when components are placed inside canvas
