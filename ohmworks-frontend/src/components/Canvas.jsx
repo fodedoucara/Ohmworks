@@ -1,4 +1,5 @@
 import styles from "../pages/Workspace.module.css";
+import ComponentIcon from "../utils/ComponentIcon.jsx";
 
 export default function Canvas({
   canvasRef,
@@ -46,7 +47,7 @@ export default function Canvas({
             left: c.x,
           }}
         >
-          {c.type}
+          <ComponentIcon id={c.type} size={50} />
         </div>
       ))}
 

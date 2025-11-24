@@ -19,6 +19,8 @@
   color: white;
   border-right: 3px solid rgba(255, 255, 255, 0.15);
   box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar h2 {
@@ -37,6 +39,26 @@
   font-size: 14px;
   background: rgba(255,255,255,0.2);
   color: white;
+}
+
+.sidebarContent {
+  flex: 1; 
+  overflow-y: auto; 
+  padding-right: 4px; 
+}
+
+.sidebarContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebarContent::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.sidebarContent::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
 }
 
 .categoryGroup {
@@ -71,6 +93,9 @@
   margin-bottom: 6px;
   color: white;
   transition: transform 0.1s, background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .sidebar li:hover {
@@ -115,16 +140,17 @@
 ========================== */
 
 .canvasItem {
-  background: linear-gradient(90deg, #ff7a00, #ff4e00);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 10px;
   cursor: grab;
   user-select: none;
-  font-weight: 600;
-  box-shadow: 0 4px 10px rgba(255, 78, 0, 0.4);
-  border: none;
-  transition: transform 0.1s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Remove background, padding, border-radius, etc. */
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: 600; /* optional */
 }
 
 .canvasItem.selected {

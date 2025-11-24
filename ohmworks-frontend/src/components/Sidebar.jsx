@@ -1,4 +1,5 @@
 import styles from "../pages/Workspace.module.css" 
+import ComponentIcon from "../utils/ComponentIcon.jsx";
 
 export default function Sidebar({
     groupedComponents,
@@ -48,8 +49,10 @@ export default function Sidebar({
                                             onDragStart={(e) =>
                                                 e.dataTransfer.setData("component", comp.id)
                                             }
+                                            style={{ display: "flex", alignItems: "center", gap: "8px" }}
                                         >
-                                            {comp.name}
+                                            <ComponentIcon id={comp.id} size={24} />
+                                            <span>{comp.name}</span>
                                         </li>
                                     ))}
                                 </ul>
