@@ -51,7 +51,7 @@ export default function Sidebar({
                                             }
                                             style={{ display: "flex", alignItems: "center", gap: "8px" }}
                                         >
-                                            <ComponentIcon id={comp.id} size={24} />
+                                            <ComponentIcon id={comp.id} size={24} image={comp.image} />
                                             <span>{comp.name}</span>
                                         </li>
                                     ))}

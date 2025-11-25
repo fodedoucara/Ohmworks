@@ -1,0 +1,16 @@
+{
+  "id": "capacitor",
+  "name": "Capacitor",
+  "category": "Passive",
+  "pins": [
+    { "id": "1", "x": 0, "y": 20 },
+    { "id": "2", "x": 60, "y": 20 }
+  ],
+  "default_value": "0.1uF",
+  "image": "",
+  "behavior": {
+    "type": "capacitor",
+    "equation": "I = C * dV/dt",
+    "parameters": { "C": 0.0000001 }
+  }
+}

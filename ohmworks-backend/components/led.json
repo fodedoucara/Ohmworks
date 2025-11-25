@@ -1,0 +1,16 @@
+{
+    "id": "led",
+    "name": "LED",
+    "category": "Diodes",
+    "pins": [
+        { "id": "anode", "x": 0, "y": 20 },
+        { "id": "cathode", "x": 60, "y": 20 }
+    ],
+    "default_value": "red",
+    "image": "",
+    "behavior": {
+        "type": "led",
+        "equation": "I = V / R",
+        "parameters": { "forwardVoltage": 2.0 }
+    }
+}
