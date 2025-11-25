@@ -5,7 +5,7 @@ import path from "path"; // Helps build file paths cross-platform (windows, macO
 const app = express();
 app.use(express.json()); // Allows server to parse incoming json POST requests
 
-const componentsFolder = path.join(process.cwd(), "components"); // Path to components json folder
+const componentsFolder = path.join(process.cwd(), "components");
 
 // GET all components
 app.get("/components", (req, res) => {
@@ -21,7 +21,7 @@ app.get("/components/:id", (req, res) => {
     const { id } = req.params; // Gets :id from URL
     const filePath = path.join(componentsFolder, `${id}.json`); // Builds full path to the component json
     if (!fs.existsSync(filePath)) {
-        return res.status(404).json({ error: "Component not found"}); // Throw a 404 error if component file not found
+        return res.status(404).json({ error: "Component file not found"});
     }
 
     const component = JSON.parse(fs.readFileSync(filePath, file), "utf-8"); // Parse json file
@@ -32,7 +32,7 @@ app.get("/components/:id", (req, res) => {
 app.post("/components", (req, res) => {
     const component = req.body; // Contains json sent by client
     if (!component.id) {
-        return res.status(400).json({ error: "Missing component id"}); // If component.id doesn't exist, throw 400 error
+        return res.status(400).json({ error: "Missing component id"});
     }
 
     const filePath = path.join(componentsFolder, `${component.id}.json`); // Saves component asid.json in components/
@@ -40,4 +40,4 @@ app.post("/components", (req, res) => {
     res.json({ message: "Component saved", component }); // Send confirmation json to frontend
 });
 
-app.listen(4000, () => console.log("Backend running on http://localhost:4000")); // Listen for connections on localhost:4000
+app.listen(4000, () => console.log("Backend running on http://localhost:4000"));
