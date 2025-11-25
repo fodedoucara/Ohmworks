@@ -1,0 +1,16 @@
+{
+    "id": "resistor",
+    "name": "Resistor",
+    "category": "Passive",
+    "pins": [
+        { "id": "1", "x": 0, "y": 20},
+        { "id": "2", "x": 60, "y": 20}
+    ],
+    "default_value": "1k",
+    "image": "/images/resistor.png",
+    "behavior": {
+        "type": "ohmic",
+        "equation": "V = I * R",
+        "parameters": { "R": 1000 }
+    }
+}
