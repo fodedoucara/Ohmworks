@@ -1,0 +1,7 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- LED body -->
+  <circle cx="32" cy="32" r="10" fill="#ff0000" stroke="#000" stroke-width="2"/>
+  <!-- Leads -->
+  <line x1="32" y1="42" x2="32" y2="54" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="32" y1="22" x2="32" y2="10" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+</svg>

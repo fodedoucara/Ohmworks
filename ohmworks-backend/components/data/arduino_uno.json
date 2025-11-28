@@ -25,7 +25,6 @@
     { "id": "20", "x": 30, "y": 130 }
   ],
   "default_value": "",
-  "image": "",
   "behavior": {
     "type": "microcontroller",
     "equation": "",

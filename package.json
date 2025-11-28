@@ -5,12 +5,12 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm --prefix ./ohmworks-frontend run dev\" \"npm --prefix ./ohmworks-backend start\""
+    "dev": "concurrently \"npm --prefix ./ohmworks-frontend run dev\" \"npm --prefix ./ohmworks-backend run dev\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "concurrently": "^9.2.1"
   }
 }

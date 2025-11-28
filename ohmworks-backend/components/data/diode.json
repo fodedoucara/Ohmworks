@@ -1,0 +1,15 @@
+{
+  "id": "diode",
+  "name": "Diode",
+  "category": "Diodes",
+  "pins": [
+    { "id": "anode", "x": 4, "y": 32 },
+    { "id": "cathode", "x": 60, "y": 32 }
+  ],
+  "default_value": "0.7V",
+  "behavior": {
+    "type": "diode",
+    "equation": "V = 0.7 if I>0 else 0",
+    "parameters": { "forwardVoltage": 0.7 }
+  }
+}

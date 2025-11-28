@@ -1,0 +1,15 @@
+{
+    "id": "inductor",
+    "name": "Inductor",
+    "category": "Passive",
+    "pins": [
+        { "id": "1", "x": 4, "y": 32 },
+        { "id": "2", "x": 60, "y": 32 }
+    ],
+    "default_value": "10mH",
+    "behavior": {
+        "type": "inductive",
+        "equation": "V = L * dI/dt",
+        "parameters": { "L": 0.01 }
+    }
+}

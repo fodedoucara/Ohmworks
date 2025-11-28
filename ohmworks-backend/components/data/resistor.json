@@ -7,7 +7,6 @@
         { "id": "2", "x": 60, "y": 20}
     ],
     "default_value": "1k",
-    "image": "/images/resistor.png",
     "behavior": {
         "type": "ohmic",
         "equation": "V = I * R",

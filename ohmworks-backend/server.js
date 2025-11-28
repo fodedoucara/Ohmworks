@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json()); // Allows server to parse incoming json POST reqs
 app.use(cors()); // Allow cross-origin reqs
 
-const componentsFolder = path.join(process.cwd(), "components");
+const componentsFolder = path.join(process.cwd(), "components", "data");
 if (!fs.existsSync(componentsFolder)) {
     fs.mkdirSync(componentsFolder); // Create components folder if it doesn't exist when server starts
 }
@@ -15,6 +15,7 @@ if (!fs.existsSync(componentsFolder)) {
 // GET all components
 app.get("/components", (req, res) => {
     const files = fs.readdirSync(componentsFolder); // Reads all filenames in components
+
     const components = files.map(file => { // Loop over each file, read content
         const filePath = path.join(componentsFolder, file);
         const content = fs.readFileSync(filePath, "utf-8").trim();
