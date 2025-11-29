@@ -1,5 +1,5 @@
 import styles from "../pages/Workspace.module.css";
-import ComponentIcon from "../utils/ComponentIcon.jsx";
+import ComponentRenderer from "../utils/componentRenderer.jsx";
 
 export default function Canvas({
   canvasRef,
@@ -38,41 +38,17 @@ export default function Canvas({
               y: e.clientY - rect.top - c.y,
             });
           }}
-          className={`${styles.canvasItem} ${selectedId === c.id ? styles.selected : ""
-            }`}
+          className={`${styles.canvasItem} ${
+            selectedId === c.id ? styles.selected : ""
+          }`}
           style={{
             position: "absolute",
             top: c.y,
             left: c.x,
-            width: c.width || 120,        // fallback values in case JSON doesn’t define them
-            height: c.height || 160,
           }}
         >
-          {/* Component graphic */}
-          <ComponentIcon id={c.type} size={50} />
-
-          {/* ----------------------------- */}
-          {/* PIN RENDERING */}
-          {/* ----------------------------- */}
-          {c.pins?.map((pin) => (
-            <div
-              key={pin.id}
-              className={styles.pin}
-              style={{
-                position: "absolute",
-                width: "10px",
-                height: "10px",
-                borderRadius: "50%",
-                background: selectedId === c.id ? "#ff4444" : "#cc0000",
-                border: "1px solid #222",
-                top: pin.y,
-                left: pin.x,
-                transform: "translate(-50%, -50%)",
-                cursor: "pointer",
-                zIndex: 10,
-              }}
-            ></div>
-          ))}
+          {/* The new schematic renderer */}
+          <ComponentRenderer component={c} />
         </div>
       ))}
 
