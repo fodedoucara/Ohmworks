@@ -2,32 +2,54 @@
   "id": "arduino_uno",
   "name": "Arduino Uno",
   "category": "Microcontrollers",
+  "width": 220,
+  "height": 300,
+
   "pins": [
-    { "id": "1", "x": 10, "y": 10 },
-    { "id": "2", "x": 30, "y": 10 },
-    { "id": "3", "x": 50, "y": 10 },
-    { "id": "4", "x": 70, "y": 10 },
-    { "id": "5", "x": 90, "y": 10 },
-    { "id": "6", "x": 110, "y": 10 },
-    { "id": "7", "x": 10, "y": 50 },
-    { "id": "8", "x": 30, "y": 50 },
-    { "id": "9", "x": 50, "y": 50 },
-    { "id": "10", "x": 70, "y": 50 },
-    { "id": "11", "x": 90, "y": 50 },
-    { "id": "12", "x": 110, "y": 50 },
-    { "id": "13", "x": 10, "y": 90 },
-    { "id": "14", "x": 30, "y": 90 },
-    { "id": "15", "x": 50, "y": 90 },
-    { "id": "16", "x": 70, "y": 90 },
-    { "id": "17", "x": 90, "y": 90 },
-    { "id": "18", "x": 110, "y": 90 },
-    { "id": "19", "x": 10, "y": 130 },
-    { "id": "20", "x": 30, "y": 130 }
+ 
+    { "id": "D0",  "label": "0 (RX)", "side": "top", "index": 0 },
+    { "id": "D1",  "label": "1 (TX)", "side": "top", "index": 1 },
+    { "id": "D2",  "label": "2",      "side": "top", "index": 2 },
+    { "id": "D3",  "label": "3~",     "side": "top", "index": 3 },
+    { "id": "D4",  "label": "4",      "side": "top", "index": 4 },
+    { "id": "D5",  "label": "5~",     "side": "top", "index": 5 },
+    { "id": "D6",  "label": "6~",     "side": "top", "index": 6 },
+    { "id": "D7",  "label": "7",      "side": "top", "index": 7 },
+    { "id": "D8",  "label": "8",      "side": "top", "index": 8 },
+    { "id": "D9",  "label": "9~",     "side": "top", "index": 9 },
+    { "id": "D10", "label": "10~",    "side": "top", "index": 10 },
+    { "id": "D11", "label": "11~",    "side": "top", "index": 11 },
+    { "id": "D12", "label": "12",     "side": "top", "index": 12 },
+    { "id": "D13", "label": "13",     "side": "top", "index": 13 },
+
+    { "id": "IOREF", "label": "IOREF", "side": "right", "index": 0 },
+    { "id": "RESET", "label": "RESET", "side": "right", "index": 1 },
+    { "id": "3V3",   "label": "3.3V",  "side": "right", "index": 2 },
+    { "id": "5V",    "label": "5V",    "side": "right", "index": 3 },
+    { "id": "GND1",  "label": "GND",   "side": "right", "index": 4 },
+    { "id": "GND2",  "label": "GND",   "side": "right", "index": 5 },
+    { "id": "VIN",   "label": "VIN",   "side": "right", "index": 6 },
+
+    { "id": "A0", "label": "A0", "side": "bottom", "index": 0 },
+    { "id": "A1", "label": "A1", "side": "bottom", "index": 1 },
+    { "id": "A2", "label": "A2", "side": "bottom", "index": 2 },
+    { "id": "A3", "label": "A3", "side": "bottom", "index": 3 },
+    { "id": "A4", "label": "A4 (SDA)", "side": "bottom", "index": 4 },
+    { "id": "A5", "label": "A5 (SCL)", "side": "bottom", "index": 5 },
+
+    { "id": "AREF", "label": "AREF", "side": "left", "index": 0 },
+    { "id": "SDA",  "label": "SDA",  "side": "left", "index": 1 },
+    { "id": "SCL",  "label": "SCL",  "side": "left", "index": 2 },
+
+    { "id": "MISO", "label": "MISO", "side": "left", "index": 3 },
+    { "id": "MOSI", "label": "MOSI", "side": "left", "index": 4 },
+    { "id": "SCK",  "label": "SCK",  "side": "left", "index": 5 },
+    { "id": "RST_ICSP", "label": "RST", "side": "left", "index": 6 }
   ],
+
   "default_value": "",
   "behavior": {
     "type": "microcontroller",
-    "equation": "",
-    "parameters": { "pins": 20 }
+    "parameters": { "pins": 32 }
   }
 }
