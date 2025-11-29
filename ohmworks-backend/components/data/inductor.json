@@ -1,15 +1,18 @@
 {
-    "id": "inductor",
-    "name": "Inductor",
-    "category": "Passive",
-    "pins": [
-        { "id": "1", "x": 4, "y": 32 },
-        { "id": "2", "x": 60, "y": 32 }
-    ],
-    "default_value": "10mH",
-    "behavior": {
-        "type": "inductive",
-        "equation": "V = L * dI/dt",
-        "parameters": { "L": 0.01 }
-    }
+  "id": "inductor",
+  "name": "Inductor",
+  "category": "Passives",
+  "width": 140,
+  "height": 50,
+
+  "pins": [
+    { "id": "L1", "label": "1", "side": "left", "index": 0 },
+    { "id": "L2", "label": "2", "side": "right", "index": 0 }
+  ],
+
+  "default_value": "10mH",
+  "behavior": {
+    "type": "inductor",
+    "parameters": { "inductance": "10mH" }
+  }
 }

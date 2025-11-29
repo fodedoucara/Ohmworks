@@ -1,15 +1,18 @@
 {
-    "id": "resistor",
-    "name": "Resistor",
-    "category": "Passive",
-    "pins": [
-        { "id": "1", "x": 0, "y": 20},
-        { "id": "2", "x": 60, "y": 20}
-    ],
-    "default_value": "1k",
-    "behavior": {
-        "type": "ohmic",
-        "equation": "V = I * R",
-        "parameters": { "R": 1000 }
-    }
+  "id": "resistor",
+  "name": "Resistor",
+  "category": "Passives",
+  "width": 120,
+  "height": 40,
+
+  "pins": [
+    { "id": "R1", "label": "1", "side": "left", "index": 0 },
+    { "id": "R2", "label": "2", "side": "right", "index": 0 }
+  ],
+
+  "default_value": "1kΩ",
+  "behavior": {
+    "type": "resistor",
+    "parameters": { "resistance": "1k" }
+  }
 }

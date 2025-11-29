@@ -1,15 +1,18 @@
 {
   "id": "capacitor",
   "name": "Capacitor",
-  "category": "Passive",
+  "category": "Passives",
+  "width": 120,
+  "height": 40,
+
   "pins": [
-    { "id": "1", "x": 0, "y": 20 },
-    { "id": "2", "x": 60, "y": 20 }
+    { "id": "C1", "label": "1", "side": "left", "index": 0 },
+    { "id": "C2", "label": "2", "side": "right", "index": 0 }
   ],
-  "default_value": "0.1uF",
+
+  "default_value": "10uF",
   "behavior": {
     "type": "capacitor",
-    "equation": "I = C * dV/dt",
-    "parameters": { "C": 0.0000001 }
+    "parameters": { "capacitance": "10uF" }
   }
 }

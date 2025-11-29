@@ -1,15 +1,17 @@
 {
   "id": "diode",
   "name": "Diode",
-  "category": "Diodes",
+  "category": "Semiconductors",
+  "width": 140,
+  "height": 40,
+
   "pins": [
-    { "id": "anode", "x": 4, "y": 32 },
-    { "id": "cathode", "x": 60, "y": 32 }
+    { "id": "ANODE", "label": "A", "side": "left", "index": 0 },
+    { "id": "CATHODE", "label": "K", "side": "right", "index": 0 }
   ],
-  "default_value": "0.7V",
+
+  "default_value": "",
   "behavior": {
-    "type": "diode",
-    "equation": "V = 0.7 if I>0 else 0",
-    "parameters": { "forwardVoltage": 0.7 }
+    "type": "diode"
   }
 }

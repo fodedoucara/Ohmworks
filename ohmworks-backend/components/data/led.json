@@ -1,15 +1,17 @@
 {
-    "id": "led",
-    "name": "LED",
-    "category": "Diodes",
-    "pins": [
-        { "id": "anode", "x": 0, "y": 20 },
-        { "id": "cathode", "x": 60, "y": 20 }
-    ],
-    "default_value": "red",
-    "behavior": {
-        "type": "led",
-        "equation": "I = V / R",
-        "parameters": { "forwardVoltage": 2.0 }
-    }
+  "id": "led",
+  "name": "LED",
+  "category": "Semiconductors",
+  "width": 100,
+  "height": 50,
+
+  "pins": [
+    { "id": "ANODE", "label": "A", "side": "left", "index": 0 },
+    { "id": "CATHODE", "label": "K", "side": "right", "index": 0 }
+  ],
+
+  "default_value": "",
+  "behavior": {
+    "type": "led"
+  }
 }
