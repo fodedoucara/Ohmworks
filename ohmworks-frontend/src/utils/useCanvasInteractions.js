@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { COMPONENT_LIBRARY } from "../data/electronicComponents";
+import useComponents from "../hooks/useComponents";
 
 export function useCanvasInteractions() {
     //used for handling when components are placed inside canvas
@@ -13,6 +13,8 @@ export function useCanvasInteractions() {
     //used to track selected component
     const [selectedId, setSelectedId] = useState(null);
 
+    //used to fetch backend components (JSON files)
+    const components = useComponents() || [];
 
     //used to search for components
     const [searchQuery, setSearchQuery] = useState("");
@@ -20,21 +22,35 @@ export function useCanvasInteractions() {
     const [collapsed, setCollapsed] = useState({});
 
     const selectedComponent = placedComponents.find(c => c.id === selectedId);
+
     const handleDrop = (e) => {
         e.preventDefault();
+
         const component = e.dataTransfer.getData("component");
         if (!component) {
-            return
+            return;
         }
-        const canvas = canvasRef.current
-        const canvasBorder = canvas.getBoundingClientRect()
+
+        const canvas = canvasRef.current;
+        const canvasBorder = canvas.getBoundingClientRect();
+
+        //mouse position relative to canvas
         const x = e.clientX - canvasBorder.left;
         const y = e.clientY - canvasBorder.top;
 
-        const clampedX = Math.max(0, Math.min(x, canvasBorder.width - 50))
-        const clampedY = Math.max(0, Math.min(y, canvasBorder.height - 20))
+        //clamp to canvas size
+        const compData = components.find(c => c.id === component); // <-- changed from COMPONENT_LIBRARY
 
-        const compData = COMPONENT_LIBRARY.find(c => c.id === component)
+        if (!compData) {
+            console.warn("Component not found:", component);
+            return;
+        }
+
+        const compWidth = compData.width || 120;
+        const compHeight = compData.height || 160;
+
+        const clampedX = Math.max(0, Math.min(x, canvasBorder.width - compWidth));
+        const clampedY = Math.max(0, Math.min(y, canvasBorder.height - compHeight));
 
         setPlacedComponents(prev => [
             ...prev,
@@ -43,10 +59,15 @@ export function useCanvasInteractions() {
                 type: component,
                 x: clampedX,
                 y: clampedY,
+                //added so Canvas.jsx can render pins correctly
+                width: compWidth,
+                height: compHeight,
+                pins: compData.pins || [], 
                 props: { ...compData.defaultProps }
             }
         ]);
     };
+
 
     const handlePropertyChange = (id, key, value) => {
         setPlacedComponents(prev =>
@@ -54,45 +75,49 @@ export function useCanvasInteractions() {
         );
     };
 
-
     const handleDragOver = (e) => e.preventDefault();
 
     const handleMouseMove = (e) => {
         if (!draggingId) {
-            return
+            return;
         }
 
-        const canvas = canvasRef.current
-        const canvasBorder = canvas.getBoundingClientRect()
+        const canvas = canvasRef.current;
+        const canvasBorder = canvas.getBoundingClientRect();
 
-        const mouseX = e.clientX - canvasBorder.left
-        const mouseY = e.clientY - canvasBorder.top
+        const mouseX = e.clientX - canvasBorder.left;
+        const mouseY = e.clientY - canvasBorder.top;
 
         setPlacedComponents(prev =>
             prev.map(c =>
-                c.id === draggingId ? {
-                    ...c, x: Math.max(0, Math.min(mouseX - offset.x, canvasBorder.width - 50)),
-                    y: Math.max(0, Math.min(mouseY - offset.y, canvasBorder.height - 20))
-                } : c
+                c.id === draggingId
+                    ? {
+                        ...c,
+                        x: Math.max(0, Math.min(mouseX - offset.x, canvasBorder.width - c.width)),
+                        y: Math.max(0, Math.min(mouseY - offset.y, canvasBorder.height - c.height))
+                    }
+                    : c
             )
-        )
-    }
+        );
+    };
+
     const handleMouseUp = () => {
         setDraggingId(null);
     };
 
-    //listening for deleting item on canvas
     const handleDelete = useCallback(() => {
         setPlacedComponents(prev => prev.filter(c => c.id !== selectedId));
         setSelectedId(null);
-    }, [selectedId]); // depends on selectedId
+    }, [selectedId]); 
 
+    // keyboard delete listener
     useEffect(() => {
         const handleKeyDown = (e) => {
             const isTyping =
                 e.target.tagName === "INPUT" ||
                 e.target.tagName === "TEXTAREA" ||
                 e.target.isContentEditable;
+
             if (isTyping) return;
 
             if ((e.key === "Delete" || e.key === "Backspace") && selectedId) {
