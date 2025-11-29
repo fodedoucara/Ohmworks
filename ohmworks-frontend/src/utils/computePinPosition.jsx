@@ -1,110 +1,113 @@
+const ROW_COUNT = 30;          // rows 1–30
+const COLS_PER_STRIP = 5;      // A–E or F–J
+const COL_LETTERS_UPPER = ['A', 'B', 'C', 'D', 'E'];
+const COL_LETTERS_LOWER = ['F', 'G', 'H', 'I', 'J'];
+
 export function computePinPosition(pin, component) {
   const w = component.width;
   const h = component.height;
 
-  // ===== RAIL CONFIG =====
-  const RAIL_TOTAL = 25;                // 25 pins for +, 25 pins for -
-  const RAIL_Y_TOP = 40;
-  const RAIL_Y_BOTTOM = h - 40;
+  /* ----------------------------------------------------------
+     BREADBOARD PIN LAYOUTS
+  ---------------------------------------------------------- */
 
-  // ===== GRID CONFIG =====
-  const GRID_ROWS = 30;
-  const GRID_COLS = 5;
+  // ============================
+  // 1. RAIL POSITIONS
+  // ============================
+  const TOP_PLUS_Y = h * 0.10;
+  const TOP_MINUS_Y = h * 0.16;
 
-  const GRID_LEFT_X = 60;
-  const GRID_RIGHT_X = w - 60;
-  const GRID_TOP_Y = 90;
-  const GRID_BOTTOM_Y = h - 90;
-  const GRID_GAP = 50;  // gap between strips
+  const BOTTOM_PLUS_Y = h * 0.84;
+  const BOTTOM_MINUS_Y = h * 0.90;
 
-  // ============================================================
-  // 1. TOP RAIL (top+, top-)
-  // ============================================================
-  if (pin.rail === "top+" || pin.rail === "top-") {
-    const spacing = (w - 120) / RAIL_TOTAL; // 60px padding each side
+  const RAIL_LEFT_X = 60;
+  const RAIL_SPACING = (w - RAIL_LEFT_X * 2) / 25;
+
+
+  // ============================
+  // 2. INTERNAL GRID
+  // ============================
+  const GRID_LEFT_X = 120;
+  const GRID_RIGHT_X = w - 120;
+
+  const ROW_SPACING =
+    (GRID_RIGHT_X - GRID_LEFT_X) / (ROW_COUNT - 1);
+
+  const UPPER_TOP_Y = h * 0.30;
+  const UPPER_BOTTOM_Y = h * 0.45;
+  const UPPER_COL_SPACING =
+    (UPPER_BOTTOM_Y - UPPER_TOP_Y) / (COLS_PER_STRIP - 1);
+
+  const LOWER_TOP_Y = h * 0.55;
+  const LOWER_BOTTOM_Y = h * 0.70;
+  const LOWER_COL_SPACING =
+    (LOWER_BOTTOM_Y - LOWER_TOP_Y) / (COLS_PER_STRIP - 1);
+
+
+  if (pin.rail === "top+") {
     return {
-      x: 60 + spacing * pin.railIndex + spacing / 2,
-      y: RAIL_Y_TOP
+      x: RAIL_LEFT_X + pin.railIndex * RAIL_SPACING,
+      y: TOP_PLUS_Y
     };
   }
 
-  // ============================================================
-  // 2. BOTTOM RAIL (bottom+, bottom-)
-  // ============================================================
-  if (pin.rail === "bottom+" || pin.rail === "bottom-") {
-    const spacing = (w - 120) / RAIL_TOTAL;
+  if (pin.rail === "top-") {
     return {
-      x: 60 + spacing * pin.railIndex + spacing / 2,
-      y: RAIL_Y_BOTTOM
+      x: RAIL_LEFT_X + pin.railIndex * RAIL_SPACING,
+      y: TOP_MINUS_Y
     };
   }
 
-  // ============================================================
-  // 3. UPPER TERMINAL STRIP (A–E)
-  // ============================================================
+  if (pin.rail === "bottom+") {
+    return {
+      x: RAIL_LEFT_X + pin.railIndex * RAIL_SPACING,
+      y: BOTTOM_PLUS_Y
+    };
+  }
+
+  if (pin.rail === "bottom-") {
+    return {
+      x: RAIL_LEFT_X + pin.railIndex * RAIL_SPACING,
+      y: BOTTOM_MINUS_Y
+    };
+  }
+
   if (pin.side === "upper") {
-    const colIndex = "ABCDE".indexOf(pin.col);    // 0–4
-    const colSpacing = (w / 2 - 120) / (GRID_COLS - 1);
-
-    const rowSpacing =
-      (GRID_BOTTOM_Y - GRID_TOP_Y - GRID_GAP) / (GRID_ROWS * 2);
+    const rowIndex = pin.row - 1;
+    const colIndex = COL_LETTERS_UPPER.indexOf(pin.colLetter);
 
     return {
-      x: GRID_LEFT_X + colIndex * colSpacing,
-      y: GRID_TOP_Y + rowSpacing * pin.row
+      x: GRID_LEFT_X + rowIndex * ROW_SPACING,
+      y: UPPER_TOP_Y + colIndex * UPPER_COL_SPACING
     };
   }
 
-  // ============================================================
-  // 4. LOWER TERMINAL STRIP (F–J)
-  // ============================================================
+
   if (pin.side === "lower") {
-    const colIndex = "FGHIJ".indexOf(pin.col);    // 0–4
-    const colSpacing = (w / 2 - 120) / (GRID_COLS - 1);
-
-    const rowSpacing =
-      (GRID_BOTTOM_Y - GRID_TOP_Y - GRID_GAP) / (GRID_ROWS * 2);
+    const rowIndex = pin.row - 1;
+    const colIndex = COL_LETTERS_LOWER.indexOf(pin.colLetter);
 
     return {
-      x: GRID_RIGHT_X - colIndex * colSpacing,
-      y: GRID_TOP_Y + GRID_GAP + rowSpacing * pin.row
+      x: GRID_LEFT_X + rowIndex * ROW_SPACING,
+      y: LOWER_TOP_Y + colIndex * LOWER_COL_SPACING
     };
   }
-
-  // ============================================================
-  // 5. NORMAL COMPONENTS (Arduino, LEDs, etc.)
-  // ============================================================
 
   const spacingTop = w / 14;
   const spacingBottom = w / 6;
   const spacingSide = h / 8;
 
   if (pin.side === "top") {
-    return {
-      x: spacingTop * pin.index + spacingTop / 2,
-      y: 0
-    };
+    return { x: spacingTop * pin.index + spacingTop / 2, y: 0 };
   }
-
   if (pin.side === "bottom") {
-    return {
-      x: spacingBottom * pin.index + spacingBottom / 2,
-      y: h
-    };
+    return { x: spacingBottom * pin.index + spacingBottom / 2, y: h };
   }
-
   if (pin.side === "left") {
-    return {
-      x: 0,
-      y: spacingSide * pin.index + spacingSide / 2
-    };
+    return { x: 0, y: spacingSide * pin.index + spacingSide / 2 };
   }
-
   if (pin.side === "right") {
-    return {
-      x: w,
-      y: spacingSide * pin.index + spacingSide / 2
-    };
+    return { x: w, y: spacingSide * pin.index + spacingSide / 2 };
   }
 
   return { x: 0, y: 0 };

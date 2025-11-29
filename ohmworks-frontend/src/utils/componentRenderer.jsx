@@ -3,104 +3,73 @@ import { computePinPosition } from "./computePinPosition";
 export default function ComponentRenderer({ component }) {
   const isBreadboard = component.behavior?.type === "breadboard";
 
-  /* ============================================================
-     BREADBOARD MINI (Fritzing-style)
-     Auto-generate ALL pins
-  ============================================================ */
+  /* =================================================================
+     BREADBOARD MINI RENDER
+  ================================================================== */
   if (isBreadboard) {
-    const rows = component.behavior.parameters.rows;         // 30
-    const cols = component.behavior.parameters.cols;         // 5
-    // const railSegments = component.behavior.parameters.railSegments;   // 5
-    // const railPinsPerSegment = component.behavior.parameters.railPinsPerSegment; // 5
+    const rows = component.behavior.parameters.rows; // 30
+    const cols = component.behavior.parameters.cols; // 5
 
     const leftCols = ["A", "B", "C", "D", "E"];
     const rightCols = ["F", "G", "H", "I", "J"];
 
     let pins = [];
 
-    /* --------------------------- */
-    /* TOP RAIL: 25 + pins */
-    /* --------------------------- */
     for (let i = 0; i < 25; i++) {
       pins.push({
         id: `TOP_PLUS_${i}`,
-        side: "top",
+        side: "rail-top",
         rail: "top+",
-        railIndex: i,
-        label: "+"
+        railIndex: i
       });
     }
-
-    /* TOP RAIL: 25 - pins */
     for (let i = 0; i < 25; i++) {
       pins.push({
         id: `TOP_MINUS_${i}`,
-        side: "top",
+        side: "rail-top",
         rail: "top-",
-        railIndex: i,
-        label: "-"
+        railIndex: i
       });
     }
 
-    /* --------------------------- */
-    /* UPPER TERMINAL STRIP (A–E) */
-    /* 30 rows × 5 cols           */
-    /* --------------------------- */
     for (let r = 1; r <= rows; r++) {
       for (let c = 0; c < cols; c++) {
         pins.push({
           id: `U_${leftCols[c]}${r}`,
           side: "upper",
           row: r,
-          col: leftCols[c],
-          label: ""   // no text inside grid
+          colLetter: leftCols[c]
         });
       }
     }
-
-    /* --------------------------- */
-    /* LOWER TERMINAL STRIP (F–J) */
-    /* 30 rows × 5 cols           */
-    /* --------------------------- */
     for (let r = 1; r <= rows; r++) {
       for (let c = 0; c < cols; c++) {
         pins.push({
           id: `L_${rightCols[c]}${r}`,
           side: "lower",
           row: r,
-          col: rightCols[c],
-          label: ""
+          colLetter: rightCols[c]
         });
       }
     }
 
-    /* --------------------------- */
-    /* BOTTOM RAIL: 25 + pins */
-    /* --------------------------- */
     for (let i = 0; i < 25; i++) {
       pins.push({
         id: `BOT_PLUS_${i}`,
-        side: "bottom",
+        side: "rail-bottom",
         rail: "bottom+",
-        railIndex: i,
-        label: "+"
+        railIndex: i
       });
     }
 
-    /* BOTTOM RAIL: 25 - pins */
     for (let i = 0; i < 25; i++) {
       pins.push({
         id: `BOT_MINUS_${i}`,
-        side: "bottom",
+        side: "rail-bottom",
         rail: "bottom-",
-        railIndex: i,
-        label: "-"
+        railIndex: i
       });
     }
-
-    /* ============================================================
-       RENDER — breadboard version
-    ============================================================ */
     return (
       <div
         style={{
@@ -113,14 +82,12 @@ export default function ComponentRenderer({ component }) {
           boxSizing: "border-box",
           paddingTop: "6px",
           fontSize: "11px",
-          fontWeight: 600,
+          fontWeight: 700,
           textAlign: "center",
           userSelect: "none"
         }}
       >
-        <div style={{ marginBottom: "4px" }}>
-          BREADBOARD MINI
-        </div>
+        <div style={{ marginBottom: "4px" }}>BREADBOARD MINI</div>
 
         {pins.map((pin) => {
           const pos = computePinPosition(pin, component);
@@ -133,15 +100,16 @@ export default function ComponentRenderer({ component }) {
                 top: pos.y,
                 left: pos.x,
                 transform: "translate(-50%, -50%)",
-                width: pin.side === "upper" || pin.side === "lower" ? "8px" : "10px",
-                height: pin.side === "upper" || pin.side === "lower" ? "8px" : "10px",
+                width: pin.side === "upper" || pin.side === "lower" ? "9px" : "11px",
+                height: pin.side === "upper" || pin.side === "lower" ? "9px" : "11px",
                 background:
                   pin.rail === "top+" || pin.rail === "bottom+" ? "red" :
                   pin.rail === "top-" || pin.rail === "bottom-" ? "blue" :
                   "black",
-                borderRadius: "50%"
+                borderRadius: "50%",
+                zIndex: 10
               }}
-            ></div>
+            />
           );
         })}
       </div>
@@ -149,8 +117,7 @@ export default function ComponentRenderer({ component }) {
   }
 
   /* ============================================================
-     NORMAL COMPONENT RENDER (Arduino, resistor, etc.)
-     — This is YOUR ORIGINAL RENDER BLOCK unchanged
+     NORMAL COMPONENTS RENDER
   ============================================================ */
   return (
     <div
