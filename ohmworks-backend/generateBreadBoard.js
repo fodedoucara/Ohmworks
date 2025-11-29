@@ -7,38 +7,38 @@ const rightCols = ["F", "G", "H", "I", "J"];
 const pins = [];
 
 /* === Power Rails === */
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 10; i++) {
   pins.push(
     { id: `TRP${i}`, label: "+", side: "top", rail: "power+", index: i },
-    { id: `TRG${i}`, label: "-", side: "top", rail: "ground-", index: i }
+    { id: `TRG${i}`, label: "-", side: "top", rail: "ground-", index: i },
+    { id: `BRP${i}`, label: "+", side: "bottom", rail: "power+", index: i },
+    { id: `BRG${i}`, label: "-", side: "bottom", rail: "ground-", index: i }
   );
 }
 
 /* === Holes A1–J30 === */
 for (let row = 1; row <= rows; row++) {
-  // Left block A–E
   leftCols.forEach((col, idx) => {
     pins.push({
       id: `${col}${row}`,
       label: `${col}${row}`,
-      group: `row-left-${row}`,
       side: "internal",
       row,
       col,
-      index: idx
+      index: idx,
+      group: `row-left-${row}`
     });
   });
 
-  // Right block F–J
   rightCols.forEach((col, idx) => {
     pins.push({
       id: `${col}${row}`,
       label: `${col}${row}`,
-      group: `row-right-${row}`,
-      side: "internal",
+      side: "internal", 
       row,
       col,
-      index: idx
+      index: idx + 5,
+      group: `row-right-${row}`
     });
   });
 }

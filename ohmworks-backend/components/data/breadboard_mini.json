@@ -1,0 +1,16 @@
+{
+  "id": "breadboard_mini",
+  "name": "Breadboard Mini",
+  "category": "Boards",
+  "width": 600,
+  "height": 350,
+  "behavior": {
+    "type": "breadboard",
+    "parameters": {
+      "rows": 30,
+      "cols": 5,
+      "railSegments": 5,
+      "railPinsPerSegment": 5
+    }
+  }
+}

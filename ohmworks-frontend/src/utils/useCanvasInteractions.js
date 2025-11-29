@@ -59,10 +59,10 @@ export function useCanvasInteractions() {
                 type: component,
                 x: clampedX,
                 y: clampedY,
-                //added so Canvas.jsx can render pins correctly
                 width: compWidth,
                 height: compHeight,
                 pins: compData.pins || [], 
+                behavior: compData.behavior || null,
                 props: { ...compData.defaultProps }
             }
         ]);
