@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import styles from "../pages/Workspace.module.css";
 import ComponentRenderer from "../utils/componentRenderer.jsx";
 
@@ -12,7 +13,7 @@ export default function Canvas({
   handleDragOver,
   handleMouseMove,
   handleMouseUp,
- // wires,
+  wires,
   setWires,
   selectedPin,
   setSelectedPin

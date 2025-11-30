@@ -11,6 +11,44 @@ export default function ComponentRenderer({
   const isBreadboard = component.behavior?.type === "breadboard";
 
   /* =================================================================
+     UNIVERSAL PIN CLICK HANDLER
+  ================================================================== */
+  function handlePinClick(e, pin) {
+    e.stopPropagation();  // prevents drag
+    e.preventDefault();   // prevents canvas events
+
+    const clicked = {
+      componentId: component.id,
+      pinId: pin.id
+    };
+
+    if (!selectedPin) {
+      setSelectedPin(clicked); // FIRST pin
+    } else {
+      // SECOND pin → make wire
+      setWires(prev => [
+        ...prev,
+        {
+          id: crypto.randomUUID(),
+          from: selectedPin,
+          to: clicked,
+          color: "green"
+        }
+      ]);
+
+      setSelectedPin(null); // reset selection
+    }
+  }
+  function isSelected(pin) {
+    return (
+      selectedPin &&
+      selectedPin.componentId === component.id &&
+      selectedPin.pinId === pin.id
+    );
+  }
+
+
+  /* =================================================================
      BREADBOARD MINI RENDER
   ================================================================== */
   if (isBreadboard) {
@@ -42,7 +80,7 @@ export default function ComponentRenderer({
       });
     }
 
-    // Upper grid (A–E)
+    // UPPER grid (A–E)
     for (let r = 1; r <= rows; r++) {
       for (let c = 0; c < cols; c++) {
         pins.push({
@@ -54,7 +92,7 @@ export default function ComponentRenderer({
       }
     }
 
-    // Lower grid (F–J)
+    // LOWER grid (F–J)
     for (let r = 1; r <= rows; r++) {
       for (let c = 0; c < cols; c++) {
         pins.push({
@@ -87,7 +125,7 @@ export default function ComponentRenderer({
     }
 
     /* =================================================================
-       RENDER
+       RENDER BREADBOARD
     ================================================================== */
     return (
       <div
@@ -111,34 +149,11 @@ export default function ComponentRenderer({
         {pins.map((pin) => {
           const pos = computePinPosition(pin, component);
 
-          // Pin click logic
-          const handlePinClick = () => {
-            const clicked = {
-              componentId: component.id,
-              pinId: pin.id
-            };
-
-            if (!selectedPin) {
-              setSelectedPin(clicked);
-            } else {
-              setWires((prev) => [
-                ...prev,
-                {
-                  id: crypto.randomUUID(),
-                  from: selectedPin,
-                  to: clicked,
-                  color: "green"
-                }
-              ]);
-
-              setSelectedPin(null);
-            }
-          };
-
           return (
             <div
               key={pin.id}
-              onClick={handlePinClick}
+              onMouseDown={(e) => e.stopPropagation()}     // prevents drag
+              onClick={(e) => handlePinClick(e, pin)}     // select pin
               style={{
                 position: "absolute",
                 top: pos.y,
@@ -152,15 +167,16 @@ export default function ComponentRenderer({
                   pin.side === "upper" || pin.side === "lower"
                     ? "9px"
                     : "11px",
-                background:
-                  pin.rail === "top+" || pin.rail === "bottom+"
+                background: isSelected(pin)
+                  ? "limegreen" // <-- Selected state
+                  : pin.rail === "top+" || pin.rail === "bottom+"
                     ? "red"
                     : pin.rail === "top-" || pin.rail === "bottom-"
-                    ? "blue"
-                    : "black",
+                      ? "blue"
+                      : "black",
                 borderRadius: "50%",
                 cursor: "pointer",
-                zIndex: 20
+                zIndex: 9999
               }}
             />
           );
@@ -170,7 +186,7 @@ export default function ComponentRenderer({
   }
 
   /* =================================================================
-     NORMAL COMPONENTS
+     NORMAL COMPONENTS (Arduino, LEDs, etc.)
   ================================================================== */
 
   return (
@@ -197,33 +213,11 @@ export default function ComponentRenderer({
       {component.pins?.map((pin) => {
         const pos = computePinPosition(pin, component);
 
-        const handlePinClick = () => {
-          const clicked = {
-            componentId: component.id,
-            pinId: pin.id
-          };
-
-          if (!selectedPin) {
-            setSelectedPin(clicked);
-          } else {
-            setWires((prev) => [
-              ...prev,
-              {
-                id: crypto.randomUUID(),
-                from: selectedPin,
-                to: clicked,
-                color: "green"
-              }
-            ]);
-
-            setSelectedPin(null);
-          }
-        };
-
         return (
           <div
             key={pin.id}
-            onClick={handlePinClick}
+            onMouseDown={(e) => e.stopPropagation()}
+            onClick={(e) => handlePinClick(e, pin)}
             style={{
               position: "absolute",
               top: pos.y,
@@ -231,11 +225,11 @@ export default function ComponentRenderer({
               transform: "translate(-50%, -50%)",
               width: "10px",
               height: "10px",
-              background: "red",
+              background: isSelected(pin) ? "limegreen" : "red",
               borderRadius: "50%",
               border: "1px solid #222",
               cursor: "pointer",
-              zIndex: 20
+              zIndex: 9999
             }}
           >
             <div
