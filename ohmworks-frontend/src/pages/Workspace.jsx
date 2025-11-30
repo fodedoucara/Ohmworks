@@ -7,6 +7,7 @@ import Sidebar from "../components/Sidebar"
 //const groupedComponents = groupComponents(COMPONENT_LIBRARY)
 import Canvas from "../components/Canvas"
 import PropertiesPanel from "../components/PropertiesPanel"
+import { useState } from "react";
 
 
 export default function Workspace() {
@@ -14,6 +15,9 @@ export default function Workspace() {
 
   const components = useComponents() || COMPONENT_LIBRARY; // Fetch components from backend
   const groupedComponents = groupComponents(components); // Group components by category
+
+  const [wires, setWires] = useState([])
+  const [selectedPin, setSelectedPin] = useState(null);
 
   const {
     canvasRef,
@@ -63,6 +67,10 @@ export default function Workspace() {
           handleDragOver={handleDragOver}
           handleMouseMove={handleMouseMove}
           handleMouseUp={handleMouseUp}
+          wires={wires}
+          setWires={setWires}
+          selectedPin={selectedPin}
+          setSelectedPin={setSelectedPin}
         />
         <PropertiesPanel
           selectedComponent={selectedComponent}
