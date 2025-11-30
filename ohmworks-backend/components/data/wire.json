@@ -1,0 +1,17 @@
+{
+  "id": "wire",
+  "name": "Wire",
+  "category": "Misc",
+  "width": 60,
+  "height": 10,
+  "pins": [
+    { "id": "endA", "side": "left", "index": 0, "label": "A" },
+    { "id": "endB", "side": "right", "index": 0, "label": "B" }
+  ],
+  "defaultProps": {
+    "color": "green"
+  },
+  "behavior": {
+    "type": "wire"
+  }
+}

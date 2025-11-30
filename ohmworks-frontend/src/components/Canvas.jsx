@@ -11,7 +11,11 @@ export default function Canvas({
   handleDrop,
   handleDragOver,
   handleMouseMove,
-  handleMouseUp
+  handleMouseUp,
+ // wires,
+  setWires,
+  selectedPin,
+  setSelectedPin
 }) {
   return (
     <div
@@ -47,8 +51,13 @@ export default function Canvas({
             left: c.x,
           }}
         >
-          {/* The new schematic renderer */}
-          <ComponentRenderer component={c} />
+          <ComponentRenderer
+            component={c}
+            //wires={wires}
+            setWires={setWires}
+            selectedPin={selectedPin}
+            setSelectedPin={setSelectedPin}
+          />
         </div>
       ))}
 

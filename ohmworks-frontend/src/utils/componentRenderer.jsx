@@ -1,20 +1,28 @@
+/* eslint-disable no-unused-vars */
 import { computePinPosition } from "./computePinPosition";
 
-export default function ComponentRenderer({ component }) {
+export default function ComponentRenderer({
+  component,
+  wires,
+  setWires,
+  selectedPin,
+  setSelectedPin
+}) {
   const isBreadboard = component.behavior?.type === "breadboard";
 
   /* =================================================================
      BREADBOARD MINI RENDER
   ================================================================== */
   if (isBreadboard) {
-    const rows = component.behavior.parameters.rows; // 30
-    const cols = component.behavior.parameters.cols; // 5
+    const rows = component.behavior.parameters.rows;
+    const cols = component.behavior.parameters.cols;
 
     const leftCols = ["A", "B", "C", "D", "E"];
     const rightCols = ["F", "G", "H", "I", "J"];
 
     let pins = [];
 
+    // TOP + rail
     for (let i = 0; i < 25; i++) {
       pins.push({
         id: `TOP_PLUS_${i}`,
@@ -23,6 +31,8 @@ export default function ComponentRenderer({ component }) {
         railIndex: i
       });
     }
+
+    // TOP - rail
     for (let i = 0; i < 25; i++) {
       pins.push({
         id: `TOP_MINUS_${i}`,
@@ -32,6 +42,7 @@ export default function ComponentRenderer({ component }) {
       });
     }
 
+    // Upper grid (A–E)
     for (let r = 1; r <= rows; r++) {
       for (let c = 0; c < cols; c++) {
         pins.push({
@@ -42,6 +53,8 @@ export default function ComponentRenderer({ component }) {
         });
       }
     }
+
+    // Lower grid (F–J)
     for (let r = 1; r <= rows; r++) {
       for (let c = 0; c < cols; c++) {
         pins.push({
@@ -53,6 +66,7 @@ export default function ComponentRenderer({ component }) {
       }
     }
 
+    // BOTTOM + rail
     for (let i = 0; i < 25; i++) {
       pins.push({
         id: `BOT_PLUS_${i}`,
@@ -62,6 +76,7 @@ export default function ComponentRenderer({ component }) {
       });
     }
 
+    // BOTTOM - rail
     for (let i = 0; i < 25; i++) {
       pins.push({
         id: `BOT_MINUS_${i}`,
@@ -70,6 +85,10 @@ export default function ComponentRenderer({ component }) {
         railIndex: i
       });
     }
+
+    /* =================================================================
+       RENDER
+    ================================================================== */
     return (
       <div
         style={{
@@ -92,22 +111,56 @@ export default function ComponentRenderer({ component }) {
         {pins.map((pin) => {
           const pos = computePinPosition(pin, component);
 
+          // Pin click logic
+          const handlePinClick = () => {
+            const clicked = {
+              componentId: component.id,
+              pinId: pin.id
+            };
+
+            if (!selectedPin) {
+              setSelectedPin(clicked);
+            } else {
+              setWires((prev) => [
+                ...prev,
+                {
+                  id: crypto.randomUUID(),
+                  from: selectedPin,
+                  to: clicked,
+                  color: "green"
+                }
+              ]);
+
+              setSelectedPin(null);
+            }
+          };
+
           return (
             <div
               key={pin.id}
+              onClick={handlePinClick}
               style={{
                 position: "absolute",
                 top: pos.y,
                 left: pos.x,
                 transform: "translate(-50%, -50%)",
-                width: pin.side === "upper" || pin.side === "lower" ? "9px" : "11px",
-                height: pin.side === "upper" || pin.side === "lower" ? "9px" : "11px",
+                width:
+                  pin.side === "upper" || pin.side === "lower"
+                    ? "9px"
+                    : "11px",
+                height:
+                  pin.side === "upper" || pin.side === "lower"
+                    ? "9px"
+                    : "11px",
                 background:
-                  pin.rail === "top+" || pin.rail === "bottom+" ? "red" :
-                  pin.rail === "top-" || pin.rail === "bottom-" ? "blue" :
-                  "black",
+                  pin.rail === "top+" || pin.rail === "bottom+"
+                    ? "red"
+                    : pin.rail === "top-" || pin.rail === "bottom-"
+                    ? "blue"
+                    : "black",
                 borderRadius: "50%",
-                zIndex: 10
+                cursor: "pointer",
+                zIndex: 20
               }}
             />
           );
@@ -116,9 +169,10 @@ export default function ComponentRenderer({ component }) {
     );
   }
 
-  /* ============================================================
-     NORMAL COMPONENTS RENDER
-  ============================================================ */
+  /* =================================================================
+     NORMAL COMPONENTS
+  ================================================================== */
+
   return (
     <div
       style={{
@@ -143,9 +197,33 @@ export default function ComponentRenderer({ component }) {
       {component.pins?.map((pin) => {
         const pos = computePinPosition(pin, component);
 
+        const handlePinClick = () => {
+          const clicked = {
+            componentId: component.id,
+            pinId: pin.id
+          };
+
+          if (!selectedPin) {
+            setSelectedPin(clicked);
+          } else {
+            setWires((prev) => [
+              ...prev,
+              {
+                id: crypto.randomUUID(),
+                from: selectedPin,
+                to: clicked,
+                color: "green"
+              }
+            ]);
+
+            setSelectedPin(null);
+          }
+        };
+
         return (
           <div
             key={pin.id}
+            onClick={handlePinClick}
             style={{
               position: "absolute",
               top: pos.y,
