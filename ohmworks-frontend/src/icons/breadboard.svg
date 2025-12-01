@@ -1,0 +1,64 @@
+<svg
+  width="100%"
+  height="auto"
+  viewBox="0 0 1200 340"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <!-- Inner 5-row grid hole pattern -->
+    <pattern id="bb-hole" 
+      x="0" y="0" 
+      width="16" height="16" 
+      patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="8" r="3" fill="#666" />
+    </pattern>
+
+    <!-- Rail hole pattern -->
+    <pattern id="bb-rail-hole" 
+      x="0" y="0" 
+      width="16" height="16" 
+      patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="8" r="2.5" fill="#666" />
+    </pattern>
+  </defs>
+
+  <!-- Main board background -->
+  <rect
+    x="10"
+    y="10"
+    width="1180"
+    height="320"
+    rx="8"
+    ry="8"
+    fill="#f4f4f4"
+    stroke="#c0c0c0"
+    stroke-width="2"
+  />
+
+  <!-- TOP RAILS -->
+  <text x="40" y="52" font-size="16" fill="#ff6b6b">+</text>
+  <text x="40" y="72" font-size="16" fill="#4bc0ff">-</text>
+
+  <line x1="70" y1="48" x2="1130" y2="48" stroke="#ff6b6b" stroke-width="2"/>
+  <line x1="70" y1="68" x2="1130" y2="68" stroke="#4bc0ff" stroke-width="2"/>
+
+  <!-- Top rail holes -->
+  <rect x="80" y="40" width="1008" height="16" fill="url(#bb-rail-hole)" />
+  <rect x="80" y="60" width="1008" height="16" fill="url(#bb-rail-hole)" />
+
+  <!-- UPPER MATRIX (rows A–E) -->
+  <rect x="80" y="112" width="1008" height="80" fill="url(#bb-hole)" />
+
+  <!-- LOWER MATRIX (rows F–J) -->
+  <rect x="80" y="212" width="1008" height="80" fill="url(#bb-hole)" />
+
+  <!-- BOTTOM RAILS -->
+  <text x="40" y="306" font-size="16" fill="#4bc0ff">-</text>
+  <text x="40" y="326" font-size="16" fill="#ff6b6b">+</text>
+
+  <line x1="70" y1="304" x2="1130" y2="304" stroke="#4bc0ff" stroke-width="2"/>
+  <line x1="70" y1="324" x2="1130" y2="324" stroke="#ff6b6b" stroke-width="2"/>
+
+  <rect x="80" y="296" width="1008" height="16" fill="url(#bb-rail-hole)" />
+  <rect x="80" y="316" width="1008" height="16" fill="url(#bb-rail-hole)" />
+</svg>
