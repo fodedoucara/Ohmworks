@@ -15,7 +15,7 @@ export default function ComponentRenderer({
   ================================================================== */
   function handlePinClick(e, pin) {
     e.stopPropagation();  // prevents drag
-    e.preventDefault();   // prevents canvas events
+    e.preventDefault(); 
 
     const clicked = {
       componentId: component.id,
@@ -152,7 +152,10 @@ export default function ComponentRenderer({
           return (
             <div
               key={pin.id}
-              onMouseDown={(e) => e.stopPropagation()}     // prevents drag
+              onMouseDown={(e) => {e.stopPropagation()
+                e.preventDefault()
+              }
+              }     // prevents drag
               onClick={(e) => handlePinClick(e, pin)}     // select pin
               style={{
                 position: "absolute",
@@ -216,15 +219,17 @@ export default function ComponentRenderer({
         return (
           <div
             key={pin.id}
-            onMouseDown={(e) => e.stopPropagation()}
+            onMouseDown={(e) => {
+              e.stopPropagation()
+              e.preventDefault()}}
             onClick={(e) => handlePinClick(e, pin)}
             style={{
               position: "absolute",
               top: pos.y,
               left: pos.x,
               transform: "translate(-50%, -50%)",
-              width: "10px",
-              height: "10px",
+              width: "20px",
+              height: "20px",
               background: isSelected(pin) ? "limegreen" : "red",
               borderRadius: "50%",
               border: "1px solid #222",
