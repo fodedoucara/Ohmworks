@@ -35,30 +35,31 @@
     stroke-width="2"
   />
 
-  <!-- TOP RAILS -->
-  <text x="40" y="52" font-size="16" fill="#ff6b6b">+</text>
-  <text x="40" y="72" font-size="16" fill="#4bc0ff">-</text>
+  <!-- Top rails top=10, bottom=330-->
+  <text x="40" y="38" font-size="16" fill="#ff6b6b">+</text>
+  <text x="42" y="70" font-size="16" fill="#4bc0ff">-</text>
 
-  <line x1="70" y1="48" x2="1130" y2="48" stroke="#ff6b6b" stroke-width="2"/>
-  <line x1="70" y1="68" x2="1130" y2="68" stroke="#4bc0ff" stroke-width="2"/>
+  <line x1="70" y1="32" x2="1130" y2="32" stroke="#ff6b6b" stroke-width="2"/>
+  <line x1="70" y1="66" x2="1130" y2="66" stroke="#4bc0ff" stroke-width="2"/>
 
   <!-- Top rail holes -->
-  <rect x="80" y="40" width="1008" height="16" fill="url(#bb-rail-hole)" />
-  <rect x="80" y="60" width="1008" height="16" fill="url(#bb-rail-hole)" />
+  <rect x="80" y="32" width="1008" height="16" fill="url(#bb-rail-hole)" />
+  <rect x="80" y="48" width="1008" height="16" fill="url(#bb-rail-hole)" />
 
   <!-- UPPER MATRIX (rows A–E) -->
-  <rect x="80" y="112" width="1008" height="80" fill="url(#bb-hole)" />
+  <rect x="80" y="80" width="1008" height="80" fill="url(#bb-hole)" />
 
   <!-- LOWER MATRIX (rows F–J) -->
-  <rect x="80" y="212" width="1008" height="80" fill="url(#bb-hole)" />
+  <rect x="80" y="192" width="1008" height="80" fill="url(#bb-hole)" />
 
-  <!-- BOTTOM RAILS -->
-  <text x="40" y="306" font-size="16" fill="#4bc0ff">-</text>
-  <text x="40" y="326" font-size="16" fill="#ff6b6b">+</text>
+  <!-- Bottom rails -->
+  <text x="42" y="316" font-size="16" fill="#4bc0ff">-</text>
+  <text x="40" y="284" font-size="16" fill="#ff6b6b">+</text>
 
-  <line x1="70" y1="304" x2="1130" y2="304" stroke="#4bc0ff" stroke-width="2"/>
-  <line x1="70" y1="324" x2="1130" y2="324" stroke="#ff6b6b" stroke-width="2"/>
+  <line x1="70" y1="312" x2="1130" y2="312" stroke="#4bc0ff" stroke-width="2"/>
+  <line x1="70" y1="278" x2="1130" y2="278" stroke="#ff6b6b" stroke-width="2"/>
 
-  <rect x="80" y="296" width="1008" height="16" fill="url(#bb-rail-hole)" />
-  <rect x="80" y="316" width="1008" height="16" fill="url(#bb-rail-hole)" />
+  <!-- Bottom rail holes -->
+  <rect x="80" y="288" width="1008" height="16" fill="url(#bb-rail-hole)" />
+  <rect x="80" y="304" width="1008" height="16" fill="url(#bb-rail-hole)" />
 </svg>
