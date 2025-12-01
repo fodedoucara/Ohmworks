@@ -2,13 +2,14 @@ const ROW_COUNT = 30;          // rows 1–30
 const COLS_PER_STRIP = 5;      // A–E or F–J
 const COL_LETTERS_UPPER = ['A', 'B', 'C', 'D', 'E'];
 const COL_LETTERS_LOWER = ['F', 'G', 'H', 'I', 'J'];
+const GRID_COL_SPACE = 10;
 
 export function computePinPosition(pin, component) {
   const w = component.width;
   const h = component.height;
 
   /* ----------------------------------------------------------
-     BREADBOARD PIN LAYOUTS
+    ALL BREADBOARD PIN LAYOUTS
   ---------------------------------------------------------- */
 
   // ============================
@@ -31,7 +32,7 @@ export function computePinPosition(pin, component) {
   const GRID_RIGHT_X = w - 120;
 
   const ROW_SPACING =
-    (GRID_RIGHT_X - GRID_LEFT_X) / (ROW_COUNT - 1);
+    1.2*(GRID_RIGHT_X - GRID_LEFT_X)/ (ROW_COUNT - 1);
 
   const UPPER_TOP_Y = h * 0.30;
   const UPPER_BOTTOM_Y = h * 0.45;

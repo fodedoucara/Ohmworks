@@ -12,5 +12,4 @@ export const ICON_MAP = {
   led: LEDIcon,
   arduino_uno: ArduinoUnoIcon,
   diode: DiodeIcon
-  // Add all other components here
 };

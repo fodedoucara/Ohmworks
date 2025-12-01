@@ -10,7 +10,7 @@
     { "id": "L2", "label": "2", "side": "right", "index": 0 }
   ],
 
-  "default_value": "10mH",
+  "defaultProps":{ "inductance": "10mH"},
   "behavior": {
     "type": "inductor",
     "parameters": { "inductance": "10mH" }

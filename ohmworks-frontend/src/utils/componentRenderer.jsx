@@ -152,24 +152,25 @@ export default function ComponentRenderer({
           return (
             <div
               key={pin.id}
-              onMouseDown={(e) => {e.stopPropagation()
-                e.preventDefault()
+              onMouseDown={(e) => {e.preventDefault()
+                e.stopPropagation()
               }
               }     // prevents drag
               onClick={(e) => handlePinClick(e, pin)}     // select pin
               style={{
+                columnGap: "10px",
                 position: "absolute",
                 top: pos.y,
                 left: pos.x,
                 transform: "translate(-50%, -50%)",
                 width:
                   pin.side === "upper" || pin.side === "lower"
-                    ? "9px"
-                    : "11px",
+                    ? "15px"
+                    : "18px",
                 height:
                   pin.side === "upper" || pin.side === "lower"
-                    ? "9px"
-                    : "11px",
+                    ? "15px"
+                    : "18px",
                 background: isSelected(pin)
                   ? "limegreen" // <-- Selected state
                   : pin.rail === "top+" || pin.rail === "bottom+"
@@ -228,8 +229,8 @@ export default function ComponentRenderer({
               top: pos.y,
               left: pos.x,
               transform: "translate(-50%, -50%)",
-              width: "20px",
-              height: "20px",
+              width: "15px",
+              height: "15px",
               background: isSelected(pin) ? "limegreen" : "red",
               borderRadius: "50%",
               border: "1px solid #222",
