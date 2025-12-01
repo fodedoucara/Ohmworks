@@ -82,8 +82,6 @@ export function useCanvasInteractions() {
             return;
         }
 
-        
-
         const canvas = canvasRef.current;
         const canvasBorder = canvas.getBoundingClientRect();
 
