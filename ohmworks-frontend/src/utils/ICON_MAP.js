@@ -1,9 +1,9 @@
-import ResistorIcon from "../icons/resistor.svg?react";
-import CapacitorIcon from "../icons/capacitor.svg?react";
-import InductorIcon from "../icons/inductor.svg?react";
-import LEDIcon from "../icons/led.svg?react";
-import ArduinoUnoIcon from "../icons/arduino_uno.svg?react";
-import DiodeIcon from "../icons/diode.svg?react";
+import ResistorIcon from "../svg-icons/resistor.svg?react";
+import CapacitorIcon from "../svg-icons/capacitor.svg?react";
+import InductorIcon from "../svg-icons/inductor.svg?react";
+import LEDIcon from "../svg-icons/led.svg?react";
+import ArduinoUnoIcon from "../svg-icons/arduino_uno.svg?react";
+import DiodeIcon from "../svg-icons/diode.svg?react";
 
 export const ICON_MAP = {
   resistor: ResistorIcon,
