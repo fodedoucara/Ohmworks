@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import useComponents from "../hooks/useComponents";
+import useComponents from "./useComponents";
 
 export function useCanvasInteractions() {
     //used for handling when components are placed inside canvas

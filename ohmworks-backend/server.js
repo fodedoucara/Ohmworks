@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json()); // Allows server to parse incoming json POST reqs
 app.use(cors()); // Allow cross-origin reqs
 
-const componentsFolder = path.join(process.cwd(), "components", "data");
+const componentsFolder = path.join(process.cwd(), "components-data");
 if (!fs.existsSync(componentsFolder)) {
     fs.mkdirSync(componentsFolder); // Create components folder if it doesn't exist when server starts
 }
