@@ -10,6 +10,8 @@
 
   <!-- Board background -->
   <rect fill="#FFFFFF" width="173mm" height="55mm" rx="3"/>
+  <!-- Board border -->
+  <rect x="0" y="0" width="173mm" height="55mm" rx="3" fill="none" stroke="black" stroke-width="2"/>
 
   <!-- Top rails -->
   <rect x="1.5mm" y="100" width="170mm" height="7" fill="#D1D1D6"/>
@@ -39,6 +41,7 @@
 
   <!-- Upper matrix labels -->
   <g transform="translate(0,5)">
+    <!-- Upper matrix lettering -->
     <text font-size="7px" font-family="Arial">
       <tspan x="16" y="47">a</tspan>
       <tspan x="16" y="57">b</tspan>
@@ -52,10 +55,28 @@
       <tspan x="631" y="85">e</tspan>
     </text>
     <rect x="5mm" y="40" width="160mm" height="13mm" fill="url(#points-wide)"/>
+
+    <!-- Upper matrix numbering -->
+    <g font-size="6px" font-family="Arial" fill="#000" opacity="0.7">
+      <text x="6.5mm"   y="37">1</text>
+      <text x="16.7mm" y="37">5</text>
+      <text x="28.86mm"  y="37">10</text>
+      <text x="41.56mm"  y="37">15</text>
+      <text x="54.26mm"  y="37">20</text>
+      <text x="66.96mm"  y="37">25</text>
+      <text x="79.66mm"  y="37">30</text>
+      <text x="92.36mm"  y="37">35</text>
+      <text x="105.06mm" y="37">40</text>
+      <text x="117.76mm" y="37">45</text>
+      <text x="130.46mm" y="37">50</text>
+      <text x="143.16mm" y="37">55</text>
+      <text x="155.84mm" y="37">60</text>
+    </g>
   </g>
 
   <!-- Lower matrix -->
   <g transform="translate(0,73)">
+    <!-- Lower matrix lettering -->
     <text font-size="7px" font-family="Arial">
       <tspan x="16" y="47">f</tspan>
       <tspan x="16" y="57">g</tspan>
@@ -69,6 +90,23 @@
       <tspan x="631" y="85">j</tspan>
     </text>
     <rect x="5mm" y="40" width="160mm" height="13mm" fill="url(#points-wide)"/>
+
+    <!-- Lower matrix numbering -->
+    <g font-size="6px" font-family="Arial" fill="#000" opacity="0.7">
+      <text x="6.5mm"   y="97">1</text>
+      <text x="16.7mm" y="97">5</text>
+      <text x="28.86mm"  y="97">10</text>
+      <text x="41.56mm"  y="97">15</text>
+      <text x="54.26mm"  y="97">20</text>
+      <text x="66.96mm"  y="97">25</text>
+      <text x="79.66mm"  y="97">30</text>
+      <text x="92.36mm"  y="97">35</text>
+      <text x="105.06mm" y="97">40</text>
+      <text x="117.76mm" y="97">45</text>
+      <text x="130.46mm" y="97">50</text>
+      <text x="143.16mm" y="97">55</text>
+      <text x="155.84mm" y="97">60</text>
+    </g>
   </g>
 
   <!-- Bottom rails -->
