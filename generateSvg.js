@@ -14,17 +14,16 @@ const PIN_START_X = 40;
 // TOP RAIL STACK (correct real-breadboard ordering)
 // ============================================================
 
-// Red rail line (top)
-const RED_LINE_TOP = 10;
+const RED_LINE_TOP = 10; // Top rail line height (+)
 
-// First row of rail pins (+)
-const RED_PINS_TOP = RED_LINE_TOP + 12;
+const RAIL_HEIGHT = 2 * HOLE_SIZE + HOLE_SPACING; // Total rail height (top to bottom rail line distance)
 
-// Second row of rail pins (–)
-const BLUE_PINS_TOP = RED_PINS_TOP + 26;
+const BLUE_LINE_TOP = RED_LINE_TOP + RAIL_HEIGHT + HOLE_SIZE; // Top rail line height (-)
 
-// Blue rail line
-const BLUE_LINE_TOP = BLUE_PINS_TOP + 12;
+const RED_PINS_TOP  = RED_LINE_TOP + (RAIL_HEIGHT - HOLE_SPACING) / 2; // Y value of top pins
+const BLUE_PINS_TOP = RED_PINS_TOP + HOLE_SPACING; // Y value of bottom pins
+
+console.log("RED_PINS_TOP: " + RED_PINS_TOP, "BLUE_PINS_TOP: " + BLUE_PINS_TOP);
 
 // ============================================================
 // INNER BLOCKS (CENTER)
@@ -44,14 +43,19 @@ const Y_F = Y_A + ROWS_TOP.length * HOLE_SPACING + TRENCH_GAP;
 // // BOTTOM RAIL STACK (MIRROR TOP EXACTLY)
 // // ============================================================
 
-// const RED_LINE_BOTTOM = Y_F + ROWS_BOTTOM.length * HOLE_SPACING + 40;
-// const RED_PINS_BOTTOM = RED_LINE_BOTTOM + 12;
+const RED_LINE_BOTTOM = Y_F + ROWS_BOTTOM.length * HOLE_SPACING + 30; // Bottom rail line height (+)
 
-// const BLUE_PINS_BOTTOM = RED_PINS_BOTTOM + 26;
-// const BLUE_LINE_BOTTOM = BLUE_PINS_BOTTOM + 12;
+const RAIL_HEIGHT_BOTTOM = 2 * HOLE_SIZE + HOLE_SPACING; // Total rail height (top to bottom rail line distance)
+
+const BLUE_LINE_BOTTOM = RED_LINE_BOTTOM + RAIL_HEIGHT_BOTTOM + HOLE_SIZE; // Bottom rail line height (-)
+
+const RED_PINS_BOTTOM  = RED_LINE_BOTTOM + (RAIL_HEIGHT_BOTTOM - HOLE_SPACING) / 2; // Y value of top pins
+const BLUE_PINS_BOTTOM = RED_PINS_BOTTOM + HOLE_SPACING; // Y value of bottom pins
+
+console.log("RED_PINS_BOTTOM: " + RED_PINS_BOTTOM, "BLUE_PINS_BOTTOM: " + BLUE_PINS_BOTTOM);
 
 // ============================================================
-// SVG SIZE
+// Idk
 // ============================================================
 
 // Rail end X coordinate
@@ -60,23 +64,20 @@ const RAIL_END_X = PIN_START_X + (COLS - 1) * HOLE_SPACING + HOLE_SIZE;
 const Y_COL_TOP = Y_A - 10;
 const Y_COL_BOTTOM = Y_F + ROWS_BOTTOM.length * HOLE_SPACING + 10;
 
+// ============================================================
+// SVG SIZE
+// ============================================================
 
-// Bottom rails (mirrors top spacing exactly)
-const RED_LINE_BOTTOM = Y_F + ROWS_BOTTOM.length * HOLE_SPACING + 30;
-const RED_PINS_BOTTOM = RED_LINE_BOTTOM + 12;
+const BOARD_BOTTOM = BLUE_LINE_BOTTOM + 10;
+const BOARD_RIGHT = RAIL_END_X + PIN_START_X;
 
-const BLUE_PINS_BOTTOM = RED_PINS_BOTTOM + 26;
-const BLUE_LINE_BOTTOM = BLUE_PINS_BOTTOM + 12;
-const SVG_WIDTH = 700;
-const SVG_HEIGHT = BLUE_LINE_BOTTOM + 20;
-
+const SVG_WIDTH = BOARD_RIGHT;
+const SVG_HEIGHT = BOARD_BOTTOM;
 
 const BOARD_X = 0;
 const BOARD_Y = 0;
-const BOARD_W = 620;
-const BOARD_H = SVG_HEIGHT - 10;
-
-
+const BOARD_W = SVG_WIDTH;
+const BOARD_H = SVG_HEIGHT;
 
 // ============================================================
 // HELPERS
@@ -179,5 +180,5 @@ const svg = `
 `.trim();
 
 // Write file
-fs.writeFileSync("breadboard.svg", svg, "utf8");
+fs.writeFileSync("breadboard_mini.svg", svg, "utf8");
 console.log("✔ breadboard.svg generated with perfect symmetry and correct rail geometry!");
