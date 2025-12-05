@@ -1,7 +1,7 @@
-<svg width="610" height="374" xmlns="http://www.w3.org/2000/svg">
+<svg width="610" height="364" xmlns="http://www.w3.org/2000/svg">
 
   <!-- Board Background -->
-  <rect x="0" y="0" width="610" height="374"
+  <rect x="0" y="0" width="610" height="364"
         rx="12" ry="12" fill="#f8f8f8" stroke="#d0d0d0" stroke-width="2"/>
 
   <!-- TOP RAIL LINES -->
@@ -9,8 +9,8 @@
   <line x1="40" y1="52" x2="570" y2="52" stroke="#48c" stroke-width="2"/>
 
   <!-- TOP RAIL LABELS -->
-  <text x="22" y="20" font-size="12" fill="#e44">+</text>
-  <text x="22" y="62" font-size="12" fill="#48c">-</text>
+  <text x="22" y="13" font-size="12" fill="#e44">+</text>
+  <text x="22" y="55" font-size="12" fill="#48c">-</text>
 
   <!-- TOP RAIL PINS -->
       <rect id="rail_top_pos_1" x="40" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
@@ -432,108 +432,108 @@
 
 
   <!-- COLUMN NUMBERS (BOTTOM) -->
-    <text x="44" y="302" font-size="10" text-anchor="middle" fill="#555">1</text>
-  <text x="62" y="302" font-size="10" text-anchor="middle" fill="#555">2</text>
-  <text x="80" y="302" font-size="10" text-anchor="middle" fill="#555">3</text>
-  <text x="98" y="302" font-size="10" text-anchor="middle" fill="#555">4</text>
-  <text x="116" y="302" font-size="10" text-anchor="middle" fill="#555">5</text>
-  <text x="134" y="302" font-size="10" text-anchor="middle" fill="#555">6</text>
-  <text x="152" y="302" font-size="10" text-anchor="middle" fill="#555">7</text>
-  <text x="170" y="302" font-size="10" text-anchor="middle" fill="#555">8</text>
-  <text x="188" y="302" font-size="10" text-anchor="middle" fill="#555">9</text>
-  <text x="206" y="302" font-size="10" text-anchor="middle" fill="#555">10</text>
-  <text x="224" y="302" font-size="10" text-anchor="middle" fill="#555">11</text>
-  <text x="242" y="302" font-size="10" text-anchor="middle" fill="#555">12</text>
-  <text x="260" y="302" font-size="10" text-anchor="middle" fill="#555">13</text>
-  <text x="278" y="302" font-size="10" text-anchor="middle" fill="#555">14</text>
-  <text x="296" y="302" font-size="10" text-anchor="middle" fill="#555">15</text>
-  <text x="314" y="302" font-size="10" text-anchor="middle" fill="#555">16</text>
-  <text x="332" y="302" font-size="10" text-anchor="middle" fill="#555">17</text>
-  <text x="350" y="302" font-size="10" text-anchor="middle" fill="#555">18</text>
-  <text x="368" y="302" font-size="10" text-anchor="middle" fill="#555">19</text>
-  <text x="386" y="302" font-size="10" text-anchor="middle" fill="#555">20</text>
-  <text x="404" y="302" font-size="10" text-anchor="middle" fill="#555">21</text>
-  <text x="422" y="302" font-size="10" text-anchor="middle" fill="#555">22</text>
-  <text x="440" y="302" font-size="10" text-anchor="middle" fill="#555">23</text>
-  <text x="458" y="302" font-size="10" text-anchor="middle" fill="#555">24</text>
-  <text x="476" y="302" font-size="10" text-anchor="middle" fill="#555">25</text>
-  <text x="494" y="302" font-size="10" text-anchor="middle" fill="#555">26</text>
-  <text x="512" y="302" font-size="10" text-anchor="middle" fill="#555">27</text>
-  <text x="530" y="302" font-size="10" text-anchor="middle" fill="#555">28</text>
-  <text x="548" y="302" font-size="10" text-anchor="middle" fill="#555">29</text>
-  <text x="566" y="302" font-size="10" text-anchor="middle" fill="#555">30</text>
+    <text x="44" y="300" font-size="10" text-anchor="middle" fill="#555">1</text>
+  <text x="62" y="300" font-size="10" text-anchor="middle" fill="#555">2</text>
+  <text x="80" y="300" font-size="10" text-anchor="middle" fill="#555">3</text>
+  <text x="98" y="300" font-size="10" text-anchor="middle" fill="#555">4</text>
+  <text x="116" y="300" font-size="10" text-anchor="middle" fill="#555">5</text>
+  <text x="134" y="300" font-size="10" text-anchor="middle" fill="#555">6</text>
+  <text x="152" y="300" font-size="10" text-anchor="middle" fill="#555">7</text>
+  <text x="170" y="300" font-size="10" text-anchor="middle" fill="#555">8</text>
+  <text x="188" y="300" font-size="10" text-anchor="middle" fill="#555">9</text>
+  <text x="206" y="300" font-size="10" text-anchor="middle" fill="#555">10</text>
+  <text x="224" y="300" font-size="10" text-anchor="middle" fill="#555">11</text>
+  <text x="242" y="300" font-size="10" text-anchor="middle" fill="#555">12</text>
+  <text x="260" y="300" font-size="10" text-anchor="middle" fill="#555">13</text>
+  <text x="278" y="300" font-size="10" text-anchor="middle" fill="#555">14</text>
+  <text x="296" y="300" font-size="10" text-anchor="middle" fill="#555">15</text>
+  <text x="314" y="300" font-size="10" text-anchor="middle" fill="#555">16</text>
+  <text x="332" y="300" font-size="10" text-anchor="middle" fill="#555">17</text>
+  <text x="350" y="300" font-size="10" text-anchor="middle" fill="#555">18</text>
+  <text x="368" y="300" font-size="10" text-anchor="middle" fill="#555">19</text>
+  <text x="386" y="300" font-size="10" text-anchor="middle" fill="#555">20</text>
+  <text x="404" y="300" font-size="10" text-anchor="middle" fill="#555">21</text>
+  <text x="422" y="300" font-size="10" text-anchor="middle" fill="#555">22</text>
+  <text x="440" y="300" font-size="10" text-anchor="middle" fill="#555">23</text>
+  <text x="458" y="300" font-size="10" text-anchor="middle" fill="#555">24</text>
+  <text x="476" y="300" font-size="10" text-anchor="middle" fill="#555">25</text>
+  <text x="494" y="300" font-size="10" text-anchor="middle" fill="#555">26</text>
+  <text x="512" y="300" font-size="10" text-anchor="middle" fill="#555">27</text>
+  <text x="530" y="300" font-size="10" text-anchor="middle" fill="#555">28</text>
+  <text x="548" y="300" font-size="10" text-anchor="middle" fill="#555">29</text>
+  <text x="566" y="300" font-size="10" text-anchor="middle" fill="#555">30</text>
 
 
   <!-- BOTTOM RAIL LINES -->
-  <line x1="40" y1="322" x2="570" y2="322" stroke="#e44" stroke-width="2"/>
-  <line x1="40" y1="364" x2="570" y2="364" stroke="#48c" stroke-width="2"/>
+  <line x1="40" y1="312" x2="570" y2="312" stroke="#e44" stroke-width="2"/>
+  <line x1="40" y1="354" x2="570" y2="354" stroke="#48c" stroke-width="2"/>
 
   <!-- BOTTOM RAIL LABELS -->
-  <text x="22" y="332" font-size="12" fill="#e44">+</text>
-  <text x="22" y="374" font-size="12" fill="#48c">-</text>
+  <text x="22" y="315" font-size="12" fill="#e44">+</text>
+  <text x="22" y="357" font-size="12" fill="#48c">-</text>
 
   <!-- BOTTOM RAIL PINS -->
-      <rect id="rail_bottom_pos_1" x="40" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_2" x="58" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_3" x="76" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_4" x="94" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_5" x="112" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_6" x="130" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_7" x="148" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_8" x="166" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_9" x="184" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_10" x="202" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_11" x="220" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_12" x="238" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_13" x="256" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_14" x="274" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_15" x="292" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_16" x="310" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_17" x="328" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_18" x="346" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_19" x="364" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_20" x="382" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_21" x="400" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_22" x="418" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_23" x="436" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_24" x="454" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_25" x="472" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_26" x="490" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_27" x="508" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_28" x="526" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_29" x="544" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_30" x="562" y="330" width="8" height="8" rx="2" ry="2" fill="#666"/>
+      <rect id="rail_bottom_pos_1" x="40" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_2" x="58" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_3" x="76" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_4" x="94" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_5" x="112" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_6" x="130" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_7" x="148" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_8" x="166" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_9" x="184" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_10" x="202" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_11" x="220" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_12" x="238" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_13" x="256" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_14" x="274" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_15" x="292" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_16" x="310" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_17" x="328" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_18" x="346" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_19" x="364" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_20" x="382" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_21" x="400" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_22" x="418" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_23" x="436" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_24" x="454" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_25" x="472" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_26" x="490" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_27" x="508" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_28" x="526" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_29" x="544" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_pos_30" x="562" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
 
-      <rect id="rail_bottom_neg_1" x="40" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_2" x="58" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_3" x="76" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_4" x="94" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_5" x="112" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_6" x="130" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_7" x="148" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_8" x="166" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_9" x="184" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_10" x="202" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_11" x="220" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_12" x="238" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_13" x="256" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_14" x="274" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_15" x="292" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_16" x="310" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_17" x="328" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_18" x="346" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_19" x="364" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_20" x="382" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_21" x="400" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_22" x="418" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_23" x="436" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_24" x="454" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_25" x="472" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_26" x="490" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_27" x="508" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_28" x="526" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_29" x="544" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_30" x="562" y="348" width="8" height="8" rx="2" ry="2" fill="#666"/>
+      <rect id="rail_bottom_neg_1" x="40" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_2" x="58" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_3" x="76" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_4" x="94" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_5" x="112" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_6" x="130" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_7" x="148" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_8" x="166" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_9" x="184" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_10" x="202" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_11" x="220" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_12" x="238" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_13" x="256" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_14" x="274" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_15" x="292" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_16" x="310" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_17" x="328" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_18" x="346" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_19" x="364" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_20" x="382" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_21" x="400" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_22" x="418" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_23" x="436" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_24" x="454" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_25" x="472" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_26" x="490" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_27" x="508" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_28" x="526" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_29" x="544" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+    <rect id="rail_bottom_neg_30" x="562" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
 
 
 </svg>

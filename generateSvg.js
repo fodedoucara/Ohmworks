@@ -11,61 +11,58 @@ const HOLE_SPACING = 18;
 const PIN_START_X = 40;
 
 // ============================================================
-// TOP RAIL STACK (correct real-breadboard ordering)
+// Top Rail Stack
 // ============================================================
 
-const RED_LINE_TOP = 10; // Top rail line height (+)
+const RAIL_HEIGHT = 2 * HOLE_SIZE + HOLE_SPACING; // Total rail (+) to rail (-) height
 
-const RAIL_HEIGHT = 2 * HOLE_SIZE + HOLE_SPACING; // Total rail height (top to bottom rail line distance)
-
-const BLUE_LINE_TOP = RED_LINE_TOP + RAIL_HEIGHT + HOLE_SIZE; // Top rail line height (-)
+const RED_LINE_TOP = 10; // Top rail line y value (+)
+const BLUE_LINE_TOP = RED_LINE_TOP + RAIL_HEIGHT + HOLE_SIZE; // Top rail line y value (-)
 
 const RED_PINS_TOP  = RED_LINE_TOP + (RAIL_HEIGHT - HOLE_SPACING) / 2; // Y value of top pins
 const BLUE_PINS_TOP = RED_PINS_TOP + HOLE_SPACING; // Y value of bottom pins
 
-console.log("RED_PINS_TOP: " + RED_PINS_TOP, "BLUE_PINS_TOP: " + BLUE_PINS_TOP);
+console.log("RED_PINS_TOP:", RED_PINS_TOP, "BLUE_PINS_TOP:", BLUE_PINS_TOP);
 
 // ============================================================
-// INNER BLOCKS (CENTER)
+// Inner Blocks (centered between rails)
 // ============================================================
 
-// Distance from bottom rail line to inner pins
-const Y_A = BLUE_LINE_TOP + 30; // start inner rows a–e
-const TRENCH_GAP = 30;          // realistic center gap
+// Adjustable gaps
+const INNER_TOP_GAP = 30; // Gap from top blue rail to top inner block
+const TRENCH_GAP = 30; // Gap between top and bottom inner blocks
+const INNER_BOTTOM_GAP = 20; // Gap from bottom inner block to bottom rail
 
-const Y_F = Y_A + ROWS_TOP.length * HOLE_SPACING + TRENCH_GAP;
+const INNER_SPACE_TOP = BLUE_LINE_TOP + INNER_TOP_GAP; // Top Y of inner blocks
 
-// // Column number labels
-// const Y_COL_TOP = Y_A - 10;
-// const Y_COL_BOTTOM = Y_F + ROWS_BOTTOM.length * HOLE_SPACING + 16;
+const Y_A = INNER_SPACE_TOP; // Top inner block start
+const Y_F = Y_A + ROWS_TOP.length * HOLE_SPACING + TRENCH_GAP; // Bottom inner block start
 
-// // ============================================================
-// // BOTTOM RAIL STACK (MIRROR TOP EXACTLY)
-// // ============================================================
+// ============================================================
+// Bottom Rail Stack (mirrors top stack)
+// ============================================================
 
-const RED_LINE_BOTTOM = Y_F + ROWS_BOTTOM.length * HOLE_SPACING + 30; // Bottom rail line height (+)
+const RED_LINE_BOTTOM = Y_F + ROWS_BOTTOM.length * HOLE_SPACING + INNER_BOTTOM_GAP; // Bottom rail line y value (+)
+const BLUE_LINE_BOTTOM = RED_LINE_BOTTOM + RAIL_HEIGHT + HOLE_SIZE; // Bottom rail line y value (-)
 
-const RAIL_HEIGHT_BOTTOM = 2 * HOLE_SIZE + HOLE_SPACING; // Total rail height (top to bottom rail line distance)
-
-const BLUE_LINE_BOTTOM = RED_LINE_BOTTOM + RAIL_HEIGHT_BOTTOM + HOLE_SIZE; // Bottom rail line height (-)
-
-const RED_PINS_BOTTOM  = RED_LINE_BOTTOM + (RAIL_HEIGHT_BOTTOM - HOLE_SPACING) / 2; // Y value of top pins
+const RED_PINS_BOTTOM = RED_LINE_BOTTOM + (RAIL_HEIGHT - HOLE_SPACING) / 2; // Y value of top pins
 const BLUE_PINS_BOTTOM = RED_PINS_BOTTOM + HOLE_SPACING; // Y value of bottom pins
 
-console.log("RED_PINS_BOTTOM: " + RED_PINS_BOTTOM, "BLUE_PINS_BOTTOM: " + BLUE_PINS_BOTTOM);
+console.log("RED_PINS_BOTTOM:", RED_PINS_BOTTOM, "BLUE_PINS_BOTTOM:", BLUE_PINS_BOTTOM);
 
 // ============================================================
-// Idk
+// X and Y Helpers
 // ============================================================
 
-// Rail end X coordinate
-const RAIL_END_X = PIN_START_X + (COLS - 1) * HOLE_SPACING + HOLE_SIZE;
+const RAIL_END_X = PIN_START_X + (COLS - 1) * HOLE_SPACING + HOLE_SIZE; // X value for end of rail
 
-const Y_COL_TOP = Y_A - 10;
-const Y_COL_BOTTOM = Y_F + ROWS_BOTTOM.length * HOLE_SPACING + 10;
+const Y_COL_TOP = Y_A - 10; // Y value for top number labels
+const Y_COL_BOTTOM = Y_F + (ROWS_BOTTOM.length) * HOLE_SPACING + HOLE_SIZE; // Y value for bottom number labels
+
+console.log("Y_A:", Y_A, "Y_F:", Y_F);
 
 // ============================================================
-// SVG SIZE
+// SVG & Board Size
 // ============================================================
 
 const BOARD_BOTTOM = BLUE_LINE_BOTTOM + 10;
@@ -80,7 +77,7 @@ const BOARD_W = SVG_WIDTH;
 const BOARD_H = SVG_HEIGHT;
 
 // ============================================================
-// HELPERS
+// Helpers
 // ============================================================
 
 function pin(id, x, y) {
@@ -124,7 +121,7 @@ function generateRowLetters(rows, firstY) {
 }
 
 // ============================================================
-// SVG BUILD
+// SVG Build
 // ============================================================
 
 const svg = `
@@ -139,8 +136,8 @@ const svg = `
   <line x1="${PIN_START_X}" y1="${BLUE_LINE_TOP}" x2="${RAIL_END_X}" y2="${BLUE_LINE_TOP}" stroke="#48c" stroke-width="2"/>
 
   <!-- TOP RAIL LABELS -->
-  <text x="22" y="${RED_LINE_TOP + 10}" font-size="12" fill="#e44">+</text>
-  <text x="22" y="${BLUE_LINE_TOP + 10}" font-size="12" fill="#48c">-</text>
+  <text x="22" y="${RED_LINE_TOP + 3}" font-size="12" fill="#e44">+</text>
+  <text x="22" y="${BLUE_LINE_TOP + 3}" font-size="12" fill="#48c">-</text>
 
   <!-- TOP RAIL PINS -->
   ${generateRail("rail_top_pos", RED_PINS_TOP)}
@@ -169,8 +166,8 @@ const svg = `
   <line x1="${PIN_START_X}" y1="${BLUE_LINE_BOTTOM}" x2="${RAIL_END_X}" y2="${BLUE_LINE_BOTTOM}" stroke="#48c" stroke-width="2"/>
 
   <!-- BOTTOM RAIL LABELS -->
-  <text x="22" y="${RED_LINE_BOTTOM + 10}" font-size="12" fill="#e44">+</text>
-  <text x="22" y="${BLUE_LINE_BOTTOM + 10}" font-size="12" fill="#48c">-</text>
+  <text x="22" y="${RED_LINE_BOTTOM + 3}" font-size="12" fill="#e44">+</text>
+  <text x="22" y="${BLUE_LINE_BOTTOM + 3}" font-size="12" fill="#48c">-</text>
 
   <!-- BOTTOM RAIL PINS -->
   ${generateRail("rail_bottom_pos", RED_PINS_BOTTOM)}
@@ -181,4 +178,4 @@ const svg = `
 
 // Write file
 fs.writeFileSync("breadboard_mini.svg", svg, "utf8");
-console.log("✔ breadboard.svg generated with perfect symmetry and correct rail geometry!");
+console.log("breadboard_mini.svg generated");
