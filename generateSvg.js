@@ -117,7 +117,6 @@ function generateRailGroups(prefix, y) {
   return out;
 }
 
-
 function generateColumnNumbers(y) {
   let out = "";
   for (let col = 1; col <= COLS; col++) {
