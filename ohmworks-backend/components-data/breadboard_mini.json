@@ -2,7 +2,7 @@
   "id": "breadboard_mini",
   "name": "Mini Breadboard",
   "category": "Boards",
-  "svg": "/ohmworks-frontend/src/svg-icons/breadboard_mini.svg",
+  "svg": "/components-data/breadboard_mini.svg",
   "pins": {
     "a1": {
       "group": "col1_top"

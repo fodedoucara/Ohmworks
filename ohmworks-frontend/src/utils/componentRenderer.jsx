@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { computePinPosition } from "./computePinPosition";
+
+import { useEffect, useRef } from "react";
 
 export default function ComponentRenderer({
   component,
@@ -8,252 +9,109 @@ export default function ComponentRenderer({
   selectedPin,
   setSelectedPin
 }) {
-  const isBreadboard = component.behavior?.type === "breadboard";
+  const containerRef = useRef(null);
 
-  /* =================================================================
+  /* ============================================================
      UNIVERSAL PIN CLICK HANDLER
-  ================================================================== */
-  function handlePinClick(e, pin) {
-    e.stopPropagation();  // prevents drag
-    e.preventDefault(); 
+  ============================================================ */
+  function handlePinClick(event, pinId) {
+    event.stopPropagation();
+    event.preventDefault();
 
     const clicked = {
       componentId: component.id,
-      pinId: pin.id
+      pinId
     };
 
+    // First pin selected
     if (!selectedPin) {
-      setSelectedPin(clicked); // FIRST pin
-    } else {
-      // SECOND pin → make wire
-      setWires(prev => [
-        ...prev,
-        {
-          id: crypto.randomUUID(),
-          from: selectedPin,
-          to: clicked,
-          color: "green"
-        }
-      ]);
-
-      setSelectedPin(null); // reset selection
+      setSelectedPin(clicked);
+      return;
     }
+
+    // Second pin → create wire
+    setWires((prev) => [
+      ...prev,
+      {
+        id: crypto.randomUUID(),
+        from: selectedPin,
+        to: clicked,
+        color: "green"
+      }
+    ]);
+
+    // Reset selection
+    setSelectedPin(null);
   }
-  function isSelected(pin) {
+
+  function isPinSelected(pinId) {
     return (
       selectedPin &&
       selectedPin.componentId === component.id &&
-      selectedPin.pinId === pin.id
+      selectedPin.pinId === pinId
     );
   }
 
+  /* ============================================================
+     LOAD & INJECT SVG
+  ============================================================ */
+  useEffect(() => {
+    if (!component.svg) return;
 
-  /* =================================================================
-     BREADBOARD MINI RENDER
-  ================================================================== */
-  if (isBreadboard) {
-    const rows = component.behavior.parameters.rows;
-    const cols = component.behavior.parameters.cols;
+    const container = containerRef.current;
+    if (!container) return;
 
-    const leftCols = ["A", "B", "C", "D", "E"];
-    const rightCols = ["F", "G", "H", "I", "J"];
+    // clear previous SVG if any
+    container.innerHTML = "";
 
-    let pins = [];
+    fetch(component.svg)
+      .then((res) => res.text())
+      .then((svgText) => {
+        const parser = new DOMParser();
+        const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
+        const svgEl = svgDoc.documentElement;
 
-    // TOP + rail
-    for (let i = 0; i < 25; i++) {
-      pins.push({
-        id: `TOP_PLUS_${i}`,
-        side: "rail-top",
-        rail: "top+",
-        railIndex: i
-      });
-    }
+        svgEl.style.width = `${component.width}px`;
+        svgEl.style.height = `${component.height}px`;
+        svgEl.style.pointerEvents = "auto";
 
-    // TOP - rail
-    for (let i = 0; i < 25; i++) {
-      pins.push({
-        id: `TOP_MINUS_${i}`,
-        side: "rail-top",
-        rail: "top-",
-        railIndex: i
-      });
-    }
+        container.appendChild(svgEl);
 
-    // UPPER grid (A–E)
-    for (let r = 1; r <= rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        pins.push({
-          id: `U_${leftCols[c]}${r}`,
-          side: "upper",
-          row: r,
-          colLetter: leftCols[c]
-        });
-      }
-    }
+        // Add click handlers to pins inside SVG
+        const svgPins = svgEl.querySelectorAll(".pin");
 
-    // LOWER grid (F–J)
-    for (let r = 1; r <= rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        pins.push({
-          id: `L_${rightCols[c]}${r}`,
-          side: "lower",
-          row: r,
-          colLetter: rightCols[c]
-        });
-      }
-    }
+        svgPins.forEach((pinEl) => {
+          const pinId = pinEl.id;
 
-    // BOTTOM + rail
-    for (let i = 0; i < 25; i++) {
-      pins.push({
-        id: `BOT_PLUS_${i}`,
-        side: "rail-bottom",
-        rail: "bottom+",
-        railIndex: i
-      });
-    }
+          // highlight when selected
+          if (isPinSelected(pinId)) {
+            pinEl.setAttribute("fill", "limegreen");
+          }
 
-    // BOTTOM - rail
-    for (let i = 0; i < 25; i++) {
-      pins.push({
-        id: `BOT_MINUS_${i}`,
-        side: "rail-bottom",
-        rail: "bottom-",
-        railIndex: i
-      });
-    }
-
-    /* =================================================================
-       RENDER BREADBOARD
-    ================================================================== */
-    return (
-      <div
-        style={{
-          position: "relative",
-          width: component.width,
-          height: component.height,
-          background: "#eee",
-          border: "2px solid #2363d1",
-          borderRadius: "6px",
-          boxSizing: "border-box",
-          paddingTop: "6px",
-          fontSize: "11px",
-          fontWeight: 700,
-          textAlign: "center",
-          userSelect: "none"
-        }}
-      >
-        <div style={{ marginBottom: "4px" }}>BREADBOARD MINI</div>
-
-        {pins.map((pin) => {
-          const pos = computePinPosition(pin, component);
-
-          return (
-            <div
-              key={pin.id}
-              onMouseDown={(e) => {e.preventDefault()
-                e.stopPropagation()
-              }
-              }     // prevents drag
-              onClick={(e) => handlePinClick(e, pin)}     // select pin
-              style={{
-                columnGap: "10px",
-                position: "absolute",
-                top: pos.y,
-                left: pos.x,
-                transform: "translate(-50%, -50%)",
-                width:
-                  pin.side === "upper" || pin.side === "lower"
-                    ? "15px"
-                    : "18px",
-                height:
-                  pin.side === "upper" || pin.side === "lower"
-                    ? "15px"
-                    : "18px",
-                background: isSelected(pin)
-                  ? "limegreen" // <-- Selected state
-                  : pin.rail === "top+" || pin.rail === "bottom+"
-                    ? "red"
-                    : pin.rail === "top-" || pin.rail === "bottom-"
-                      ? "blue"
-                      : "black",
-                borderRadius: "50%",
-                cursor: "pointer",
-                zIndex: 9999
-              }}
-            />
+          pinEl.style.cursor = "pointer";
+          pinEl.addEventListener("mousedown", (e) =>
+            e.stopPropagation()
           );
-        })}
-      </div>
-    );
-  }
+          pinEl.addEventListener("click", (e) =>
+            handlePinClick(e, pinId)
+          );
+        });
+      });
+  }, [component, selectedPin]);
 
-  /* =================================================================
-     NORMAL COMPONENTS (Arduino, LEDs, etc.)
-  ================================================================== */
-
+  /* ============================================================
+     RENDER CONTAINER (SVG will be injected inside)
+  ============================================================ */
   return (
     <div
+      ref={containerRef}
       style={{
         position: "relative",
         width: component.width,
         height: component.height,
-        background: "#e8f3ff",
-        border: "2px solid #2363d1",
-        borderRadius: "6px",
-        boxSizing: "border-box",
-        paddingTop: "6px",
-        fontSize: "11px",
-        fontWeight: 600,
-        textAlign: "center",
-        userSelect: "none"
+        userSelect: "none",
+        pointerEvents: "auto"
       }}
-    >
-      <div style={{ marginBottom: "2px" }}>
-        {component.type.replace("_", " ").toUpperCase()}
-      </div>
-
-      {component.pins?.map((pin) => {
-        const pos = computePinPosition(pin, component);
-
-        return (
-          <div
-            key={pin.id}
-            onMouseDown={(e) => {
-              e.stopPropagation()
-              e.preventDefault()}}
-            onClick={(e) => handlePinClick(e, pin)}
-            style={{
-              position: "absolute",
-              top: pos.y,
-              left: pos.x,
-              transform: "translate(-50%, -50%)",
-              width: "15px",
-              height: "15px",
-              background: isSelected(pin) ? "limegreen" : "red",
-              borderRadius: "50%",
-              border: "1px solid #222",
-              cursor: "pointer",
-              zIndex: 9999
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                top: "-14px",
-                left: "50%",
-                transform: "translateX(-50%)",
-                fontSize: "9px",
-                fontWeight: 500,
-                color: "#333"
-              }}
-            >
-              {pin.label}
-            </div>
-          </div>
-        );
-      })}
-    </div>
+    />
   );
 }

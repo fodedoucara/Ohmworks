@@ -1,91 +1,71 @@
-import express from "express"; // js framework to create the web server
-import fs from "fs"; // File System, r/w files, manipulate directories, rename and move files, provide file info, needed for json r/w
-import path from "path"; // Helps build file paths cross-platform (windows, macOS, Linux)
-import cors from "cors"; // Since frontend is on different port, allow cross-origin requests
+import express from "express";
+import fs from "fs";
+import path from "path";
+import cors from "cors";
 
 const app = express();
-app.use(express.json()); // Allows server to parse incoming json POST reqs
-app.use(cors()); // Allow cross-origin reqs
+app.use(express.json());
+app.use(cors());
 
 const componentsFolder = path.join(process.cwd(), "components-data");
 if (!fs.existsSync(componentsFolder)) {
-    fs.mkdirSync(componentsFolder); // Create components folder if it doesn't exist when server starts
+    fs.mkdirSync(componentsFolder);
 }
+
+//serve SVG + JSON files
+app.use("/components-data", express.static(componentsFolder));
 
 // GET all components
 app.get("/components", (req, res) => {
-    const files = fs.readdirSync(componentsFolder); // Reads all filenames in components
+    const files = fs.readdirSync(componentsFolder);
 
-    const components = files.map(file => { // Loop over each file, read content
+    const components = files.map(file => {
         const filePath = path.join(componentsFolder, file);
         const content = fs.readFileSync(filePath, "utf-8").trim();
 
-        if (!content) {
-            console.warn(`Skipping empty component file: ${file}`);
-            return null; // Skip empty json
-        }
+        if (!content) return null;
 
         try {
-            return JSON.parse(content); // Parse json file
+            return JSON.parse(content);
+        } catch {
+            return null;
         }
-        catch (err) {
-            console.error(`Failed to parse ${file}:`, err.message);
-            return null; // Skip invalid json
-        }
-    }).filter(Boolean); // Remove nulls
+    }).filter(Boolean);
 
-    res.json(components); // Sends array of component objects to client
+    res.json(components);
 });
 
-// GET a single component
+// GET single component
 app.get("/components/:id", (req, res) => {
-    const { id } = req.params; // Gets :id from URL
-    const filePath = path.join(componentsFolder, `${id}.json`); // Builds full path to the component json
+    const { id } = req.params;
+    const filePath = path.join(componentsFolder, `${id}.json`);
 
     if (!fs.existsSync(filePath)) {
-        return res.status(404).json({ error: "Component file not found"});
+        return res.status(404).json({ error: "Component not found" });
     }
 
     const content = fs.readFileSync(filePath, "utf-8").trim();
-
-    if (!content) {
-        return res.status(400).json({ error: "Component file is empty"});
-    }
+    if (!content) return res.status(400).json({ error: "Empty file" });
 
     try {
-        const component = JSON.parse(content);  // Parse json file
-        res.json(component);  // Sends component object to client
-    }
-    catch (err) {
-        console.error(`Failed to parse ${id}.json:`, err.message);
-        res.status(400).json({ error: "Component file contains invalid JSON" });
+        res.json(JSON.parse(content));
+    } catch {
+        res.status(400).json({ error: "Invalid JSON" });
     }
 });
 
-// POST a component (create or update a json)
+// POST component
 app.post("/components", (req, res) => {
-    const component = req.body; // Contains json sent by client
+    const component = req.body;
+    if (!component.id) return res.status(400).json({ error: "Missing id" });
 
-    if (!component.id) {
-        return res.status(400).json({ error: "Missing component id" });
-    }
+    const filePath = path.join(componentsFolder, `${component.id}.json`);
+    const json = JSON.stringify(component, null, 2);
 
-    try {
-        const jsonString= JSON.stringify(component, null, 2);
-        JSON.parse(jsonString);
-
-        if (Object.keys(component).length === 0) {
-            return res.status(400).json({ error: "Component JSON is empty" });
-        }
-
-        const filePath = path.join(componentsFolder, `${component.id}.json`); // Saves component as id.json in components/
-        fs.writeFileSync(filePath, jsonString); // Writes the json file
-        res.json({ message: "Component saved", component }); // Send confirmation json to frontend
-    }
-    catch (err) {
-        console.error(`Failed to save component ${component.id}:`, err.message);
-        res.status(400).json({ error: "Invalid component JSON"});
-    }
+    fs.writeFileSync(filePath, json);
+    res.json({ message: "Component saved", component });
 });
 
-app.listen(4000, () => console.log("Backend running on http://localhost:4000"));
+app.listen(4000, () =>
+    console.log("Backend running on http://localhost:4000")
+);
