@@ -7,10 +7,10 @@ export default function ComponentRenderer({
   wires,
   setWires,
   selectedPin,
-  setSelectedPin
+  setSelectedPin,
+  blockDragRef
 }) {
   const containerRef = useRef(null);
-  console.log("COMPONENT:", component);
 
   /* ============================================================
      UNIVERSAL PIN CLICK HANDLER
@@ -24,14 +24,14 @@ export default function ComponentRenderer({
       pinId
     };
 
-    // First pin selected
+    // First pin
     if (!selectedPin) {
       setSelectedPin(clicked);
       return;
     }
 
-    // Second pin → create wire
-    setWires((prev) => [
+    // Second pin → make wire
+    setWires(prev => [
       ...prev,
       {
         id: crypto.randomUUID(),
@@ -41,7 +41,6 @@ export default function ComponentRenderer({
       }
     ]);
 
-    // Reset selection
     setSelectedPin(null);
   }
 
@@ -56,42 +55,87 @@ export default function ComponentRenderer({
   /* ============================================================
      LOAD & INJECT SVG
   ============================================================ */
-useEffect(() => {
-  if (!component.svg) return;
+  useEffect(() => {
+    if (!component.svg) return;
 
-  const container = containerRef.current;
-  if (!container) return;
+    const container = containerRef.current;
+    if (!container) return;
 
-  container.innerHTML = "";
+    container.innerHTML = "";
 
-  fetch(component.svg)
-    .then(res => res.text())
-    .then(svgText => {
-      const parser = new DOMParser();
-      const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
-      const svgEl = svgDoc.documentElement;
+    fetch(component.svg)
+      .then(res => res.text())
+      .then(svgText => {
+        const parser = new DOMParser();
+        const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
+        const svgEl = svgDoc.documentElement;
 
-      svgEl.style.width = `${component.width}px`;
-      svgEl.style.height = `${component.height}px`;
-      svgEl.style.pointerEvents = "auto";
+        svgEl.style.width = `${component.width}px`;
+        svgEl.style.height = `${component.height}px`;
+        svgEl.style.pointerEvents = "auto";
 
-      container.appendChild(svgEl);
+        container.appendChild(svgEl);
 
-      // Add pin event listeners
-      const svgPins = svgEl.querySelectorAll(".pin");
-      svgPins.forEach(pinEl => {
-        const pinId = pinEl.id;
-        pinEl.style.cursor = "pointer";
+        // Pin listeners
+        const svgPins = svgEl.querySelectorAll(".pin");
 
-        pinEl.addEventListener("mousedown", e => e.stopPropagation());
-        pinEl.addEventListener("click", e => handlePinClick(e, pinId));
+        svgPins.forEach(pinEl => {
+          const pinId = pinEl.id;
+          pinEl.style.cursor = "pointer";
+
+          // BLOCK DRAG WHILE CLICKING
+          pinEl.addEventListener("mousedown", e => {
+            e.stopPropagation();
+            e.preventDefault();
+            e.stopImmediatePropagation?.();
+            if (blockDragRef && "current" in blockDragRef) {
+              blockDragRef.current = true;
+            }
+          });
+
+          // CLICK
+          pinEl.addEventListener("click", e => {
+            e.stopPropagation();
+            e.preventDefault();
+            e.stopImmediatePropagation?.();
+
+            handlePinClick(e, pinId);
+
+            setTimeout(() => {
+              if (blockDragRef?.current !== undefined) {
+                blockDragRef.current = false;
+              }
+            }, 30);
+          });
+        });
       });
-    });
-}, [component.svg, component.width, component.height, selectedPin]);
-
+  }, [component.svg, component.width, component.height]);
 
   /* ============================================================
-     RENDER CONTAINER (SVG will be injected inside)
+     UPDATE PIN COLORS
+  ============================================================ */
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const svgEl = container.querySelector("svg");
+    if (!svgEl) return;
+
+    const svgPins = svgEl.querySelectorAll(".pin");
+
+    svgPins.forEach(pinEl => {
+      const pinId = pinEl.id;
+
+      pinEl.setAttribute("fill", "#666");
+
+      if (isPinSelected(pinId)) {
+        pinEl.setAttribute("fill", "limegreen");
+      }
+    });
+  }, [selectedPin]);
+
+  /* ============================================================
+     RENDER CONTAINER
   ============================================================ */
   return (
     <div

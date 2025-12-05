@@ -2,27 +2,25 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import useComponents from "./useComponents";
 
 export function useCanvasInteractions() {
-    //used for handling when components are placed inside canvas
-    const [placedComponents, setPlacedComponents] = useState([])
-    //used for handling components already inside canvas
-    const [draggingId, setDraggingId] = useState(null)
-    //used for handling positions of components inside canvas
-    const [offset, setOffset] = useState({ x: 0, y: 0 })
-    //used to get reference of canvas border
-    const canvasRef = useRef(null)
-    //used to track selected component
+    // Prevent dragging when clicking SVG pins
+    const blockDragRef = useRef(false);
+
+    const [placedComponents, setPlacedComponents] = useState([]);
+    const [draggingId, setDraggingId] = useState(null);
+    const [offset, setOffset] = useState({ x: 0, y: 0 });
+    const canvasRef = useRef(null);
     const [selectedId, setSelectedId] = useState(null);
 
-    //used to fetch backend components (JSON files)
     const components = useComponents() || [];
 
-    //used to search for components
     const [searchQuery, setSearchQuery] = useState("");
-    //used to collapse down categories of components
     const [collapsed, setCollapsed] = useState({});
 
     const selectedComponent = placedComponents.find(c => c.id === selectedId);
 
+    /* ============================================================
+       DROP — ADD COMPONENT TO CANVAS
+    ============================================================ */
     const handleDrop = (e) => {
         e.preventDefault();
 
@@ -50,8 +48,8 @@ export function useCanvasInteractions() {
         setPlacedComponents(prev => [
             ...prev,
             {
-                ...compData,                
-                id: crypto.randomUUID(),   
+                ...compData,
+                id: crypto.randomUUID(),
                 x: clampedX,
                 y: clampedY,
                 width: compWidth,
@@ -60,50 +58,55 @@ export function useCanvasInteractions() {
         ]);
     };
 
-
-
-    const handlePropertyChange = (id, key, value) => {
-        setPlacedComponents(prev =>
-            prev.map(c => c.id === id ? { ...c, props: { ...c.props, [key]: value } } : c)
-        );
-    };
-
-    const handleDragOver = (e) => e.preventDefault();
-
+    /* ============================================================
+       DRAG — MOVE COMPONENT
+    ============================================================ */
     const handleMouseMove = (e) => {
-        if (!draggingId) {
+        if (!draggingId) return;
+
+        // ⛔ Prevent drag when user clicked a pin
+        if (blockDragRef.current) {
             return;
         }
 
         const canvas = canvasRef.current;
-        const canvasBorder = canvas.getBoundingClientRect();
+        const rect = canvas.getBoundingClientRect();
 
-        const mouseX = e.clientX - canvasBorder.left;
-        const mouseY = e.clientY - canvasBorder.top;
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
 
         setPlacedComponents(prev =>
             prev.map(c =>
                 c.id === draggingId
                     ? {
                         ...c,
-                        x: Math.max(0, Math.min(mouseX - offset.x, canvasBorder.width - c.width)),
-                        y: Math.max(0, Math.min(mouseY - offset.y, canvasBorder.height - c.height))
+                        x: Math.max(0, Math.min(mouseX - offset.x, rect.width - c.width)),
+                        y: Math.max(0, Math.min(mouseY - offset.y, rect.height - c.height))
                     }
                     : c
             )
         );
     };
 
+    /* ============================================================
+       MOUSE UP — STOP DRAGGING
+    ============================================================ */
     const handleMouseUp = () => {
         setDraggingId(null);
+        blockDragRef.current = false; // reset drag block
     };
 
+    /* ============================================================
+       DELETE COMPONENT
+    ============================================================ */
     const handleDelete = useCallback(() => {
         setPlacedComponents(prev => prev.filter(c => c.id !== selectedId));
         setSelectedId(null);
     }, [selectedId]);
 
-    // keyboard delete listener
+    /* ============================================================
+       ENABLE DELETE VIA KEYBOARD
+    ============================================================ */
     useEffect(() => {
         const handleKeyDown = (e) => {
             const isTyping =
@@ -138,10 +141,16 @@ export function useCanvasInteractions() {
         collapsed,
         setCollapsed,
         handleDrop,
-        handleDragOver,
+        handleDragOver: e => e.preventDefault(),
         handleMouseMove,
         handleMouseUp,
-        handlePropertyChange,
-        handleDelete
+        handlePropertyChange: (id, key, value) =>
+            setPlacedComponents(prev =>
+                prev.map(c =>
+                    c.id === id ? { ...c, props: { ...c.props, [key]: value } } : c
+                )
+            ),
+        handleDelete,
+        blockDragRef 
     };
 }

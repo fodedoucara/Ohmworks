@@ -16,7 +16,8 @@ export default function Canvas({
   wires,
   setWires,
   selectedPin,
-  setSelectedPin
+  setSelectedPin,
+  blockDragRef
 }) {
   return (
     <div
@@ -58,6 +59,7 @@ export default function Canvas({
             setWires={setWires}
             selectedPin={selectedPin}
             setSelectedPin={setSelectedPin}
+            blockDragRef={blockDragRef}
           />
         </div>
       ))}
