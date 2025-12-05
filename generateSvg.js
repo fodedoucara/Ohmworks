@@ -96,14 +96,27 @@ function generateRow(rowName, y) {
   return out;
 }
 
-function generateRail(prefix, y) {
+function generateRailGroups(prefix, y) {
+  const holesPerRow = 25; // Total holes
+  const groupSize = 5; // Holes per group
+  const gapBetweenGroups = HOLE_SPACING; // Extra spacing between groups
+
+  const numGroups = Math.ceil(holesPerRow / groupSize);
+  const totalGapsWidth = (numGroups - 1.5) * gapBetweenGroups;
+  const totalHolesWidth = holesPerRow * HOLE_SPACING;
+  const totalWidth = totalHolesWidth + totalGapsWidth; // Total width of all holes + gaps
+
+  const startX = PIN_START_X + (RAIL_END_X - PIN_START_X - totalWidth) / 2;
+
   let out = "";
-  for (let col = 1; col <= COLS; col++) {
-    let x = PIN_START_X + (col - 1) * HOLE_SPACING;
-    out += "  " + pin(`${prefix}_${col}`, x, y) + "\n";
+  for (let i = 0; i < holesPerRow; i++) {
+    const groupOffset = Math.floor(i / groupSize) * gapBetweenGroups;
+    const x = startX + i * HOLE_SPACING + groupOffset;
+    out += `  <rect id="${prefix}_${i + 1}" x="${x}" y="${y}" width="${HOLE_SIZE}" height="${HOLE_SIZE}" rx="2" ry="2" fill="#666"/>\n`;
   }
   return out;
 }
+
 
 function generateColumnNumbers(y) {
   let out = "";
@@ -142,8 +155,8 @@ const svg = `
   <text x="22" y="${BLUE_LINE_TOP + 3}" font-size="12" fill="#48c">-</text>
 
   <!-- TOP RAIL PINS -->
-  ${generateRail("rail_top_pos", RED_PINS_TOP).trimStart()}
-  ${generateRail("rail_top_neg", BLUE_PINS_TOP).trimStart()}
+  ${generateRailGroups("rail_top_pos", RED_PINS_TOP).trimStart()}
+  ${generateRailGroups("rail_top_neg", BLUE_PINS_TOP).trimStart()}
 
   <!-- COLUMN NUMBERS (TOP) -->
   ${generateColumnNumbers(Y_COL_TOP).trimStart()}
@@ -175,8 +188,8 @@ const svg = `
   <text x="22" y="${BLUE_LINE_BOTTOM + 3}" font-size="12" fill="#48c">-</text>
 
   <!-- BOTTOM RAIL PINS -->
-  ${generateRail("rail_bottom_pos", RED_PINS_BOTTOM).trimStart()}
-  ${generateRail("rail_bottom_neg", BLUE_PINS_BOTTOM).trimStart()}
+  ${generateRailGroups("rail_bottom_pos", RED_PINS_BOTTOM).trimStart()}
+  ${generateRailGroups("rail_bottom_neg", BLUE_PINS_BOTTOM).trimStart()}
 </svg>
 `.trim();
 
