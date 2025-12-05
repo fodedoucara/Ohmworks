@@ -1,5 +1,4 @@
 <svg width="610" height="364" xmlns="http://www.w3.org/2000/svg">
-
   <!-- Board Background -->
   <rect x="0" y="0" width="610" height="364"
         rx="12" ry="12" fill="#f8f8f8" stroke="#d0d0d0" stroke-width="2"/>
@@ -13,455 +12,458 @@
   <text x="22" y="55" font-size="12" fill="#48c">-</text>
 
   <!-- TOP RAIL PINS -->
-      <rect id="rail_top_pos_1" x="40" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_2" x="58" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_3" x="76" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_4" x="94" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_5" x="112" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_6" x="130" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_7" x="148" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_8" x="166" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_9" x="184" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_10" x="202" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_11" x="220" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_12" x="238" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_13" x="256" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_14" x="274" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_15" x="292" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_16" x="310" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_17" x="328" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_18" x="346" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_19" x="364" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_20" x="382" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_21" x="400" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_22" x="418" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_23" x="436" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_24" x="454" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_25" x="472" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_26" x="490" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_27" x="508" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_28" x="526" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_29" x="544" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_pos_30" x="562" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_1" x="40" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_2" x="58" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_3" x="76" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_4" x="94" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_5" x="112" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_6" x="130" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_7" x="148" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_8" x="166" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_9" x="184" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_10" x="202" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_11" x="220" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_12" x="238" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_13" x="256" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_14" x="274" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_15" x="292" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_16" x="310" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_17" x="328" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_18" x="346" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_19" x="364" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_20" x="382" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_21" x="400" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_22" x="418" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_23" x="436" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_24" x="454" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_25" x="472" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_26" x="490" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_27" x="508" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_28" x="526" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_29" x="544" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_pos_30" x="562" y="18" width="8" height="8" rx="2" ry="2" fill="#666"/>
 
-      <rect id="rail_top_neg_1" x="40" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_2" x="58" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_3" x="76" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_4" x="94" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_5" x="112" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_6" x="130" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_7" x="148" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_8" x="166" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_9" x="184" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_10" x="202" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_11" x="220" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_12" x="238" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_13" x="256" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_14" x="274" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_15" x="292" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_16" x="310" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_17" x="328" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_18" x="346" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_19" x="364" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_20" x="382" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_21" x="400" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_22" x="418" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_23" x="436" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_24" x="454" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_25" x="472" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_26" x="490" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_27" x="508" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_28" x="526" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_29" x="544" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_top_neg_30" x="562" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_1" x="40" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_2" x="58" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_3" x="76" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_4" x="94" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_5" x="112" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_6" x="130" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_7" x="148" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_8" x="166" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_9" x="184" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_10" x="202" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_11" x="220" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_12" x="238" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_13" x="256" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_14" x="274" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_15" x="292" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_16" x="310" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_17" x="328" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_18" x="346" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_19" x="364" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_20" x="382" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_21" x="400" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_22" x="418" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_23" x="436" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_24" x="454" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_25" x="472" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_26" x="490" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_27" x="508" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_28" x="526" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_29" x="544" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_top_neg_30" x="562" y="36" width="8" height="8" rx="2" ry="2" fill="#666"/>
 
 
   <!-- COLUMN NUMBERS (TOP) -->
-    <text x="44" y="72" font-size="10" text-anchor="middle" fill="#555">1</text>
-  <text x="62" y="72" font-size="10" text-anchor="middle" fill="#555">2</text>
-  <text x="80" y="72" font-size="10" text-anchor="middle" fill="#555">3</text>
-  <text x="98" y="72" font-size="10" text-anchor="middle" fill="#555">4</text>
-  <text x="116" y="72" font-size="10" text-anchor="middle" fill="#555">5</text>
-  <text x="134" y="72" font-size="10" text-anchor="middle" fill="#555">6</text>
-  <text x="152" y="72" font-size="10" text-anchor="middle" fill="#555">7</text>
-  <text x="170" y="72" font-size="10" text-anchor="middle" fill="#555">8</text>
-  <text x="188" y="72" font-size="10" text-anchor="middle" fill="#555">9</text>
-  <text x="206" y="72" font-size="10" text-anchor="middle" fill="#555">10</text>
-  <text x="224" y="72" font-size="10" text-anchor="middle" fill="#555">11</text>
-  <text x="242" y="72" font-size="10" text-anchor="middle" fill="#555">12</text>
-  <text x="260" y="72" font-size="10" text-anchor="middle" fill="#555">13</text>
-  <text x="278" y="72" font-size="10" text-anchor="middle" fill="#555">14</text>
-  <text x="296" y="72" font-size="10" text-anchor="middle" fill="#555">15</text>
-  <text x="314" y="72" font-size="10" text-anchor="middle" fill="#555">16</text>
-  <text x="332" y="72" font-size="10" text-anchor="middle" fill="#555">17</text>
-  <text x="350" y="72" font-size="10" text-anchor="middle" fill="#555">18</text>
-  <text x="368" y="72" font-size="10" text-anchor="middle" fill="#555">19</text>
-  <text x="386" y="72" font-size="10" text-anchor="middle" fill="#555">20</text>
-  <text x="404" y="72" font-size="10" text-anchor="middle" fill="#555">21</text>
-  <text x="422" y="72" font-size="10" text-anchor="middle" fill="#555">22</text>
-  <text x="440" y="72" font-size="10" text-anchor="middle" fill="#555">23</text>
-  <text x="458" y="72" font-size="10" text-anchor="middle" fill="#555">24</text>
-  <text x="476" y="72" font-size="10" text-anchor="middle" fill="#555">25</text>
-  <text x="494" y="72" font-size="10" text-anchor="middle" fill="#555">26</text>
-  <text x="512" y="72" font-size="10" text-anchor="middle" fill="#555">27</text>
-  <text x="530" y="72" font-size="10" text-anchor="middle" fill="#555">28</text>
-  <text x="548" y="72" font-size="10" text-anchor="middle" fill="#555">29</text>
-  <text x="566" y="72" font-size="10" text-anchor="middle" fill="#555">30</text>
+  <text x="44" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">1</text>
+  <text x="62" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">2</text>
+  <text x="80" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">3</text>
+  <text x="98" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">4</text>
+  <text x="116" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">5</text>
+  <text x="134" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">6</text>
+  <text x="152" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">7</text>
+  <text x="170" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">8</text>
+  <text x="188" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">9</text>
+  <text x="206" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">10</text>
+  <text x="224" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">11</text>
+  <text x="242" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">12</text>
+  <text x="260" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">13</text>
+  <text x="278" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">14</text>
+  <text x="296" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">15</text>
+  <text x="314" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">16</text>
+  <text x="332" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">17</text>
+  <text x="350" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">18</text>
+  <text x="368" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">19</text>
+  <text x="386" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">20</text>
+  <text x="404" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">21</text>
+  <text x="422" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">22</text>
+  <text x="440" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">23</text>
+  <text x="458" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">24</text>
+  <text x="476" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">25</text>
+  <text x="494" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">26</text>
+  <text x="512" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">27</text>
+  <text x="530" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">28</text>
+  <text x="548" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">29</text>
+  <text x="566" y="72" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">30</text>
 
 
   <!-- INNER BLOCK: ROW LETTERS a–e -->
-    <text x="22" y="90" font-size="12" fill="#555">a</text>
-  <text x="22" y="108" font-size="12" fill="#555">b</text>
-  <text x="22" y="126" font-size="12" fill="#555">c</text>
-  <text x="22" y="144" font-size="12" fill="#555">d</text>
-  <text x="22" y="162" font-size="12" fill="#555">e</text>
+  <text x="22" y="90" font-size="12" font-family="Arial" fill="#555">a</text>
+  <text x="22" y="108" font-size="12" font-family="Arial" fill="#555">b</text>
+  <text x="22" y="126" font-size="12" font-family="Arial" fill="#555">c</text>
+  <text x="22" y="144" font-size="12" font-family="Arial" fill="#555">d</text>
+  <text x="22" y="162" font-size="12" font-family="Arial" fill="#555">e</text>
 
 
   <!-- INNER PINS a–e -->
-      <rect id="a1" x="40" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a2" x="58" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a3" x="76" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a4" x="94" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a5" x="112" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a6" x="130" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a7" x="148" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a8" x="166" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a9" x="184" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a10" x="202" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a11" x="220" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a12" x="238" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a13" x="256" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a14" x="274" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a15" x="292" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a16" x="310" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a17" x="328" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a18" x="346" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a19" x="364" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a20" x="382" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a21" x="400" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a22" x="418" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a23" x="436" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a24" x="454" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a25" x="472" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a26" x="490" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a27" x="508" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a28" x="526" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a29" x="544" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="a30" x="562" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b1" x="40" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b2" x="58" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b3" x="76" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b4" x="94" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b5" x="112" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b6" x="130" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b7" x="148" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b8" x="166" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b9" x="184" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b10" x="202" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b11" x="220" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b12" x="238" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b13" x="256" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b14" x="274" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b15" x="292" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b16" x="310" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b17" x="328" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b18" x="346" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b19" x="364" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b20" x="382" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b21" x="400" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b22" x="418" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b23" x="436" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b24" x="454" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b25" x="472" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b26" x="490" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b27" x="508" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b28" x="526" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b29" x="544" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="b30" x="562" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c1" x="40" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c2" x="58" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c3" x="76" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c4" x="94" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c5" x="112" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c6" x="130" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c7" x="148" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c8" x="166" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c9" x="184" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c10" x="202" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c11" x="220" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c12" x="238" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c13" x="256" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c14" x="274" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c15" x="292" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c16" x="310" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c17" x="328" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c18" x="346" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c19" x="364" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c20" x="382" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c21" x="400" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c22" x="418" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c23" x="436" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c24" x="454" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c25" x="472" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c26" x="490" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c27" x="508" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c28" x="526" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c29" x="544" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="c30" x="562" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d1" x="40" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d2" x="58" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d3" x="76" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d4" x="94" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d5" x="112" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d6" x="130" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d7" x="148" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d8" x="166" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d9" x="184" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d10" x="202" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d11" x="220" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d12" x="238" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d13" x="256" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d14" x="274" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d15" x="292" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d16" x="310" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d17" x="328" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d18" x="346" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d19" x="364" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d20" x="382" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d21" x="400" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d22" x="418" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d23" x="436" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d24" x="454" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d25" x="472" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d26" x="490" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d27" x="508" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d28" x="526" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d29" x="544" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="d30" x="562" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e1" x="40" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e2" x="58" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e3" x="76" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e4" x="94" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e5" x="112" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e6" x="130" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e7" x="148" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e8" x="166" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e9" x="184" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e10" x="202" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e11" x="220" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e12" x="238" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e13" x="256" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e14" x="274" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e15" x="292" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e16" x="310" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e17" x="328" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e18" x="346" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e19" x="364" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e20" x="382" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e21" x="400" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e22" x="418" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e23" x="436" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e24" x="454" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e25" x="472" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e26" x="490" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e27" x="508" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e28" x="526" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e29" x="544" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="e30" x="562" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a1" x="40" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a2" x="58" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a3" x="76" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a4" x="94" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a5" x="112" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a6" x="130" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a7" x="148" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a8" x="166" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a9" x="184" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a10" x="202" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a11" x="220" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a12" x="238" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a13" x="256" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a14" x="274" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a15" x="292" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a16" x="310" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a17" x="328" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a18" x="346" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a19" x="364" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a20" x="382" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a21" x="400" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a22" x="418" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a23" x="436" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a24" x="454" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a25" x="472" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a26" x="490" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a27" x="508" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a28" x="526" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a29" x="544" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="a30" x="562" y="82" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b1" x="40" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b2" x="58" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b3" x="76" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b4" x="94" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b5" x="112" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b6" x="130" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b7" x="148" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b8" x="166" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b9" x="184" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b10" x="202" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b11" x="220" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b12" x="238" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b13" x="256" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b14" x="274" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b15" x="292" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b16" x="310" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b17" x="328" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b18" x="346" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b19" x="364" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b20" x="382" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b21" x="400" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b22" x="418" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b23" x="436" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b24" x="454" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b25" x="472" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b26" x="490" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b27" x="508" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b28" x="526" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b29" x="544" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="b30" x="562" y="100" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c1" x="40" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c2" x="58" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c3" x="76" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c4" x="94" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c5" x="112" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c6" x="130" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c7" x="148" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c8" x="166" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c9" x="184" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c10" x="202" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c11" x="220" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c12" x="238" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c13" x="256" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c14" x="274" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c15" x="292" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c16" x="310" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c17" x="328" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c18" x="346" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c19" x="364" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c20" x="382" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c21" x="400" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c22" x="418" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c23" x="436" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c24" x="454" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c25" x="472" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c26" x="490" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c27" x="508" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c28" x="526" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c29" x="544" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="c30" x="562" y="118" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d1" x="40" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d2" x="58" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d3" x="76" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d4" x="94" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d5" x="112" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d6" x="130" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d7" x="148" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d8" x="166" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d9" x="184" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d10" x="202" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d11" x="220" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d12" x="238" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d13" x="256" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d14" x="274" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d15" x="292" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d16" x="310" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d17" x="328" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d18" x="346" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d19" x="364" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d20" x="382" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d21" x="400" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d22" x="418" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d23" x="436" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d24" x="454" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d25" x="472" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d26" x="490" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d27" x="508" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d28" x="526" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d29" x="544" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="d30" x="562" y="136" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e1" x="40" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e2" x="58" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e3" x="76" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e4" x="94" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e5" x="112" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e6" x="130" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e7" x="148" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e8" x="166" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e9" x="184" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e10" x="202" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e11" x="220" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e12" x="238" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e13" x="256" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e14" x="274" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e15" x="292" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e16" x="310" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e17" x="328" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e18" x="346" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e19" x="364" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e20" x="382" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e21" x="400" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e22" x="418" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e23" x="436" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e24" x="454" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e25" x="472" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e26" x="490" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e27" x="508" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e28" x="526" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e29" x="544" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="e30" x="562" y="154" width="8" height="8" rx="2" ry="2" fill="#666"/>
 
 
   <!-- INNER BLOCK: ROW LETTERS f–j -->
-    <text x="22" y="210" font-size="12" fill="#555">f</text>
-  <text x="22" y="228" font-size="12" fill="#555">g</text>
-  <text x="22" y="246" font-size="12" fill="#555">h</text>
-  <text x="22" y="264" font-size="12" fill="#555">i</text>
-  <text x="22" y="282" font-size="12" fill="#555">j</text>
+  <text x="22" y="210" font-size="12" font-family="Arial" fill="#555">f</text>
+  <text x="22" y="228" font-size="12" font-family="Arial" fill="#555">g</text>
+  <text x="22" y="246" font-size="12" font-family="Arial" fill="#555">h</text>
+  <text x="22" y="264" font-size="12" font-family="Arial" fill="#555">i</text>
+  <text x="22" y="282" font-size="12" font-family="Arial" fill="#555">j</text>
 
 
   <!-- INNER PINS f–j -->
-      <rect id="f1" x="40" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f2" x="58" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f3" x="76" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f4" x="94" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f5" x="112" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f6" x="130" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f7" x="148" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f8" x="166" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f9" x="184" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f10" x="202" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f11" x="220" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f12" x="238" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f13" x="256" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f14" x="274" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f15" x="292" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f16" x="310" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f17" x="328" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f18" x="346" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f19" x="364" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f20" x="382" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f21" x="400" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f22" x="418" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f23" x="436" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f24" x="454" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f25" x="472" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f26" x="490" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f27" x="508" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f28" x="526" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f29" x="544" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="f30" x="562" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g1" x="40" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g2" x="58" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g3" x="76" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g4" x="94" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g5" x="112" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g6" x="130" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g7" x="148" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g8" x="166" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g9" x="184" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g10" x="202" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g11" x="220" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g12" x="238" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g13" x="256" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g14" x="274" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g15" x="292" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g16" x="310" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g17" x="328" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g18" x="346" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g19" x="364" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g20" x="382" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g21" x="400" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g22" x="418" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g23" x="436" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g24" x="454" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g25" x="472" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g26" x="490" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g27" x="508" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g28" x="526" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g29" x="544" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="g30" x="562" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h1" x="40" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h2" x="58" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h3" x="76" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h4" x="94" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h5" x="112" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h6" x="130" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h7" x="148" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h8" x="166" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h9" x="184" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h10" x="202" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h11" x="220" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h12" x="238" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h13" x="256" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h14" x="274" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h15" x="292" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h16" x="310" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h17" x="328" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h18" x="346" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h19" x="364" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h20" x="382" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h21" x="400" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h22" x="418" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h23" x="436" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h24" x="454" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h25" x="472" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h26" x="490" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h27" x="508" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h28" x="526" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h29" x="544" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="h30" x="562" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i1" x="40" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i2" x="58" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i3" x="76" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i4" x="94" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i5" x="112" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i6" x="130" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i7" x="148" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i8" x="166" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i9" x="184" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i10" x="202" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i11" x="220" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i12" x="238" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i13" x="256" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i14" x="274" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i15" x="292" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i16" x="310" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i17" x="328" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i18" x="346" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i19" x="364" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i20" x="382" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i21" x="400" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i22" x="418" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i23" x="436" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i24" x="454" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i25" x="472" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i26" x="490" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i27" x="508" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i28" x="526" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i29" x="544" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="i30" x="562" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j1" x="40" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j2" x="58" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j3" x="76" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j4" x="94" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j5" x="112" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j6" x="130" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j7" x="148" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j8" x="166" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j9" x="184" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j10" x="202" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j11" x="220" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j12" x="238" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j13" x="256" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j14" x="274" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j15" x="292" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j16" x="310" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j17" x="328" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j18" x="346" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j19" x="364" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j20" x="382" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j21" x="400" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j22" x="418" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j23" x="436" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j24" x="454" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j25" x="472" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j26" x="490" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j27" x="508" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j28" x="526" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j29" x="544" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="j30" x="562" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f1" x="40" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f2" x="58" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f3" x="76" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f4" x="94" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f5" x="112" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f6" x="130" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f7" x="148" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f8" x="166" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f9" x="184" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f10" x="202" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f11" x="220" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f12" x="238" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f13" x="256" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f14" x="274" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f15" x="292" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f16" x="310" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f17" x="328" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f18" x="346" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f19" x="364" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f20" x="382" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f21" x="400" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f22" x="418" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f23" x="436" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f24" x="454" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f25" x="472" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f26" x="490" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f27" x="508" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f28" x="526" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f29" x="544" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="f30" x="562" y="202" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g1" x="40" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g2" x="58" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g3" x="76" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g4" x="94" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g5" x="112" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g6" x="130" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g7" x="148" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g8" x="166" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g9" x="184" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g10" x="202" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g11" x="220" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g12" x="238" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g13" x="256" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g14" x="274" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g15" x="292" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g16" x="310" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g17" x="328" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g18" x="346" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g19" x="364" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g20" x="382" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g21" x="400" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g22" x="418" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g23" x="436" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g24" x="454" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g25" x="472" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g26" x="490" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g27" x="508" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g28" x="526" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g29" x="544" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="g30" x="562" y="220" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h1" x="40" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h2" x="58" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h3" x="76" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h4" x="94" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h5" x="112" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h6" x="130" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h7" x="148" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h8" x="166" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h9" x="184" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h10" x="202" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h11" x="220" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h12" x="238" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h13" x="256" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h14" x="274" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h15" x="292" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h16" x="310" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h17" x="328" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h18" x="346" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h19" x="364" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h20" x="382" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h21" x="400" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h22" x="418" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h23" x="436" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h24" x="454" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h25" x="472" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h26" x="490" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h27" x="508" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h28" x="526" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h29" x="544" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="h30" x="562" y="238" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i1" x="40" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i2" x="58" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i3" x="76" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i4" x="94" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i5" x="112" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i6" x="130" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i7" x="148" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i8" x="166" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i9" x="184" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i10" x="202" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i11" x="220" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i12" x="238" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i13" x="256" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i14" x="274" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i15" x="292" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i16" x="310" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i17" x="328" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i18" x="346" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i19" x="364" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i20" x="382" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i21" x="400" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i22" x="418" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i23" x="436" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i24" x="454" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i25" x="472" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i26" x="490" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i27" x="508" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i28" x="526" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i29" x="544" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="i30" x="562" y="256" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j1" x="40" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j2" x="58" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j3" x="76" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j4" x="94" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j5" x="112" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j6" x="130" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j7" x="148" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j8" x="166" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j9" x="184" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j10" x="202" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j11" x="220" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j12" x="238" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j13" x="256" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j14" x="274" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j15" x="292" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j16" x="310" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j17" x="328" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j18" x="346" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j19" x="364" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j20" x="382" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j21" x="400" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j22" x="418" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j23" x="436" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j24" x="454" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j25" x="472" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j26" x="490" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j27" x="508" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j28" x="526" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j29" x="544" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="j30" x="562" y="274" width="8" height="8" rx="2" ry="2" fill="#666"/>
 
+
+  <!-- TRENCH GAP -->
+  <rect x="0" y="177" width="610" height="10" fill="#D1D1D6"/>
 
   <!-- COLUMN NUMBERS (BOTTOM) -->
-    <text x="44" y="300" font-size="10" text-anchor="middle" fill="#555">1</text>
-  <text x="62" y="300" font-size="10" text-anchor="middle" fill="#555">2</text>
-  <text x="80" y="300" font-size="10" text-anchor="middle" fill="#555">3</text>
-  <text x="98" y="300" font-size="10" text-anchor="middle" fill="#555">4</text>
-  <text x="116" y="300" font-size="10" text-anchor="middle" fill="#555">5</text>
-  <text x="134" y="300" font-size="10" text-anchor="middle" fill="#555">6</text>
-  <text x="152" y="300" font-size="10" text-anchor="middle" fill="#555">7</text>
-  <text x="170" y="300" font-size="10" text-anchor="middle" fill="#555">8</text>
-  <text x="188" y="300" font-size="10" text-anchor="middle" fill="#555">9</text>
-  <text x="206" y="300" font-size="10" text-anchor="middle" fill="#555">10</text>
-  <text x="224" y="300" font-size="10" text-anchor="middle" fill="#555">11</text>
-  <text x="242" y="300" font-size="10" text-anchor="middle" fill="#555">12</text>
-  <text x="260" y="300" font-size="10" text-anchor="middle" fill="#555">13</text>
-  <text x="278" y="300" font-size="10" text-anchor="middle" fill="#555">14</text>
-  <text x="296" y="300" font-size="10" text-anchor="middle" fill="#555">15</text>
-  <text x="314" y="300" font-size="10" text-anchor="middle" fill="#555">16</text>
-  <text x="332" y="300" font-size="10" text-anchor="middle" fill="#555">17</text>
-  <text x="350" y="300" font-size="10" text-anchor="middle" fill="#555">18</text>
-  <text x="368" y="300" font-size="10" text-anchor="middle" fill="#555">19</text>
-  <text x="386" y="300" font-size="10" text-anchor="middle" fill="#555">20</text>
-  <text x="404" y="300" font-size="10" text-anchor="middle" fill="#555">21</text>
-  <text x="422" y="300" font-size="10" text-anchor="middle" fill="#555">22</text>
-  <text x="440" y="300" font-size="10" text-anchor="middle" fill="#555">23</text>
-  <text x="458" y="300" font-size="10" text-anchor="middle" fill="#555">24</text>
-  <text x="476" y="300" font-size="10" text-anchor="middle" fill="#555">25</text>
-  <text x="494" y="300" font-size="10" text-anchor="middle" fill="#555">26</text>
-  <text x="512" y="300" font-size="10" text-anchor="middle" fill="#555">27</text>
-  <text x="530" y="300" font-size="10" text-anchor="middle" fill="#555">28</text>
-  <text x="548" y="300" font-size="10" text-anchor="middle" fill="#555">29</text>
-  <text x="566" y="300" font-size="10" text-anchor="middle" fill="#555">30</text>
+  <text x="44" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">1</text>
+  <text x="62" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">2</text>
+  <text x="80" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">3</text>
+  <text x="98" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">4</text>
+  <text x="116" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">5</text>
+  <text x="134" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">6</text>
+  <text x="152" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">7</text>
+  <text x="170" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">8</text>
+  <text x="188" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">9</text>
+  <text x="206" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">10</text>
+  <text x="224" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">11</text>
+  <text x="242" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">12</text>
+  <text x="260" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">13</text>
+  <text x="278" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">14</text>
+  <text x="296" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">15</text>
+  <text x="314" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">16</text>
+  <text x="332" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">17</text>
+  <text x="350" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">18</text>
+  <text x="368" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">19</text>
+  <text x="386" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">20</text>
+  <text x="404" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">21</text>
+  <text x="422" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">22</text>
+  <text x="440" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">23</text>
+  <text x="458" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">24</text>
+  <text x="476" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">25</text>
+  <text x="494" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">26</text>
+  <text x="512" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">27</text>
+  <text x="530" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">28</text>
+  <text x="548" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">29</text>
+  <text x="566" y="300" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">30</text>
 
 
   <!-- BOTTOM RAIL LINES -->
@@ -473,67 +475,66 @@
   <text x="22" y="357" font-size="12" fill="#48c">-</text>
 
   <!-- BOTTOM RAIL PINS -->
-      <rect id="rail_bottom_pos_1" x="40" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_2" x="58" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_3" x="76" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_4" x="94" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_5" x="112" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_6" x="130" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_7" x="148" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_8" x="166" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_9" x="184" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_10" x="202" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_11" x="220" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_12" x="238" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_13" x="256" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_14" x="274" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_15" x="292" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_16" x="310" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_17" x="328" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_18" x="346" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_19" x="364" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_20" x="382" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_21" x="400" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_22" x="418" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_23" x="436" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_24" x="454" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_25" x="472" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_26" x="490" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_27" x="508" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_28" x="526" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_29" x="544" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_pos_30" x="562" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_1" x="40" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_2" x="58" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_3" x="76" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_4" x="94" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_5" x="112" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_6" x="130" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_7" x="148" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_8" x="166" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_9" x="184" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_10" x="202" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_11" x="220" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_12" x="238" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_13" x="256" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_14" x="274" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_15" x="292" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_16" x="310" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_17" x="328" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_18" x="346" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_19" x="364" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_20" x="382" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_21" x="400" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_22" x="418" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_23" x="436" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_24" x="454" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_25" x="472" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_26" x="490" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_27" x="508" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_28" x="526" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_29" x="544" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_pos_30" x="562" y="320" width="8" height="8" rx="2" ry="2" fill="#666"/>
 
-      <rect id="rail_bottom_neg_1" x="40" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_2" x="58" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_3" x="76" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_4" x="94" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_5" x="112" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_6" x="130" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_7" x="148" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_8" x="166" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_9" x="184" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_10" x="202" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_11" x="220" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_12" x="238" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_13" x="256" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_14" x="274" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_15" x="292" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_16" x="310" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_17" x="328" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_18" x="346" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_19" x="364" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_20" x="382" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_21" x="400" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_22" x="418" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_23" x="436" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_24" x="454" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_25" x="472" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_26" x="490" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_27" x="508" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_28" x="526" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_29" x="544" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-    <rect id="rail_bottom_neg_30" x="562" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
-
+  <rect id="rail_bottom_neg_1" x="40" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_2" x="58" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_3" x="76" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_4" x="94" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_5" x="112" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_6" x="130" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_7" x="148" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_8" x="166" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_9" x="184" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_10" x="202" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_11" x="220" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_12" x="238" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_13" x="256" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_14" x="274" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_15" x="292" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_16" x="310" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_17" x="328" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_18" x="346" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_19" x="364" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_20" x="382" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_21" x="400" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_22" x="418" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_23" x="436" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_24" x="454" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_25" x="472" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_26" x="490" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_27" x="508" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_28" x="526" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_29" x="544" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
+  <rect id="rail_bottom_neg_30" x="562" y="338" width="8" height="8" rx="2" ry="2" fill="#666"/>
 
 </svg>

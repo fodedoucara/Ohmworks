@@ -38,6 +38,9 @@ const INNER_SPACE_TOP = BLUE_LINE_TOP + INNER_TOP_GAP; // Top Y of inner blocks
 const Y_A = INNER_SPACE_TOP; // Top inner block start
 const Y_F = Y_A + ROWS_TOP.length * HOLE_SPACING + TRENCH_GAP; // Bottom inner block start
 
+const TRENCH_Y = Y_A + ROWS_TOP.length * HOLE_SPACING + 5; // Bottom of top inner block
+const TRENCH_HEIGHT = TRENCH_GAP - 20; // Trench line height
+
 // ============================================================
 // Bottom Rail Stack (mirrors top stack)
 // ============================================================
@@ -81,14 +84,14 @@ const BOARD_H = SVG_HEIGHT;
 // ============================================================
 
 function pin(id, x, y) {
-  return `    <rect id="${id}" x="${x}" y="${y}" width="${HOLE_SIZE}" height="${HOLE_SIZE}" rx="2" ry="2" fill="#666"/>`;
+  return `<rect id="${id}" x="${x}" y="${y}" width="${HOLE_SIZE}" height="${HOLE_SIZE}" rx="2" ry="2" fill="#666"/>`;
 }
 
 function generateRow(rowName, y) {
   let out = "";
   for (let col = 1; col <= COLS; col++) {
     let x = PIN_START_X + (col - 1) * HOLE_SPACING;
-    out += pin(`${rowName}${col}`, x, y) + "\n";
+    out += "  " + pin(`${rowName}${col}`, x, y) + "\n";
   }
   return out;
 }
@@ -97,7 +100,7 @@ function generateRail(prefix, y) {
   let out = "";
   for (let col = 1; col <= COLS; col++) {
     let x = PIN_START_X + (col - 1) * HOLE_SPACING;
-    out += pin(`${prefix}_${col}`, x, y) + "\n";
+    out += "  " + pin(`${prefix}_${col}`, x, y) + "\n";
   }
   return out;
 }
@@ -106,7 +109,7 @@ function generateColumnNumbers(y) {
   let out = "";
   for (let col = 1; col <= COLS; col++) {
     let x = PIN_START_X + (col - 1) * HOLE_SPACING + HOLE_SIZE / 2;
-    out += `  <text x="${x}" y="${y}" font-size="10" text-anchor="middle" fill="#555">${col}</text>\n`;
+    out += `  <text x="${x}" y="${y}" font-size="10" font-family="Arial" text-anchor="middle" fill="#555">${col}</text>\n`;
   }
   return out;
 }
@@ -115,7 +118,7 @@ function generateRowLetters(rows, firstY) {
   let out = "";
   rows.forEach((letter, i) => {
     let y = firstY + i * HOLE_SPACING + HOLE_SIZE;
-    out += `  <text x="22" y="${y}" font-size="12" fill="#555">${letter}</text>\n`;
+    out += `  <text x="22" y="${y}" font-size="12" font-family="Arial" fill="#555">${letter}</text>\n`;
   });
   return out;
 }
@@ -126,7 +129,6 @@ function generateRowLetters(rows, firstY) {
 
 const svg = `
 <svg width="${SVG_WIDTH}" height="${SVG_HEIGHT}" xmlns="http://www.w3.org/2000/svg">
-
   <!-- Board Background -->
   <rect x="${BOARD_X}" y="${BOARD_Y}" width="${BOARD_W}" height="${BOARD_H}"
         rx="12" ry="12" fill="#f8f8f8" stroke="#d0d0d0" stroke-width="2"/>
@@ -140,26 +142,29 @@ const svg = `
   <text x="22" y="${BLUE_LINE_TOP + 3}" font-size="12" fill="#48c">-</text>
 
   <!-- TOP RAIL PINS -->
-  ${generateRail("rail_top_pos", RED_PINS_TOP)}
-  ${generateRail("rail_top_neg", BLUE_PINS_TOP)}
+  ${generateRail("rail_top_pos", RED_PINS_TOP).trimStart()}
+  ${generateRail("rail_top_neg", BLUE_PINS_TOP).trimStart()}
 
   <!-- COLUMN NUMBERS (TOP) -->
-  ${generateColumnNumbers(Y_COL_TOP)}
+  ${generateColumnNumbers(Y_COL_TOP).trimStart()}
 
   <!-- INNER BLOCK: ROW LETTERS a–e -->
-  ${generateRowLetters(ROWS_TOP, Y_A)}
+  ${generateRowLetters(ROWS_TOP, Y_A).trimStart()}
 
   <!-- INNER PINS a–e -->
-  ${ROWS_TOP.map((r, i) => generateRow(r, Y_A + i * HOLE_SPACING)).join("")}
+  ${ROWS_TOP.map((r, i) => generateRow(r, Y_A + i * HOLE_SPACING)).join("").trimStart()}
 
   <!-- INNER BLOCK: ROW LETTERS f–j -->
-  ${generateRowLetters(ROWS_BOTTOM, Y_F)}
+  ${generateRowLetters(ROWS_BOTTOM, Y_F).trimStart()}
 
   <!-- INNER PINS f–j -->
-  ${ROWS_BOTTOM.map((r, i) => generateRow(r, Y_F + i * HOLE_SPACING)).join("")}
+  ${ROWS_BOTTOM.map((r, i) => generateRow(r, Y_F + i * HOLE_SPACING)).join("").trimStart()}
+
+  <!-- TRENCH GAP -->
+  <rect x="0" y="${TRENCH_Y}" width="${BOARD_RIGHT}" height="${TRENCH_HEIGHT}" fill="#D1D1D6"/>
 
   <!-- COLUMN NUMBERS (BOTTOM) -->
-  ${generateColumnNumbers(Y_COL_BOTTOM)}
+  ${generateColumnNumbers(Y_COL_BOTTOM).trimStart()}
 
   <!-- BOTTOM RAIL LINES -->
   <line x1="${PIN_START_X}" y1="${RED_LINE_BOTTOM}" x2="${RAIL_END_X}" y2="${RED_LINE_BOTTOM}" stroke="#e44" stroke-width="2"/>
@@ -170,9 +175,8 @@ const svg = `
   <text x="22" y="${BLUE_LINE_BOTTOM + 3}" font-size="12" fill="#48c">-</text>
 
   <!-- BOTTOM RAIL PINS -->
-  ${generateRail("rail_bottom_pos", RED_PINS_BOTTOM)}
-  ${generateRail("rail_bottom_neg", BLUE_PINS_BOTTOM)}
-
+  ${generateRail("rail_bottom_pos", RED_PINS_BOTTOM).trimStart()}
+  ${generateRail("rail_bottom_neg", BLUE_PINS_BOTTOM).trimStart()}
 </svg>
 `.trim();
 
