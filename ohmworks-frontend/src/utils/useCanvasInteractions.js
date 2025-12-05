@@ -26,47 +26,40 @@ export function useCanvasInteractions() {
     const handleDrop = (e) => {
         e.preventDefault();
 
-        const component = e.dataTransfer.getData("component");
-        if (!component) {
-            return;
-        }
+        const componentId = e.dataTransfer.getData("component");
+        if (!componentId) return;
 
         const canvas = canvasRef.current;
-        const canvasBorder = canvas.getBoundingClientRect();
+        const rect = canvas.getBoundingClientRect();
 
-        //mouse position relative to canvas
-        const x = e.clientX - canvasBorder.left;
-        const y = e.clientY - canvasBorder.top;
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-        //clamp to canvas size
-        const compData = components.find(c => c.id === component); // <-- changed from COMPONENT_LIBRARY
-
+        const compData = components.find(c => c.id === componentId);
         if (!compData) {
-            console.warn("Component not found:", component);
+            console.warn("Component not found:", componentId);
             return;
         }
 
         const compWidth = compData.width || 120;
         const compHeight = compData.height || 160;
 
-        const clampedX = Math.max(0, Math.min(x, canvasBorder.width - compWidth));
-        const clampedY = Math.max(0, Math.min(y, canvasBorder.height - compHeight));
+        const clampedX = Math.max(0, Math.min(x, rect.width - compWidth));
+        const clampedY = Math.max(0, Math.min(y, rect.height - compHeight));
 
         setPlacedComponents(prev => [
             ...prev,
             {
-                id: crypto.randomUUID(),
-                type: component,
+                ...compData,                
+                id: crypto.randomUUID(),   
                 x: clampedX,
                 y: clampedY,
                 width: compWidth,
-                height: compHeight,
-                pins: compData.pins || [], 
-                behavior: compData.behavior || null,
-                props: { ...compData.defaultProps }
+                height: compHeight
             }
         ]);
     };
+
 
 
     const handlePropertyChange = (id, key, value) => {
@@ -108,7 +101,7 @@ export function useCanvasInteractions() {
     const handleDelete = useCallback(() => {
         setPlacedComponents(prev => prev.filter(c => c.id !== selectedId));
         setSelectedId(null);
-    }, [selectedId]); 
+    }, [selectedId]);
 
     // keyboard delete listener
     useEffect(() => {

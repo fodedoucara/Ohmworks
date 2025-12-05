@@ -14,13 +14,13 @@ export default function PropertiesPanel({
         );
     }
 
-    const { id, type, props } = selectedComponent;
+    const { id, type } = selectedComponent;
 
     return (
         <div className={styles.panel}>
             <h3>Properties: {type}</h3>
 
-            {Object.entries(props).map(([key, value]) => (
+            {Object.entries(selectedComponent.props || {}).map(([key, value]) => (
                 <div key={key} className={styles.row}>
                     <label>{key}</label>
                     <input
@@ -32,6 +32,7 @@ export default function PropertiesPanel({
                     />
                 </div>
             ))}
+
             <button className={styles.deleteButton} onClick={handleDelete}>
                 Delete
             </button>

@@ -1,4 +1,4 @@
-import styles from "../pages/Workspace.module.css" 
+import styles from "../pages/Workspace.module.css"
 import ComponentIcon from "../utils/ComponentIcon.jsx";
 
 export default function Sidebar({
@@ -46,8 +46,10 @@ export default function Sidebar({
                                         <li
                                             key={comp.id}
                                             draggable
-                                            onDragStart={(e) =>
+                                            onDragStart={(e) => {
                                                 e.dataTransfer.setData("component", comp.id)
+                                                e.dataTransfer.setDragImage(new Image(), 0, 0)
+                                            }
                                             }
                                             style={{ display: "flex", alignItems: "center", gap: "8px" }}
                                         >

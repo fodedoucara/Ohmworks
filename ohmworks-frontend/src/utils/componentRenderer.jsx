@@ -10,6 +10,7 @@ export default function ComponentRenderer({
   setSelectedPin
 }) {
   const containerRef = useRef(null);
+  console.log("COMPONENT:", component);
 
   /* ============================================================
      UNIVERSAL PIN CLICK HANDLER
@@ -55,49 +56,39 @@ export default function ComponentRenderer({
   /* ============================================================
      LOAD & INJECT SVG
   ============================================================ */
-  useEffect(() => {
-    if (!component.svg) return;
+useEffect(() => {
+  if (!component.svg) return;
 
-    const container = containerRef.current;
-    if (!container) return;
+  const container = containerRef.current;
+  if (!container) return;
 
-    // clear previous SVG if any
-    container.innerHTML = "";
+  container.innerHTML = "";
 
-    fetch(component.svg)
-      .then((res) => res.text())
-      .then((svgText) => {
-        const parser = new DOMParser();
-        const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
-        const svgEl = svgDoc.documentElement;
+  fetch(component.svg)
+    .then(res => res.text())
+    .then(svgText => {
+      const parser = new DOMParser();
+      const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
+      const svgEl = svgDoc.documentElement;
 
-        svgEl.style.width = `${component.width}px`;
-        svgEl.style.height = `${component.height}px`;
-        svgEl.style.pointerEvents = "auto";
+      svgEl.style.width = `${component.width}px`;
+      svgEl.style.height = `${component.height}px`;
+      svgEl.style.pointerEvents = "auto";
 
-        container.appendChild(svgEl);
+      container.appendChild(svgEl);
 
-        // Add click handlers to pins inside SVG
-        const svgPins = svgEl.querySelectorAll(".pin");
+      // Add pin event listeners
+      const svgPins = svgEl.querySelectorAll(".pin");
+      svgPins.forEach(pinEl => {
+        const pinId = pinEl.id;
+        pinEl.style.cursor = "pointer";
 
-        svgPins.forEach((pinEl) => {
-          const pinId = pinEl.id;
-
-          // highlight when selected
-          if (isPinSelected(pinId)) {
-            pinEl.setAttribute("fill", "limegreen");
-          }
-
-          pinEl.style.cursor = "pointer";
-          pinEl.addEventListener("mousedown", (e) =>
-            e.stopPropagation()
-          );
-          pinEl.addEventListener("click", (e) =>
-            handlePinClick(e, pinId)
-          );
-        });
+        pinEl.addEventListener("mousedown", e => e.stopPropagation());
+        pinEl.addEventListener("click", e => handlePinClick(e, pinId));
       });
-  }, [component, selectedPin]);
+    });
+}, [component.svg, component.width, component.height, selectedPin]);
+
 
   /* ============================================================
      RENDER CONTAINER (SVG will be injected inside)
