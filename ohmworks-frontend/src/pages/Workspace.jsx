@@ -1,28 +1,29 @@
 import styles from "./Workspace.module.css";
-import useComponents from "../utils/useComponents"; // Used for backend json fetching, will replace component_library
+import useComponents from "../utils/useComponents";
 import { COMPONENT_LIBRARY } from "../data/electronicComponents";
-import { groupComponents } from "../utils/groupComponents.js"
-import { useCanvasInteractions } from "../utils/useCanvasInteractions"
-import Sidebar from "../ui/Sidebar"
-//const groupedComponents = groupComponents(COMPONENT_LIBRARY)
-import Canvas from "../ui/Canvas"
-import PropertiesPanel from "../ui/PropertiesPanel"
+import { groupComponents } from "../utils/groupComponents.js";
+import { useCanvasInteractions } from "../utils/useCanvasInteractions";
+
+import Sidebar from "../ui/Sidebar";
+import Canvas from "../ui/Canvas";
+import PropertiesPanel from "../ui/PropertiesPanel";
+
 import { useState } from "react";
 
-
 export default function Workspace() {
-  //const canvas = useCanvasInteractions();
+  const components = useComponents() || COMPONENT_LIBRARY;
+  const groupedComponents = groupComponents(components);
 
-  const components = useComponents() || COMPONENT_LIBRARY; // Fetch components from backend
-  const groupedComponents = groupComponents(components); // Group components by category
+  const [wires, setWires] = useState([]);
 
-  const [wires, setWires] = useState([])
-  const [selectedPin, setSelectedPin] = useState(null);
 
   const {
     canvasRef,
     placedComponents,
+    setPlacedComponents,
+    draggingId,
     setDraggingId,
+    offset,
     setOffset,
     selectedId,
     setSelectedId,
@@ -31,15 +32,17 @@ export default function Workspace() {
     setSearchQuery,
     collapsed,
     setCollapsed,
-    setPlacedComponents,
-    draggingId,
-    offset,
     handleDrop,
     handleDragOver,
     handleMouseMove,
     handleMouseUp,
     handlePropertyChange,
-    handleDelete
+    handleDelete,
+    blockDragRef,
+    pinLayout,
+    onPinLayout,
+    selectedPin,
+    setSelectedPin
   } = useCanvasInteractions();
 
   return (
@@ -51,8 +54,10 @@ export default function Workspace() {
         collapsed={collapsed}
         setCollapsed={setCollapsed}
       />
+
       <main className={styles.canvasArea}>
         <h2>Canvas</h2>
+
         <Canvas
           canvasRef={canvasRef}
           placedComponents={placedComponents}
@@ -71,15 +76,17 @@ export default function Workspace() {
           setWires={setWires}
           selectedPin={selectedPin}
           setSelectedPin={setSelectedPin}
+          blockDragRef={blockDragRef}
+          pinLayout={pinLayout}
+          onPinLayout={onPinLayout}
         />
+
         <PropertiesPanel
           selectedComponent={selectedComponent}
           handlePropertyChange={handlePropertyChange}
           handleDelete={handleDelete}
         />
-
-
-      </main >
-    </div >
+      </main>
+    </div>
   );
 }

@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-
 import { useEffect, useRef } from "react";
 
 export default function ComponentRenderer({
@@ -8,21 +7,24 @@ export default function ComponentRenderer({
   setWires,
   selectedPin,
   setSelectedPin,
-  blockDragRef
+  blockDragRef,
+  onPinLayout
 }) {
   const containerRef = useRef(null);
 
   /* ============================================================
-     UNIVERSAL PIN CLICK HANDLER
+     PIN CLICK LOGIC
   ============================================================ */
   function handlePinClick(event, pinId) {
     event.stopPropagation();
     event.preventDefault();
 
     const clicked = {
-      componentId: component.id,
+      componentId: component.id,   // <-- instance ID, correct
       pinId
     };
+
+    console.log("selectedPin BEFORE click:", selectedPin);
 
     // First pin
     if (!selectedPin) {
@@ -30,7 +32,7 @@ export default function ComponentRenderer({
       return;
     }
 
-    // Second pin → make wire
+    // Second pin → create wire
     setWires(prev => [
       ...prev,
       {
@@ -41,7 +43,8 @@ export default function ComponentRenderer({
       }
     ]);
 
-    setSelectedPin(null);
+    // Reset selection shortly after click
+    setTimeout(() => setSelectedPin(null), 50);
   }
 
   function isPinSelected(pinId) {
@@ -53,7 +56,7 @@ export default function ComponentRenderer({
   }
 
   /* ============================================================
-     LOAD & INJECT SVG
+     LOAD SVG + ATTACH PIN EVENTS
   ============================================================ */
   useEffect(() => {
     if (!component.svg) return;
@@ -76,40 +79,49 @@ export default function ComponentRenderer({
 
         container.appendChild(svgEl);
 
-        // Pin listeners
         const svgPins = svgEl.querySelectorAll(".pin");
+        console.log("SVG pins found:", svgPins.length);
 
+        /* Attach interactivity to pins */
         svgPins.forEach(pinEl => {
           const pinId = pinEl.id;
           pinEl.style.cursor = "pointer";
 
-          // BLOCK DRAG WHILE CLICKING
           pinEl.addEventListener("mousedown", e => {
             e.stopPropagation();
             e.preventDefault();
-            e.stopImmediatePropagation?.();
-            if (blockDragRef && "current" in blockDragRef) {
-              blockDragRef.current = true;
-            }
+            blockDragRef.current = true;
           });
 
-          // CLICK
           pinEl.addEventListener("click", e => {
             e.stopPropagation();
             e.preventDefault();
-            e.stopImmediatePropagation?.();
-
             handlePinClick(e, pinId);
 
-            setTimeout(() => {
-              if (blockDragRef?.current !== undefined) {
-                blockDragRef.current = false;
-              }
-            }, 30);
+            setTimeout(() => (blockDragRef.current = false), 5);
           });
         });
+
+        /* Collect pin-relative positions */
+        if (onPinLayout) {
+          requestAnimationFrame(() => {
+            const pinsMap = {};
+            const svgBox = svgEl.getBoundingClientRect();
+
+            svgPins.forEach(pinEl => {
+              const bbox = pinEl.getBoundingClientRect();
+              pinsMap[pinEl.id] = {
+                x: bbox.x - svgBox.x,
+                y: bbox.y - svgBox.y
+              };
+            });
+
+            console.log("PIN MAP FOR", component.id, pinsMap);
+            onPinLayout(component.id, pinsMap);
+          });
+        }
       });
-  }, [component.svg, component.width, component.height]);
+  }, [component.svg, component.width, component.height,component.id]);
 
   /* ============================================================
      UPDATE PIN COLORS
@@ -126,6 +138,7 @@ export default function ComponentRenderer({
     svgPins.forEach(pinEl => {
       const pinId = pinEl.id;
 
+      // Default color
       pinEl.setAttribute("fill", "#666");
 
       if (isPinSelected(pinId)) {
@@ -135,7 +148,7 @@ export default function ComponentRenderer({
   }, [selectedPin]);
 
   /* ============================================================
-     RENDER CONTAINER
+     RENDER
   ============================================================ */
   return (
     <div

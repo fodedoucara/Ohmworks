@@ -2,8 +2,10 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import useComponents from "./useComponents";
 
 export function useCanvasInteractions() {
-    // Prevent dragging when clicking SVG pins
     const blockDragRef = useRef(false);
+
+    // 🔥 MISSING BEFORE — this is required for wires to work
+    const [selectedPin, setSelectedPin] = useState(null);
 
     const [placedComponents, setPlacedComponents] = useState([]);
     const [draggingId, setDraggingId] = useState(null);
@@ -11,15 +13,26 @@ export function useCanvasInteractions() {
     const canvasRef = useRef(null);
     const [selectedId, setSelectedId] = useState(null);
 
-    const components = useComponents() || [];
+    const [pinLayout, setPinLayout] = useState({});
 
+    const components = useComponents() || [];
     const [searchQuery, setSearchQuery] = useState("");
     const [collapsed, setCollapsed] = useState({});
 
     const selectedComponent = placedComponents.find(c => c.id === selectedId);
 
     /* ============================================================
-       DROP — ADD COMPONENT TO CANVAS
+       PIN GEOMETRY REPORT
+    ============================================================ */
+    const onPinLayout = useCallback((componentId, pinsMap) => {
+        setPinLayout(prev => ({
+            ...prev,
+            [componentId]: pinsMap
+        }));
+    }, []);
+
+    /* ============================================================
+       DROP NEW COMPONENT
     ============================================================ */
     const handleDrop = (e) => {
         e.preventDefault();
@@ -33,41 +46,33 @@ export function useCanvasInteractions() {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        const compData = components.find(c => c.id === componentId);
-        if (!compData) {
-            console.warn("Component not found:", componentId);
-            return;
-        }
+        const template = components.find(c => c.id === componentId);
+        if (!template) return;
 
-        const compWidth = compData.width || 120;
-        const compHeight = compData.height || 160;
+        const instanceId = crypto.randomUUID();
 
-        const clampedX = Math.max(0, Math.min(x, rect.width - compWidth));
-        const clampedY = Math.max(0, Math.min(y, rect.height - compHeight));
+        const instance = {
+            id: instanceId,
+            templateId: template.id,
+            name: template.name,
+            svg: template.svg,
+            pins: template.pins,
+            groups: template.groups,
+            width: template.width,
+            height: template.height,
+            x: Math.max(0, Math.min(x, rect.width - template.width)),
+            y: Math.max(0, Math.min(y, rect.height - template.height))
+        };
 
-        setPlacedComponents(prev => [
-            ...prev,
-            {
-                ...compData,
-                id: crypto.randomUUID(),
-                x: clampedX,
-                y: clampedY,
-                width: compWidth,
-                height: compHeight
-            }
-        ]);
+        setPlacedComponents(prev => [...prev, instance]);
     };
 
     /* ============================================================
-       DRAG — MOVE COMPONENT
+       DRAG COMPONENTS
     ============================================================ */
     const handleMouseMove = (e) => {
         if (!draggingId) return;
-
-        // ⛔ Prevent drag when user clicked a pin
-        if (blockDragRef.current) {
-            return;
-        }
+        if (blockDragRef.current) return;
 
         const canvas = canvasRef.current;
         const rect = canvas.getBoundingClientRect();
@@ -88,12 +93,9 @@ export function useCanvasInteractions() {
         );
     };
 
-    /* ============================================================
-       MOUSE UP — STOP DRAGGING
-    ============================================================ */
     const handleMouseUp = () => {
         setDraggingId(null);
-        blockDragRef.current = false; // reset drag block
+        blockDragRef.current = false;
     };
 
     /* ============================================================
@@ -105,7 +107,7 @@ export function useCanvasInteractions() {
     }, [selectedId]);
 
     /* ============================================================
-       ENABLE DELETE VIA KEYBOARD
+       KEYBOARD DELETE
     ============================================================ */
     useEffect(() => {
         const handleKeyDown = (e) => {
@@ -125,6 +127,9 @@ export function useCanvasInteractions() {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [selectedId, handleDelete]);
 
+    /* ============================================================
+       RETURN PUBLIC API
+    ============================================================ */
     return {
         canvasRef,
         placedComponents,
@@ -151,6 +156,10 @@ export function useCanvasInteractions() {
                 )
             ),
         handleDelete,
-        blockDragRef 
+        blockDragRef,
+        selectedPin,
+        setSelectedPin,
+        pinLayout,
+        onPinLayout
     };
 }
