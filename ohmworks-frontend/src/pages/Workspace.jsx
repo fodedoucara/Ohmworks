@@ -8,13 +8,11 @@ import Sidebar from "../ui/Sidebar";
 import Canvas from "../ui/Canvas";
 import PropertiesPanel from "../ui/PropertiesPanel";
 
-import { useState } from "react";
-
 export default function Workspace() {
   const components = useComponents() || COMPONENT_LIBRARY;
   const groupedComponents = groupComponents(components);
 
-  const [wires, setWires] = useState([]);
+  // Removed: const [wires, setWires] = useState([]);
 
 
   const {
@@ -28,6 +26,7 @@ export default function Workspace() {
     selectedId,
     setSelectedId,
     selectedComponent,
+    selectedWire, // NEW
     searchQuery,
     setSearchQuery,
     collapsed,
@@ -37,12 +36,15 @@ export default function Workspace() {
     handleMouseMove,
     handleMouseUp,
     handlePropertyChange,
+    handleWirePropertyChange, // NEW
     handleDelete,
     blockDragRef,
     pinLayout,
     onPinLayout,
     selectedPin,
-    setSelectedPin
+    setSelectedPin,
+    wires, // NEW
+    setWires, // NEW
   } = useCanvasInteractions();
 
   return (
@@ -83,7 +85,9 @@ export default function Workspace() {
 
         <PropertiesPanel
           selectedComponent={selectedComponent}
-          handlePropertyChange={handlePropertyChange}
+          selectedWire={selectedWire} // NEW
+          handlePropertyChange={handlePropertyChange} 
+          handleWirePropertyChange={handleWirePropertyChange} // NEW
           handleDelete={handleDelete}
         />
       </main>

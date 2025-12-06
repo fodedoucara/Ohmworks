@@ -4,6 +4,7 @@ import useComponents from "./useComponents";
 export function useCanvasInteractions() {
     const blockDragRef = useRef(false);
 
+    const [wires, setWires] = useState([]); 
     const [selectedPin, setSelectedPin] = useState(null);
 
     const [placedComponents, setPlacedComponents] = useState([]);
@@ -19,6 +20,8 @@ export function useCanvasInteractions() {
     const [collapsed, setCollapsed] = useState({});
 
     const selectedComponent = placedComponents.find(c => c.id === selectedId);
+    // NEW: Derived state for selected wire
+    const selectedWire = wires.find(w => w.id === selectedId); 
 
     /* ============================================================
        PIN GEOMETRY REPORT
@@ -98,12 +101,44 @@ export function useCanvasInteractions() {
     };
 
     /* ============================================================
-       DELETE COMPONENT
+       PROPERTY CHANGE HANDLERS
+    ============================================================ */
+    // Existing component property change handler
+    const handlePropertyChange = (id, key, value) =>
+        setPlacedComponents(prev =>
+            prev.map(c =>
+                c.id === id ? { ...c, props: { ...c.props, [key]: value } } : c
+            )
+        );
+
+    // NEW: Wire property change handler
+    const handleWirePropertyChange = useCallback((id, key, value) => {
+        setWires(prev =>
+            prev.map(w =>
+                w.id === id ? { ...w, [key]: value } : w
+            )
+        );
+    }, []);
+
+    /* ============================================================
+       DELETE HANDLER (Modified to handle both components and wires)
     ============================================================ */
     const handleDelete = useCallback(() => {
-        setPlacedComponents(prev => prev.filter(c => c.id !== selectedId));
+        const componentIdToDelete = selectedId;
+        
+        if (selectedComponent) {
+            // Delete component and associated wires
+            setPlacedComponents(prev => prev.filter(c => c.id !== componentIdToDelete));
+            setWires(prev => prev.filter(w => 
+                w.from.componentId !== componentIdToDelete && w.to.componentId !== componentIdToDelete
+            ));
+        } else if (selectedWire) {
+            // Delete selected wire
+            setWires(prev => prev.filter(w => w.id !== selectedId));
+        }
+
         setSelectedId(null);
-    }, [selectedId]);
+    }, [selectedId, selectedComponent, selectedWire]);
 
     /* ============================================================
        KEYBOARD DELETE
@@ -117,12 +152,14 @@ export function useCanvasInteractions() {
 
             if (isTyping) return;
 
+            // Call the unified handleDelete function
             if ((e.key === "Delete" || e.key === "Backspace") && selectedId) {
                 handleDelete();
             }
         };
 
         window.addEventListener("keydown", handleKeyDown);
+        // Added handleDelete dependency to ensure the correct deletion logic (component vs. wire) is used
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [selectedId, handleDelete]);
 
@@ -140,6 +177,7 @@ export function useCanvasInteractions() {
         selectedId,
         setSelectedId,
         selectedComponent,
+        selectedWire, // NEW
         searchQuery,
         setSearchQuery,
         collapsed,
@@ -148,17 +186,15 @@ export function useCanvasInteractions() {
         handleDragOver: e => e.preventDefault(),
         handleMouseMove,
         handleMouseUp,
-        handlePropertyChange: (id, key, value) =>
-            setPlacedComponents(prev =>
-                prev.map(c =>
-                    c.id === id ? { ...c, props: { ...c.props, [key]: value } } : c
-                )
-            ),
+        handlePropertyChange,
+        handleWirePropertyChange, // NEW
         handleDelete,
         blockDragRef,
         selectedPin,
         setSelectedPin,
         pinLayout,
-        onPinLayout
+        onPinLayout,
+        wires, // NEW
+        setWires // NEW
     };
 }

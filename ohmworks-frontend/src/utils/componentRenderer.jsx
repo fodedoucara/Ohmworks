@@ -8,7 +8,7 @@ export default function ComponentRenderer({
   selectedPin,
   setSelectedPin,
   blockDragRef,
-  onPinLayout
+  onPinLayout,
 }) {
   const containerRef = useRef(null);
 
@@ -33,7 +33,7 @@ export default function ComponentRenderer({
       }
 
       // Second pin → create wire
-      // Only proceed if a different pin was clicked
+      // Only proceed if a different pin was clicked (and not connecting a pin to itself)
       if (
         prevSelectedPin.componentId !== clicked.componentId ||
         prevSelectedPin.pinId !== clicked.pinId
@@ -56,7 +56,7 @@ export default function ComponentRenderer({
 
     // Reset blockDragRef shortly after click
     setTimeout(() => (blockDragRef.current = false), 5);
-  }, [component.id, setWires, setSelectedPin, blockDragRef]); // Dependencies for useCallback are now stable setters/refs/id.
+  }, [component.id, setWires, setSelectedPin, blockDragRef]); 
 
   function isPinSelected(pinId) {
     return (
@@ -98,11 +98,9 @@ export default function ComponentRenderer({
           const pinId = pinEl.id;
           pinEl.style.cursor = "pointer";
 
-          // Set stroke to be transparent
+          // FIX: Increase the clickable area with a large, transparent stroke
           pinEl.setAttribute("stroke", "transparent");
-          // Set the stroke width for larger target area
-          pinEl.setAttribute("stroke-width", "20");
-          // Ensure the stroke size doesn't change when the user zooms
+          pinEl.setAttribute("stroke-width", "12");
           pinEl.setAttribute("vector-effect", "non-scaling-stroke");
 
           // MOUSE DOWN
@@ -153,7 +151,7 @@ export default function ComponentRenderer({
     component.height,
     component.id,
     onPinLayout,
-    handlePinClick // Now a memoized function, so it only changes when its own stable dependencies change
+    handlePinClick 
   ]);
 
   /* ============================================================
@@ -178,7 +176,7 @@ export default function ComponentRenderer({
         pinEl.setAttribute("fill", "limegreen");
       }
     });
-  }, [selectedPin, component.id]); // The color update still depends on selectedPin, but this doesn't re-attach listeners.
+  }, [selectedPin, component.id]); 
 
   /* ============================================================
      RENDER

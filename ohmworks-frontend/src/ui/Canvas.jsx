@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import styles from "../pages/Workspace.module.css";
 import ComponentRenderer from "../utils/componentRenderer.jsx";
+import { useCallback } from "react"; 
 
 export default function Canvas({
   canvasRef,
@@ -49,6 +50,18 @@ export default function Canvas({
     };
   }
 
+  /* ------------------------------------------------------------
+     Wire Click Handler
+  ------------------------------------------------------------ */
+  const handleWireClick = useCallback((e, wireId) => {
+      e.stopPropagation();
+      // Set the selected item to the wire ID
+      setSelectedId(wireId); 
+      // Clear selected pin, as selection is now on a wire
+      setSelectedPin(null); 
+  }, [setSelectedId, setSelectedPin]);
+
+
   return (
     <div
       ref={canvasRef}
@@ -70,6 +83,7 @@ export default function Canvas({
 
             setDraggingId(c.id);
             setSelectedId(c.id);
+            setSelectedPin(null); // Clear selected pin when a component is clicked
 
             setOffset({
               x: e.clientX - rect.left - c.x,
@@ -92,6 +106,7 @@ export default function Canvas({
             setSelectedPin={setSelectedPin}
             blockDragRef={blockDragRef}
             onPinLayout={onPinLayout}
+            selectedId={selectedId}
           />
         </div>
       ))}
@@ -105,7 +120,7 @@ export default function Canvas({
           inset: 0,
           width: "100%",
           height: "100%",
-          pointerEvents: "none"
+          pointerEvents: "none" 
         }}
       >
         {wires.map((w) => {
@@ -116,15 +131,20 @@ export default function Canvas({
 
           const mx = (from.x + to.x) / 2;
           const d = `M ${from.x} ${from.y} C ${mx} ${from.y} ${mx} ${to.y} ${to.x} ${to.y}`;
+          
+          const isSelected = w.id === selectedId;
 
           return (
             <path
               key={w.id}
               d={d}
+              onClick={(e) => handleWireClick(e, w.id)} 
               stroke={w.color || "green"}
-              strokeWidth={4}
+              strokeWidth={isSelected ? 6 : 4} // Increase width if selected
+              strokeOpacity={isSelected ? 1 : 0.9} 
               fill="none"
               strokeLinecap="round"
+              style={{ pointerEvents: 'auto' }} // Enable clicking on the path
             />
           );
         })}
