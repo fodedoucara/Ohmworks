@@ -1,17 +1,12 @@
 {
-  "id": "diode",
+  "id": "diode_generic",
   "name": "Diode",
-  "category": "Semiconductors",
-  "width": 140,
-  "height": 40,
-
-  "pins": [
-    { "id": "ANODE", "label": "A", "side": "left", "index": 0 },
-    { "id": "CATHODE", "label": "K", "side": "right", "index": 0 }
-  ],
-
-  "default_value": "",
-  "behavior": {
-    "type": "diode"
+  "category": "Components",
+  "svg": "http://localhost:4000/components-data/diode.svg",
+  "width": 64,
+  "height": 64,
+  "pins": {
+    "a1": {},
+    "b1": {}
   }
 }

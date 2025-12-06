@@ -1,0 +1,121 @@
+<svg
+  width="600"
+  height="400"
+  viewBox="0 0 600 400"
+  xmlns="http://www.w3.org/2000/svg"
+>
+
+  <!-- Board background -->
+  <rect x="20" y="20" width="560" height="360" rx="18" fill="#1e90ff" stroke="#0d3d6b" stroke-width="4"/>
+
+  <!-- USB block -->
+  <rect x="40" y="60" width="90" height="80" fill="#ccc" stroke="#333" stroke-width="3"/>
+
+  <!-- Power jack -->
+  <rect x="40" y="180" width="70" height="60" fill="#444" stroke="#111" stroke-width="3"/>
+
+  <!-- ATmega chip -->
+  <rect x="250" y="160" width="180" height="60" fill="#111" stroke="#000" stroke-width="2" rx="5"/>
+
+  <!-- Arduino Logo -->
+  <text x="300" y="120" font-size="40" fill="white" font-family="Arial" font-weight="bold">
+    ARDUINO
+  </text>
+  <text x="380" y="150" font-size="28" fill="white" font-family="Arial">
+    UNO
+  </text>
+
+  <!-- Digital Pins Top Row (resized to fit pins) -->
+  <g id="digital-row">
+    <rect x="148" y="10" width="340" height="20" fill="#111"/>
+  </g>
+
+  <!-- Analog + Power Pins Bottom Row (resized to fit pins) -->
+  <g id="analog-row">
+    <rect x="173" y="372" width="287" height="20" fill="#111"/>
+  </g>
+
+  <!-- Pins and Labels -->
+  <g id="pins">
+    <!-- Top row: D0–D13 evenly spaced, shifted down -->
+    <rect class="pin" id="D0" x="150" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="156" y="45" font-size="10" fill="white" transform="rotate(-90 156,45)">D0</text>
+
+    <rect class="pin" id="D1" x="175" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="181" y="45" font-size="10" fill="white" transform="rotate(-90 181,45)">D1</text>
+
+    <rect class="pin" id="D2" x="200" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="206" y="45" font-size="10" fill="white" transform="rotate(-90 206,45)">D2</text>
+
+    <rect class="pin" id="D3" x="225" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="231" y="45" font-size="10" fill="white" transform="rotate(-90 231,45)">D3</text>
+
+    <rect class="pin" id="D4" x="250" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="256" y="45" font-size="10" fill="white" transform="rotate(-90 256,45)">D4</text>
+
+    <rect class="pin" id="D5" x="275" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="281" y="45" font-size="10" fill="white" transform="rotate(-90 281,45)">D5</text>
+
+    <rect class="pin" id="D6" x="300" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="306" y="45" font-size="10" fill="white" transform="rotate(-90 306,45)">D6</text>
+
+    <rect class="pin" id="D7" x="325" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="331" y="45" font-size="10" fill="white" transform="rotate(-90 331,45)">D7</text>
+
+    <rect class="pin" id="D8" x="350" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="356" y="45" font-size="10" fill="white" transform="rotate(-90 356,45)">D8</text>
+
+    <rect class="pin" id="D9" x="375" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="381" y="45" font-size="10" fill="white" transform="rotate(-90 381,45)">D9</text>
+
+    <rect class="pin" id="D10" x="400" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="406" y="45" font-size="10" fill="white" transform="rotate(-90 406,45)">D10</text>
+
+    <rect class="pin" id="D11" x="425" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="431" y="45" font-size="10" fill="white" transform="rotate(-90 431,45)">D11</text>
+
+    <rect class="pin" id="D12" x="450" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="456" y="45" font-size="10" fill="white" transform="rotate(-90 456,45)">D12</text>
+
+    <rect class="pin" id="D13" x="475" y="15" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="481" y="45" font-size="10" fill="white" transform="rotate(-90 481,45)">D13</text>
+
+    <!-- Bottom row: Analog + Power Pins slightly downward shifted -->
+    <rect class="pin" id="GND" x="175" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="181" y="361" font-size="10" fill="white" transform="rotate(-90 181,361)">GND</text>
+
+    <rect class="pin" id="5V" x="200" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="206" y="361" font-size="10" fill="white" transform="rotate(-90 206,361)">5V</text>
+
+    <rect class="pin" id="3V3" x="225" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="231" y="361" font-size="10" fill="white" transform="rotate(-90 231,361)">3V3</text>
+
+    <rect class="pin" id="VIN" x="250" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="256" y="361" font-size="10" fill="white" transform="rotate(-90 256,361)">VIN</text>
+
+    <rect class="pin" id="RESET" x="275" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="281" y="361" font-size="10" fill="white" transform="rotate(-90 281,361)">RESET</text>
+
+    <rect class="pin" id="IOREF" x="300" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="306" y="361" font-size="10" fill="white" transform="rotate(-90 306,361)">IOREF</text>
+
+    <rect class="pin" id="A0" x="325" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="331" y="361" font-size="10" fill="white" transform="rotate(-90 331,361)">A0</text>
+
+    <rect class="pin" id="A1" x="350" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="356" y="361" font-size="10" fill="white" transform="rotate(-90 356,361)">A1</text>
+
+    <rect class="pin" id="A2" x="375" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="381" y="361" font-size="10" fill="white" transform="rotate(-90 381,361)">A2</text>
+
+    <rect class="pin" id="A3" x="400" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="406" y="361" font-size="10" fill="white" transform="rotate(-90 406,361)">A3</text>
+
+    <rect class="pin" id="A4" x="425" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="431" y="361" font-size="10" fill="white" transform="rotate(-90 431,361)">A4</text>
+
+    <rect class="pin" id="A5" x="450" y="374" width="12" height="12" rx="2" ry="2" fill="#666"/>
+    <text x="456" y="361" font-size="10" fill="white" transform="rotate(-90 456,361)">A5</text>
+  </g>
+
+</svg>

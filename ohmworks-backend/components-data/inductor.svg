@@ -1,0 +1,40 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left lead -->
+  <line x1="2" y1="32" x2="8" y2="32" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Coils (semi-circles) -->
+  <path d="M8,32
+            a6,6 0 0,1 12,0
+            a6,6 0 0,1 12,0
+            a6,6 0 0,1 12,0
+            a6,6 0 0,1 12,0" 
+        fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Right lead -->
+  <line x1="56" y1="32" x2="62" y2="32" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Pins (rectangular style) -->
+  <rect
+    class="pin"
+    id="a1"
+    x="0"
+    y="28"
+    width="8"
+    height="8"
+    rx="2"
+    ry="2"
+    fill="#666"
+  />
+  
+  <rect
+    class="pin"
+    id="b1"
+    x="56"
+    y="28"
+    width="8"
+    height="8"
+    rx="2"
+    ry="2"
+    fill="#666"
+  />
+</svg>

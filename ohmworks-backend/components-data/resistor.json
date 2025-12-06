@@ -1,18 +1,12 @@
 {
-  "id": "resistor",
+  "id": "resistor_generic",
   "name": "Resistor",
-  "category": "Passives",
-  "width": 120,
-  "height": 40,
-
-  "pins": [
-    { "id": "R1", "label": "1", "side": "left", "index": 0 },
-    { "id": "R2", "label": "2", "side": "right", "index": 0 }
-  ],
-
-  "default_value": "1kΩ",
-  "behavior": {
-    "type": "resistor",
-    "parameters": { "resistance": "1k" }
+  "category": "Components",
+  "svg": "http://localhost:4000/components-data/resistor.svg",
+  "width": 64,
+  "height": 64,
+  "pins": {
+    "a1": {},
+    "b1": {}
   }
 }
