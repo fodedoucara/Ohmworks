@@ -4,7 +4,6 @@ import useComponents from "./useComponents";
 export function useCanvasInteractions() {
     const blockDragRef = useRef(false);
 
-    // 🔥 MISSING BEFORE — this is required for wires to work
     const [selectedPin, setSelectedPin] = useState(null);
 
     const [placedComponents, setPlacedComponents] = useState([]);

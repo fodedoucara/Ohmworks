@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 export default function ComponentRenderer({
   component,
@@ -13,39 +13,50 @@ export default function ComponentRenderer({
   const containerRef = useRef(null);
 
   /* ============================================================
-     PIN CLICK LOGIC
-  ============================================================ */
-  function handlePinClick(event, pinId) {
+     PIN CLICK LOGIC - REVISED FOR STABILITY
+  ------------------------------------------------------------ */
+  const handlePinClick = useCallback((event, pinId) => {
     event.stopPropagation();
     event.preventDefault();
 
     const clicked = {
-      componentId: component.id,   // <-- instance ID, correct
+      componentId: component.id, // Stable dependency: component.id
       pinId
     };
 
-    console.log("selectedPin BEFORE click:", selectedPin);
-
-    // First pin
-    if (!selectedPin) {
-      setSelectedPin(clicked);
-      return;
-    }
-
-    // Second pin → create wire
-    setWires(prev => [
-      ...prev,
-      {
-        id: crypto.randomUUID(),
-        from: selectedPin,
-        to: clicked,
-        color: "green"
+    // Use the functional update for setSelectedPin to access the previous value safely
+    // without having 'selectedPin' in the useCallback dependency array.
+    setSelectedPin(prevSelectedPin => {
+      // First pin
+      if (!prevSelectedPin) {
+        return clicked; // Set the first pin
       }
-    ]);
 
-    // Reset selection shortly after click
-    setTimeout(() => setSelectedPin(null), 50);
-  }
+      // Second pin → create wire
+      // Only proceed if a different pin was clicked
+      if (
+        prevSelectedPin.componentId !== clicked.componentId ||
+        prevSelectedPin.pinId !== clicked.pinId
+      ) {
+        // Use the stable setWires setter (functional update)
+        setWires(prev => [
+          ...prev,
+          {
+            id: crypto.randomUUID(),
+            from: prevSelectedPin, // Use the state value captured by the functional update
+            to: clicked,
+            color: "green"
+          }
+        ]);
+      }
+
+      // Clear selection after connection attempt or if same pin was clicked
+      return null;
+    });
+
+    // Reset blockDragRef shortly after click
+    setTimeout(() => (blockDragRef.current = false), 5);
+  }, [component.id, setWires, setSelectedPin, blockDragRef]); // Dependencies for useCallback are now stable setters/refs/id.
 
   function isPinSelected(pinId) {
     return (
@@ -57,7 +68,7 @@ export default function ComponentRenderer({
 
   /* ============================================================
      LOAD SVG + ATTACH PIN EVENTS
-  ============================================================ */
+  ------------------------------------------------------------ */
   useEffect(() => {
     if (!component.svg) return;
 
@@ -87,19 +98,27 @@ export default function ComponentRenderer({
           const pinId = pinEl.id;
           pinEl.style.cursor = "pointer";
 
-          pinEl.addEventListener("mousedown", e => {
+          // MOUSE DOWN
+          const mouseDownHandler = e => {
             e.stopPropagation();
             e.preventDefault();
             blockDragRef.current = true;
-          });
+          };
+          pinEl.addEventListener("mousedown", mouseDownHandler);
 
-          pinEl.addEventListener("click", e => {
+          // CLICK
+          const clickHandler = e => {
             e.stopPropagation();
             e.preventDefault();
             handlePinClick(e, pinId);
+          };
+          pinEl.addEventListener("click", clickHandler);
 
-            setTimeout(() => (blockDragRef.current = false), 5);
-          });
+          // CLEANUP
+          return () => {
+            pinEl.removeEventListener("mousedown", mouseDownHandler);
+            pinEl.removeEventListener("click", clickHandler);
+          };
         });
 
         /* Collect pin-relative positions */
@@ -121,11 +140,18 @@ export default function ComponentRenderer({
           });
         }
       });
-  }, [component.svg, component.width, component.height,component.id]);
+  }, [
+    component.svg,
+    component.width,
+    component.height,
+    component.id,
+    onPinLayout,
+    handlePinClick // Now a memoized function, so it only changes when its own stable dependencies change
+  ]);
 
   /* ============================================================
      UPDATE PIN COLORS
-  ============================================================ */
+  ------------------------------------------------------------ */
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -145,11 +171,11 @@ export default function ComponentRenderer({
         pinEl.setAttribute("fill", "limegreen");
       }
     });
-  }, [selectedPin]);
+  }, [selectedPin, component.id]); // The color update still depends on selectedPin, but this doesn't re-attach listeners.
 
   /* ============================================================
      RENDER
-  ============================================================ */
+  ------------------------------------------------------------ */
   return (
     <div
       ref={containerRef}
