@@ -12,9 +12,6 @@ export default function Workspace() {
   const components = useComponents() || COMPONENT_LIBRARY;
   const groupedComponents = groupComponents(components);
 
-  // Removed: const [wires, setWires] = useState([]);
-
-
   const {
     canvasRef,
     placedComponents,
@@ -26,7 +23,7 @@ export default function Workspace() {
     selectedId,
     setSelectedId,
     selectedComponent,
-    selectedWire, // NEW
+    selectedWire,
     searchQuery,
     setSearchQuery,
     collapsed,
@@ -36,15 +33,15 @@ export default function Workspace() {
     handleMouseMove,
     handleMouseUp,
     handlePropertyChange,
-    handleWirePropertyChange, // NEW
+    handleWirePropertyChange,
     handleDelete,
     blockDragRef,
     pinLayout,
     onPinLayout,
     selectedPin,
     setSelectedPin,
-    wires, // NEW
-    setWires, // NEW
+    wires,
+    setWires,
   } = useCanvasInteractions();
 
   return (
@@ -85,9 +82,9 @@ export default function Workspace() {
 
         <PropertiesPanel
           selectedComponent={selectedComponent}
-          selectedWire={selectedWire} // NEW
+          selectedWire={selectedWire}
           handlePropertyChange={handlePropertyChange} 
-          handleWirePropertyChange={handleWirePropertyChange} // NEW
+          handleWirePropertyChange={handleWirePropertyChange}
           handleDelete={handleDelete}
         />
       </main>

@@ -3,7 +3,6 @@ import useComponents from "./useComponents";
 
 export function useCanvasInteractions() {
     const blockDragRef = useRef(false);
-
     const [wires, setWires] = useState([]); 
     const [selectedPin, setSelectedPin] = useState(null);
 
@@ -20,7 +19,6 @@ export function useCanvasInteractions() {
     const [collapsed, setCollapsed] = useState({});
 
     const selectedComponent = placedComponents.find(c => c.id === selectedId);
-    // NEW: Derived state for selected wire
     const selectedWire = wires.find(w => w.id === selectedId); 
 
     /* ============================================================
@@ -103,15 +101,12 @@ export function useCanvasInteractions() {
     /* ============================================================
        PROPERTY CHANGE HANDLERS
     ============================================================ */
-    // Existing component property change handler
     const handlePropertyChange = (id, key, value) =>
         setPlacedComponents(prev =>
             prev.map(c =>
                 c.id === id ? { ...c, props: { ...c.props, [key]: value } } : c
             )
         );
-
-    // NEW: Wire property change handler
     const handleWirePropertyChange = useCallback((id, key, value) => {
         setWires(prev =>
             prev.map(w =>
@@ -151,21 +146,15 @@ export function useCanvasInteractions() {
                 e.target.isContentEditable;
 
             if (isTyping) return;
-
-            // Call the unified handleDelete function
             if ((e.key === "Delete" || e.key === "Backspace") && selectedId) {
                 handleDelete();
             }
         };
 
         window.addEventListener("keydown", handleKeyDown);
-        // Added handleDelete dependency to ensure the correct deletion logic (component vs. wire) is used
+        // handleDelete dependency to ensure the correct deletion logic (component vs. wire) is used
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [selectedId, handleDelete]);
-
-    /* ============================================================
-       RETURN PUBLIC API
-    ============================================================ */
     return {
         canvasRef,
         placedComponents,
@@ -177,7 +166,7 @@ export function useCanvasInteractions() {
         selectedId,
         setSelectedId,
         selectedComponent,
-        selectedWire, // NEW
+        selectedWire,
         searchQuery,
         setSearchQuery,
         collapsed,
@@ -187,14 +176,14 @@ export function useCanvasInteractions() {
         handleMouseMove,
         handleMouseUp,
         handlePropertyChange,
-        handleWirePropertyChange, // NEW
+        handleWirePropertyChange,
         handleDelete,
         blockDragRef,
         selectedPin,
         setSelectedPin,
         pinLayout,
         onPinLayout,
-        wires, // NEW
-        setWires // NEW
+        wires,
+        setWires
     };
 }

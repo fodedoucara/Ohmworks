@@ -13,14 +13,14 @@ export default function ComponentRenderer({
   const containerRef = useRef(null);
 
   /* ============================================================
-     PIN CLICK LOGIC - REVISED FOR STABILITY
+     PIN CLICK LOGIC
   ------------------------------------------------------------ */
   const handlePinClick = useCallback((event, pinId) => {
     event.stopPropagation();
     event.preventDefault();
 
     const clicked = {
-      componentId: component.id, // Stable dependency: component.id
+      componentId: component.id,
       pinId
     };
 
@@ -33,7 +33,7 @@ export default function ComponentRenderer({
       }
 
       // Second pin → create wire
-      // Only proceed if a different pin was clicked (and not connecting a pin to itself)
+      // Only proceed if a different pin was clicked
       if (
         prevSelectedPin.componentId !== clicked.componentId ||
         prevSelectedPin.pinId !== clicked.pinId
@@ -49,14 +49,13 @@ export default function ComponentRenderer({
           }
         ]);
       }
-
       // Clear selection after connection attempt or if same pin was clicked
       return null;
     });
 
     // Reset blockDragRef shortly after click
     setTimeout(() => (blockDragRef.current = false), 5);
-  }, [component.id, setWires, setSelectedPin, blockDragRef]); 
+  }, [component.id, setWires, setSelectedPin, blockDragRef]);
 
   function isPinSelected(pinId) {
     return (
@@ -98,7 +97,7 @@ export default function ComponentRenderer({
           const pinId = pinEl.id;
           pinEl.style.cursor = "pointer";
 
-          // FIX: Increase the clickable area with a large, transparent stroke
+          //Increase the clickable area of pins with a large, transparent stroke
           pinEl.setAttribute("stroke", "transparent");
           pinEl.setAttribute("stroke-width", "12");
           pinEl.setAttribute("vector-effect", "non-scaling-stroke");
@@ -119,7 +118,6 @@ export default function ComponentRenderer({
           };
           pinEl.addEventListener("click", clickHandler);
 
-          // CLEANUP
           return () => {
             pinEl.removeEventListener("mousedown", mouseDownHandler);
             pinEl.removeEventListener("click", clickHandler);
@@ -151,7 +149,7 @@ export default function ComponentRenderer({
     component.height,
     component.id,
     onPinLayout,
-    handlePinClick 
+    handlePinClick
   ]);
 
   /* ============================================================
@@ -176,7 +174,7 @@ export default function ComponentRenderer({
         pinEl.setAttribute("fill", "limegreen");
       }
     });
-  }, [selectedPin, component.id]); 
+  }, [selectedPin, component.id]);
 
   /* ============================================================
      RENDER

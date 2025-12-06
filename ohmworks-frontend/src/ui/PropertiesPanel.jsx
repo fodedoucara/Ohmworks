@@ -2,12 +2,11 @@ import styles from "../pages/Workspace.module.css";
 
 export default function PropertiesPanel({
     selectedComponent,
-    selectedWire, // NEW PROP
+    selectedWire,
     handlePropertyChange, 
-    handleWirePropertyChange, // NEW PROP
+    handleWirePropertyChange,
     handleDelete // Handles both component and wire deletion
 }) {
-    // MODIFIED check to include selectedWire
     if (!selectedComponent && !selectedWire) {
         return (
             <div className={styles.panel}>
