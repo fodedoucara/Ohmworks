@@ -98,6 +98,13 @@ export default function ComponentRenderer({
           const pinId = pinEl.id;
           pinEl.style.cursor = "pointer";
 
+          // Set stroke to be transparent
+          pinEl.setAttribute("stroke", "transparent");
+          // Set the stroke width for larger target area
+          pinEl.setAttribute("stroke-width", "20");
+          // Ensure the stroke size doesn't change when the user zooms
+          pinEl.setAttribute("vector-effect", "non-scaling-stroke");
+
           // MOUSE DOWN
           const mouseDownHandler = e => {
             e.stopPropagation();
