@@ -1,5 +1,5 @@
 {
-  "id": "resistor_generic",
+  "id": "resistor",
   "name": "Resistor",
   "category": "Components",
   "svg": "http://localhost:4000/components-data/resistor.svg",

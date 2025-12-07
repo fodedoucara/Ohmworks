@@ -1,5 +1,5 @@
 {
-  "id": "diode_generic",
+  "id": "diode",
   "name": "Diode",
   "category": "Components",
   "svg": "http://localhost:4000/components-data/diode.svg",
