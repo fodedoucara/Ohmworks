@@ -1,34 +1,39 @@
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <!-- Leads -->
-  <line x1="12" y1="32" x2="24" y2="32" stroke="#000" stroke-width="4" stroke-linecap="round"/>
-  <line x1="40" y1="32" x2="52" y2="32" stroke="#000" stroke-width="4" stroke-linecap="round"/>
-  
-  <!-- Plates -->
-  <line x1="24" y1="16" x2="24" y2="48" stroke="#000" stroke-width="4" stroke-linecap="round"/>
-  <line x1="40" y1="16" x2="40" y2="48" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="80" viewBox="0 0 120 80">
 
-  <!-- Pins (rectangular style) -->
+  <!-- Leads -->
+  <rect x="48" y="45" width="2" height="35" fill="#cfcfcf"/>
+  <rect x="70" y="45" width="2" height="35" fill="#cfcfcf"/>
+
+  <!-- Disc body -->
+  <ellipse cx="59" cy="35" rx="22" ry="18" fill="#d98c2b" stroke="#8a5416" stroke-width="2"/>
+
+  <!-- Polarity markings -->
+  <text x="46" y="45" font-size="10" font-family="Arial" font-weight="bold" fill="#4a2a0f">+</text>
+  <text x="68" y="45" font-size="12" font-family="Arial" font-weight="bold" fill="#4a2a0f">–</text>
+
+  <!-- Pins -->
   <rect
     class="pin"
     id="a1"
-    x="8"
-    y="28"
+    x="45"
+    y="72"
     width="8"
     height="8"
     rx="2"
     ry="2"
     fill="#666"
   />
-  
+
   <rect
     class="pin"
     id="b1"
-    x="48"
-    y="28"
+    x="67"
+    y="72"
     width="8"
     height="8"
     rx="2"
     ry="2"
     fill="#666"
   />
+
 </svg>

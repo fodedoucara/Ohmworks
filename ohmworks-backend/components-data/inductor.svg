@@ -1,24 +1,28 @@
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <!-- Left lead -->
-  <line x1="2" y1="32" x2="8" y2="32" stroke="#000" stroke-width="4" stroke-linecap="round"/>
-  
-  <!-- Coils (semi-circles) -->
-  <path d="M8,32
-            a6,6 0 0,1 12,0
-            a6,6 0 0,1 12,0
-            a6,6 0 0,1 12,0
-            a6,6 0 0,1 12,0" 
-        fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
-  
-  <!-- Right lead -->
-  <line x1="56" y1="32" x2="62" y2="32" stroke="#000" stroke-width="4" stroke-linecap="round"/>
-  
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="80" viewBox="0 0 120 80">
+
+  <!-- Leads -->
+  <rect x="20" y="35" width="22" height="4" fill="#cfcfcf"/>
+  <rect x="78" y="35" width="22" height="4" fill="#cfcfcf"/>
+
+  <!-- Mask for donut shape -->
+  <defs>
+    <mask id="donutMask">
+      <!-- Outer circle: white = visible -->
+      <ellipse cx="60" cy="40" rx="28" ry="22" fill="white"/>
+      <!-- Inner circle: black = transparent -->
+      <ellipse cx="60" cy="40" rx="16" ry="12" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- Donut shape using mask -->
+  <ellipse cx="60" cy="40" rx="28" ry="22" fill="#c8781d" mask="url(#donutMask)" stroke="#7a4610" stroke-width="2"/>
+
   <!-- Pins (rectangular style) -->
   <rect
     class="pin"
     id="a1"
-    x="0"
-    y="28"
+    x="20"
+    y="33"
     width="8"
     height="8"
     rx="2"
@@ -29,8 +33,8 @@
   <rect
     class="pin"
     id="b1"
-    x="56"
-    y="28"
+    x="92"
+    y="33"
     width="8"
     height="8"
     rx="2"
