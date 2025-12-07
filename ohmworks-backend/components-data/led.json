@@ -3,8 +3,8 @@
   "name": "LED",
   "category": "Components",
   "svg": "http://localhost:4000/components-data/led.svg",
-  "width": 64,
-  "height": 64,
+  "width": 60,
+  "height": 120,
   "pins": {
     "a1": {},
     "b1": {}
