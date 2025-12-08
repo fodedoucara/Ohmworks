@@ -127,6 +127,75 @@ export default function PropertiesPanel({
     );
   }
 
+    // --- RENDER CAPACITOR PROPERTIES ---
+    if (templateId === "capacitor") {
+        return (
+        <div className={styles.panel}>
+            <h3>Capacitor Properties</h3>
+            <div className={styles.row}>
+            <label>Capacitance (F)</label>
+            <input
+                type="number"
+                value={selectedComponent.props?.capacitance || 0.001}
+                step="0.001"
+                onChange={(e) =>
+                handlePropertyChange(id, "capacitance", parseFloat(e.target.value))
+                }
+            />
+            </div>
+            <button className={styles.deleteButton} onClick={handleDelete}>
+            Delete Component
+            </button>
+        </div>
+        );
+    }
+
+    // --- RENDER DIODE PROPERTIES ---
+    if (templateId === "diode") {
+        return (
+        <div className={styles.panel}>
+            <h3>Diode Properties</h3>
+            <div className={styles.row}>
+            <label>Forward Voltage (V)</label>
+            <input
+                type="number"
+                value={selectedComponent.props?.forwardVoltage || 0.7}
+                step="0.01"
+                onChange={(e) =>
+                handlePropertyChange(id, "forwardVoltage", parseFloat(e.target.value))
+                }
+            />
+            </div>
+            <button className={styles.deleteButton} onClick={handleDelete}>
+            Delete Component
+            </button>
+        </div>
+        );
+    }
+
+    // --- RENDER INDUCTOR PROPERTIES ---
+    if (templateId === "inductor") {
+        return (
+        <div className={styles.panel}>
+            <h3>Inductor Properties</h3>
+            <div className={styles.row}>
+            <label>Inductance (H)</label>
+            <input
+                type="number"
+                value={selectedComponent.props?.inductance || 0.000001}
+                step="0.001"
+                onChange={(e) =>
+                handlePropertyChange(id, "inductance", parseFloat(e.target.value))
+                }
+            />
+            </div>
+            <button className={styles.deleteButton} onClick={handleDelete}>
+            Delete Component
+            </button>
+        </div>
+        );
+    }
+
     // --- RENDER DEFAULT PROPERTIES ---
     return (
         <div className={styles.panel}>

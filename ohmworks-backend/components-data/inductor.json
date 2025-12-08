@@ -5,6 +5,7 @@
   "svg": "http://localhost:4000/components-data/inductor.svg",
   "width": 120,
   "height": 80,
+  "inductance": 0.003,
   "pins": {
     "a1": {},
     "b1": {}

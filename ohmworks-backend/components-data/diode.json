@@ -5,6 +5,7 @@
   "svg": "http://localhost:4000/components-data/diode.svg",
   "width": 160,
   "height": 60,
+  "forwardVoltage": 0.7,
   "pins": {
     "a1": {},
     "b1": {}
