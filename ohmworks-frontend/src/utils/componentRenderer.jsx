@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useCallback } from "react";
+import { RESISTOR_BAND_OPTIONS } from "./resistorBands";
+
 
 export default function ComponentRenderer({
   component,
@@ -178,18 +180,39 @@ export default function ComponentRenderer({
 
   /* ============================================================
    UPDATE LED COLOR
------------------------------------------------------------- */
-useEffect(() => {
-    if (component.templateId !== "led") return;
+  ------------------------------------------------------------ */
+  useEffect(() => {
+      if (component.templateId !== "led") return;
 
+      const container = containerRef.current;
+      if (!container) return;
+
+      const color = component.props?.Color || "#00ff00";
+
+      container.style.setProperty("--led-color", color);
+      container.style.setProperty("--led-stroke", color);
+    }, [component.props?.Color, component.templateId]);
+
+  /* ============================================================
+   UPDATE RESISTOR BANDS
+  ------------------------------------------------------------ */
+  useEffect(() => {
+    if (component.templateId !== "resistor") return;
     const container = containerRef.current;
     if (!container) return;
 
-    const color = component.props?.Color || "#00ff00";
+    container.style.setProperty("--band1-color", RESISTOR_BAND_OPTIONS.band1.find(o => o.value === component.props?.Band1)?.color || "#ff0000");
+    container.style.setProperty("--band2-color", RESISTOR_BAND_OPTIONS.band2.find(o => o.value === component.props?.Band2)?.color || "#ffcc00");
+    container.style.setProperty("--band3-color", RESISTOR_BAND_OPTIONS.band3.find(o => o.value === component.props?.Multiplier)?.color || "#000000");
+    container.style.setProperty("--band4-color", RESISTOR_BAND_OPTIONS.band4.find(o => o.value === component.props?.Tolerance)?.color || "#ff9900");
+}, [
+    component.props?.Band1,
+    component.props?.Band2,
+    component.props?.Multiplier,
+    component.props?.Tolerance,
+    component.templateId
+]);
 
-    container.style.setProperty("--led-color", color);
-    container.style.setProperty("--led-stroke", color);
-  }, [component.props?.Color, component.templateId]);
 
   /* ============================================================
      RENDER

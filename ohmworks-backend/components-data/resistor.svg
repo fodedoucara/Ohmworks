@@ -1,12 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="20" viewBox="0 0 100 20">
+  <style>
+    .band1 { fill: var(--band1-color, #ff0000); }
+    .band2 { fill: var(--band2-color, #ffcc00); }
+    .band3 { fill: var(--band3-color, #000000); }
+    .band4 { fill: var(--band4-color, #ff9900); }
+  </style>
+
   <!-- Resistor body -->
   <rect x="20" y="5" width="60" height="10" rx="5" ry="5" fill="#f4d5a1" stroke="#bfa16d" stroke-width="1"/>
   
   <!-- Color bands -->
-  <rect x="30" y="5" width="4" height="10" fill="#ff0000"/>
-  <rect x="40" y="5" width="4" height="10" fill="#ffcc00"/>
-  <rect x="50" y="5" width="4" height="10" fill="#000000"/>
-  <rect x="66" y="5" width="4" height="10" fill="#ff9900"/>
+  <rect class="band1" x="30" y="5" width="4" height="10"/>
+  <rect class="band2" x="40" y="5" width="4" height="10"/>
+  <rect class="band3" x="50" y="5" width="4" height="10"/>
+  <rect class="band4" x="66" y="5" width="4" height="10"/>
 
   <!-- Metallic leads -->
   <rect x="0" y="9" width="20" height="2" fill="#cccccc"/>
