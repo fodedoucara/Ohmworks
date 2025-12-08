@@ -101,12 +101,23 @@ export function useCanvasInteractions() {
     /* ============================================================
        PROPERTY CHANGE HANDLERS
     ============================================================ */
-    const handlePropertyChange = (id, key, value) =>
+    const handlePropertyChange = (id, key, value) => {
         setPlacedComponents(prev =>
-            prev.map(c =>
-                c.id === id ? { ...c, props: { ...c.props, [key]: value } } : c
-            )
-        );
+            prev.map(c => {
+                if (c.id !== id) return c;
+
+                const newProps = { ...c.props, [key]: value };
+
+      // If LED, ensure props exist for CSS variable usage
+                if (c.templateId === "led" && key === "Color") {
+                    return { ...c, props: newProps };
+                }
+
+      // Default update for other properties
+                return { ...c, props: newProps };
+    })
+  );
+};
     const handleWirePropertyChange = useCallback((id, key, value) => {
         setWires(prev =>
             prev.map(w =>

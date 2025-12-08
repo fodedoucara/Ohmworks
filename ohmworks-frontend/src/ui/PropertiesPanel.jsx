@@ -41,11 +41,37 @@ export default function PropertiesPanel({
     }
 
     // --- RENDER COMPONENT PROPERTIES --- (If selectedComponent exists)
-    const { id, type } = selectedComponent;
+    const { id, templateId } = selectedComponent;
 
+
+    // --- RENDER LED PROPERTIES ---
+    if (templateId === "led") {
     return (
         <div className={styles.panel}>
-            <h3>Properties: {type}</h3>
+            <h3>LED Properties</h3>
+
+            <div className={styles.row}>
+                <label>Color</label>
+                <input
+                    type="color"
+                    value={selectedComponent.props?.Color || "#00ff00"}
+                    onChange={(e) =>
+                        handlePropertyChange(id, "Color", e.target.value)
+                    }
+                />
+            </div>
+
+            <button className={styles.deleteButton} onClick={handleDelete}>
+                Delete Component
+            </button>
+        </div>
+    );
+}
+
+    // --- RENDER DEFAULT PROPERTIES ---
+    return (
+        <div className={styles.panel}>
+            <h3>Properties: {templateId}</h3>
 
             {Object.entries(selectedComponent.props || {}).map(([key, value]) => (
                 <div key={key} className={styles.row}>

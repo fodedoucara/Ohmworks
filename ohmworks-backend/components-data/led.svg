@@ -1,41 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="120" viewBox="0 0 60 120">
 
+  <style>
+    .led-shell {
+      fill: var(--led-color, #00ff00);
+      stroke: var(--led-stroke, #00ff00);
+    }
+  </style>
+
   <!-- Smooth LED Dome -->
-  <path d="M20,40 
-           Q30,10 40,40 
-           Z" 
-        fill="green" stroke="#2c6d2c" stroke-width="1"/>
+  <path class="led-shell"
+        d="M20,40 Q30,10 40,40 Z"
+        stroke-width="1"/>
 
   <!-- LED Base flange -->
-  <rect x="20" y="40" width="20" height="10" fill="green" stroke = "#2c6d2c"/>
-  <rect x="21" y="39" width="18" height="2" fill="green"/>
+  <rect class="led-shell" x="20" y="40" width="20" height="10" stroke-width="1"/>
+  <rect class="led-shell" x="21" y="39" width="18" height="2"/>
 
   <!-- LED leads -->
   <line x1="24" y1="50" x2="24" y2="110" stroke="#555" stroke-width="1.5"/>
   <line x1="36" y1="50" x2="36" y2="110" stroke="#555" stroke-width="1.5"/>
 
   <!-- Pins (rectangular style) -->
-  <rect
-    class="pin"
-    id="a1"
-    x="20"
-    y="102"
-    width="8"
-    height="8"
-    rx="2"
-    ry="2"
-    fill="#666"
-  />
-  
-  <rect
-    class="pin"
-    id="b1"
-    x="32"
-    y="102"
-    width="8"
-    height="8"
-    rx="2"
-    ry="2"
-    fill="#666"
-  />
+  <rect class="pin" id="a1" x="20" y="102" width="8" height="8" rx="2" ry="2" fill="#666" />
+  <rect class="pin" id="b1" x="32" y="102" width="8" height="8" rx="2" ry="2" fill="#666" />
 </svg>

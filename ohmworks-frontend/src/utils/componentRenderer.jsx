@@ -177,6 +177,21 @@ export default function ComponentRenderer({
   }, [selectedPin, component.id]);
 
   /* ============================================================
+   UPDATE LED COLOR
+------------------------------------------------------------ */
+useEffect(() => {
+    if (component.templateId !== "led") return;
+
+    const container = containerRef.current;
+    if (!container) return;
+
+    const color = component.props?.Color || "#00ff00";
+
+    container.style.setProperty("--led-color", color);
+    container.style.setProperty("--led-stroke", color);
+  }, [component.props?.Color, component.templateId]);
+
+  /* ============================================================
      RENDER
   ------------------------------------------------------------ */
   return (
