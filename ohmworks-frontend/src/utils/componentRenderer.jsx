@@ -227,6 +227,64 @@ export default function ComponentRenderer({
         userSelect: "none",
         pointerEvents: "auto"
       }}
-    />
+    >
+      {/* --- Dynamic Component Label Above --- */}
+      {(() => {
+        let label = null;
+
+        switch (component.templateId) {
+          case "resistor":
+            label = component.props?.resistance;
+            break;
+          case "capacitor":
+            label = component.props?.capacitance
+              ? `${component.props.capacitance} µF`
+              : null;
+            break;
+          case "diode":
+            label = component.props?.forwardVoltage
+              ? `${component.props.forwardVoltage} V`
+              : null;
+            break;
+          case "led":
+            label = component.props?.forwardVoltage
+              ? `${component.props.forwardVoltage} V`
+              : null;
+            break;
+          case "inductor":
+            label = component.props?.inductance
+              ? `${component.props.inductance} H`
+              : null;
+            break;
+          default:
+            break;
+        }
+
+        if (!label) return null;
+
+        return (
+          <div
+            style={{
+              position: "absolute",
+              top: -18,
+              left: "50%",
+              transform: "translateX(-50%)",
+              fontSize: "12px",
+              fontWeight: 500,
+              background: "rgba(255,255,255,0.85)",
+              color: "#333",
+              padding: "1px 4px",
+              borderRadius: "4px",
+              pointerEvents: "none",
+              whiteSpace: "nowrap"
+            }}
+          >
+            {label}
+          </div>
+        );
+      })()}
+    </div>
   );
+
+
 }

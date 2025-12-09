@@ -1,4 +1,5 @@
 import styles from "../pages/Workspace.module.css";
+import { useEffect, useRef, useCallback } from "react";
 import { RESISTOR_BAND_OPTIONS } from "../utils/resistorBands";
 
 // Helper function to get readable text color based on background
@@ -112,6 +113,11 @@ export default function PropertiesPanel({
     };
 
     const formattedResistance = formatResistance(resistanceValue);
+
+    // Keep resistor's resistance stored in its props
+    useEffect(() => {
+    handlePropertyChange(id, "resistance", formattedResistance);
+    },  [band1, band2, multiplier, tolerance]);
 
     return (
         <div className={styles.panel}>
