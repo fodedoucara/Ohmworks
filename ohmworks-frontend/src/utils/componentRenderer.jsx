@@ -217,6 +217,20 @@ export default function ComponentRenderer({
   /* ============================================================
      RENDER
   ------------------------------------------------------------ */
+
+  // --- Helper: smart unit formatting ---
+  function formatValue(value) {
+    if (value == null || isNaN(value)) return "";
+    const abs = Math.abs(value);
+    if (abs >= 1e6) return `${(value / 1e6).toFixed(2)} M`;
+    if (abs >= 1e3) return `${(value / 1e3).toFixed(2)} k`;
+    if (abs >= 1) return `${value.toFixed(2)}`;
+    if (abs >= 1e-3) return `${(value * 1e3).toFixed(2)} m`;
+    if (abs >= 1e-6) return `${(value * 1e6).toFixed(2)} µ`;
+    if (abs >= 1e-9) return `${(value * 1e9).toFixed(2)} n`;
+    return `${value}`;
+  }
+
   return (
     <div
       ref={containerRef}
@@ -228,7 +242,6 @@ export default function ComponentRenderer({
         pointerEvents: "auto"
       }}
     >
-      {/* --- Dynamic Component Label Above --- */}
       {(() => {
         let label = null;
 
@@ -238,22 +251,22 @@ export default function ComponentRenderer({
             break;
           case "capacitor":
             label = component.props?.capacitance
-              ? `${component.props.capacitance} µF`
+              ? `${formatValue(component.props.capacitance)}F`
               : null;
             break;
           case "diode":
             label = component.props?.forwardVoltage
-              ? `${component.props.forwardVoltage} V`
+              ? `${formatValue(component.props.forwardVoltage)}V`
               : null;
             break;
           case "led":
             label = component.props?.forwardVoltage
-              ? `${component.props.forwardVoltage} V`
+              ? `${formatValue(component.props.forwardVoltage)}V`
               : null;
             break;
           case "inductor":
             label = component.props?.inductance
-              ? `${component.props.inductance} H`
+              ? `${formatValue(component.props.inductance)}H`
               : null;
             break;
           default:
