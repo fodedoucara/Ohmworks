@@ -58,74 +58,112 @@ export default function PropertiesPanel({
     if (templateId === "led") {
     return (
         <div className={styles.panel}>
-            <h3>LED Properties</h3>
+        <h3>LED Properties</h3>
 
-            <div className={styles.row}>
-                <label>Color</label>
-                <input
-                    type="color"
-                    value={selectedComponent.props?.Color || "#00ff00"}
-                    onChange={(e) =>
-                        handlePropertyChange(id, "Color", e.target.value)
-                    }
-                />
-            </div>
-
-            <button className={styles.deleteButton} onClick={handleDelete}>
-                Delete Component
-            </button>
+        <div className={styles.row}>
+            <label>Color</label>
+            <input
+            type="color"
+            value={selectedComponent.props?.Color || "#00ff00"}
+            onChange={(e) =>
+                handlePropertyChange(id, "Color", e.target.value)
+            }
+            />
         </div>
-    );
+
+        <div className={styles.row}>
+            <label>Forward Voltage (V)</label>
+            <input
+            type="number"
+            value={selectedComponent.props?.forwardVoltage || 2.0}
+            step="0.01"
+            onChange={(e) =>
+                handlePropertyChange(id, "forwardVoltage", parseFloat(e.target.value))
+            }
+            />
+        </div>
+
+        <button className={styles.deleteButton} onClick={handleDelete}>
+            Delete Component
+        </button>
+        </div>
+  );
 }
+
 
     // --- RENDER RESISTOR PROPERTIES ---
     if (templateId === "resistor") {
     const bands = ["Band1", "Band2", "Multiplier", "Tolerance"];
 
+    const band1 = selectedComponent.props?.Band1 || "0";
+    const band2 = selectedComponent.props?.Band2 || "0";
+    const multiplier = selectedComponent.props?.Multiplier || "0.01";
+    const tolerance = selectedComponent.props?.Tolerance || "±0.05%";
+
+    // --- Calculate resistance value ---
+    const resistanceValue = (parseInt(band1 + band2) * parseFloat(multiplier));
+    
+    // Format resistance nicely (Ω, kΩ, MΩ)
+    const formatResistance = (value) => {
+        if (value >= 1_000_000_000) return `${(value / 1_000_000_000).toFixed(2)} GΩ`;
+        if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(2)} MΩ`;
+        if (value >= 1_000) return `${(value / 1_000).toFixed(2)} kΩ`;
+        return `${value} Ω`;
+    };
+
+    const formattedResistance = formatResistance(resistanceValue);
+
     return (
-      <div className={styles.panel}>
+        <div className={styles.panel}>
         <h3>Resistor Properties</h3>
 
         {bands.map((bandKey, idx) => {
-          const options = RESISTOR_BAND_OPTIONS[["band1", "band2", "band3", "band4"][idx]];
-          const selectedValue = selectedComponent.props?.[bandKey] || options[0].value;
+            const options = RESISTOR_BAND_OPTIONS[["band1", "band2", "band3", "band4"][idx]];
+            const selectedValue = selectedComponent.props?.[bandKey] || options[0].value;
 
-          return (
+            return (
             <div className={styles.row} key={bandKey}>
-              <label>{bandKey}</label>
-              <select
+                <label>{bandKey}</label>
+                <select
                 value={selectedValue}
                 onChange={(e) =>
-                  handlePropertyChange(selectedComponent.id, bandKey, e.target.value)
+                    handlePropertyChange(selectedComponent.id, bandKey, e.target.value)
                 }
                 style={{
-                  backgroundColor: options.find(opt => opt.value === selectedValue)?.color || "#fff",
-                  color: getTextColor(options.find(opt => opt.value === selectedValue)?.color || "#fff")
+                    backgroundColor: options.find(opt => opt.value === selectedValue)?.color || "#fff",
+                    color: getTextColor(options.find(opt => opt.value === selectedValue)?.color || "#fff")
                 }}
-              >
+                >
                 {options.map(opt => (
-                  <option
+                    <option
                     key={opt.value}
                     value={opt.value}
                     style={{
-                      backgroundColor: opt.color,
-                      color: getTextColor(opt.color)
+                        backgroundColor: opt.color,
+                        color: getTextColor(opt.color)
                     }}
-                  >
-                    {opt.label} ({opt.value})
-                  </option>
+                    >
+                    {opt.label}
+                    </option>
                 ))}
-              </select>
+                </select>
             </div>
-          );
+            );
         })}
 
+        {/* --- Display Calculated Resistance --- */}
+        <div className={styles.row}>
+            <label>Resistance:</label>
+            <span>{formattedResistance} {tolerance}</span>
+        </div>
+
         <button className={styles.deleteButton} onClick={handleDelete}>
-          Delete Component
+            Delete Component
         </button>
-      </div>
+        </div>
     );
-  }
+}
+
 
     // --- RENDER CAPACITOR PROPERTIES ---
     if (templateId === "capacitor") {
