@@ -3,6 +3,7 @@ import useComponents from "../utils/useComponents";
 import { COMPONENT_LIBRARY } from "../data/electronicComponents";
 import { groupComponents } from "../utils/groupComponents.js";
 import { useCanvasInteractions } from "../utils/useCanvasInteractions";
+import { useState } from "react"; 
 
 import Sidebar from "../ui/Sidebar";
 import Canvas from "../ui/Canvas";
@@ -11,6 +12,8 @@ import PropertiesPanel from "../ui/PropertiesPanel";
 export default function Workspace() {
   const components = useComponents() || COMPONENT_LIBRARY;
   const groupedComponents = groupComponents(components);
+  const [showLabels, setShowLabels] = useState(true);
+
 
   const {
     canvasRef,
@@ -78,6 +81,8 @@ export default function Workspace() {
           blockDragRef={blockDragRef}
           pinLayout={pinLayout}
           onPinLayout={onPinLayout}
+          showLabels={showLabels}
+          setShowLabels={setShowLabels}
         />
 
         <PropertiesPanel

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import styles from "../pages/Workspace.module.css";
 import ComponentRenderer from "../utils/componentRenderer.jsx";
-import { useCallback } from "react"; 
+import {useState, useCallback } from "react"; 
 
 export default function Canvas({
   canvasRef,
@@ -23,11 +23,14 @@ export default function Canvas({
   setSelectedPin,
   blockDragRef,
   pinLayout,
-  onPinLayout
+  onPinLayout,
+  showLabels,
+  setShowLabels
 }) {
   console.log("PIN LAYOUT KEYS:", Object.keys(pinLayout));
   console.log("WIRES:", wires);
 
+  
   /* ------------------------------------------------------------
      Compute absolute wire anchor points
   ------------------------------------------------------------ */
@@ -72,6 +75,13 @@ export default function Canvas({
       onMouseUp={handleMouseUp}
       style={{ position: "relative" }}
     >
+
+    <button
+    className={styles.labelToggleButton}
+    onClick={() => setShowLabels(prev => !prev)}
+    >
+    {showLabels ? "Hide Labels" : "Show Labels"}
+    </button>
       {/* ------------------------------------------------------
          Render placed components
       ------------------------------------------------------ */}
@@ -107,6 +117,7 @@ export default function Canvas({
             blockDragRef={blockDragRef}
             onPinLayout={onPinLayout}
             selectedId={selectedId}
+            showLabels={showLabels} 
           />
         </div>
       ))}

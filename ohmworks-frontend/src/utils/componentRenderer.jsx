@@ -11,6 +11,7 @@ export default function ComponentRenderer({
   setSelectedPin,
   blockDragRef,
   onPinLayout,
+  showLabels
 }) {
   const containerRef = useRef(null);
 
@@ -273,7 +274,7 @@ export default function ComponentRenderer({
             break;
         }
 
-        if (!label) return null;
+        if (!showLabels || !label) return null;
 
         return (
           <div
