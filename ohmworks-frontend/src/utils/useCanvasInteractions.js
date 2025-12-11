@@ -12,6 +12,8 @@ export function useCanvasInteractions() {
     const canvasRef = useRef(null);
     const [selectedId, setSelectedId] = useState(null);
 
+    const [showLabels, setShowLabels] = useState(true);
+
     const [pinLayout, setPinLayout] = useState({});
 
     const components = useComponents() || [];
@@ -195,6 +197,8 @@ export function useCanvasInteractions() {
         pinLayout,
         onPinLayout,
         wires,
-        setWires
+        setWires,
+        showLabels,
+        setShowLabels
     };
 }

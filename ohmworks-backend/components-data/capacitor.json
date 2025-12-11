@@ -5,7 +5,9 @@
   "svg": "http://localhost:4000/components-data/capacitor.svg",
   "width": 120,
   "height": 80,
-  "capacitance": 0.000006,
+  "props": {
+    "capacitance": 0.000006
+},
   "pins": {
     "a1": {
     },

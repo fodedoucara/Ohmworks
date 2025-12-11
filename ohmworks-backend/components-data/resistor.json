@@ -5,6 +5,13 @@
   "svg": "http://localhost:4000/components-data/resistor.svg",
   "width": 100,
   "height": 20,
+  "props": {
+    "resistance": 1000,
+    "Band1": "1",
+    "Band2": "0",
+    "Multiplier": "100",
+    "Tolerance": "±5%"
+  },
   "pins": {
     "a1": {},
     "b1": {}

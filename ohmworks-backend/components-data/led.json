@@ -5,6 +5,10 @@
   "svg": "http://localhost:4000/components-data/led.svg",
   "width": 60,
   "height": 120,
+  "props": {
+    "forwardVoltage": 2.0,
+    "Color": "#00ff00"
+  },
   "pins": {
     "a1": {},
     "b1": {}
