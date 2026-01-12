@@ -1,5 +1,5 @@
 import styles from "../pages/Workspace.module.css"
-import ComponentIcon from "../utils/ComponentIcon.jsx";
+import ComponentIcon from "../ui-utils/ComponentIcon.jsx";
 
 export default function Sidebar({
     groupedComponents,

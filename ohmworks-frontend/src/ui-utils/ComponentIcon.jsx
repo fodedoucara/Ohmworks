@@ -1,4 +1,4 @@
-import { ICON_MAP } from "../utils/ICON_MAP.js";
+import { ICON_MAP } from "./ICON_MAP.js";
 
 export default function ComponentIcon({ id, size = 30, color = "#000" }) {
   const Icon = ICON_MAP[id];

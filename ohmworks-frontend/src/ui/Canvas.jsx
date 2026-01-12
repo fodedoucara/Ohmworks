@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import styles from "../pages/Workspace.module.css";
-import ComponentRenderer from "../utils/componentRenderer.jsx";
+import ComponentRenderer from "../ui-utils/componentRenderer.jsx";
 import {useState, useCallback } from "react"; 
 
 export default function Canvas({

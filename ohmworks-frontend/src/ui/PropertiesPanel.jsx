@@ -1,6 +1,6 @@
 import styles from "../pages/Workspace.module.css";
 import { useEffect, useRef, useCallback } from "react";
-import { RESISTOR_BAND_OPTIONS } from "../utils/resistorBands";
+import { RESISTOR_BAND_OPTIONS } from "../ui-utils/resistorBands";
 
 // Helper function to get readable text color based on background
 function getTextColor(hexColor) {

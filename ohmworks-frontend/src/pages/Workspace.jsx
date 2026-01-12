@@ -1,8 +1,8 @@
 import styles from "./Workspace.module.css";
-import useComponents from "../utils/useComponents";
+import useComponents from "../ui-utils/useComponents.js";
 import { COMPONENT_LIBRARY } from "../data/electronicComponents";
-import { groupComponents } from "../utils/groupComponents.js";
-import { useCanvasInteractions } from "../utils/useCanvasInteractions";
+import { groupComponents } from "../ui-utils/groupComponents.js";
+import { useCanvasInteractions } from "../ui-utils/useCanvasInteractions.js";
 
 import Sidebar from "../ui/Sidebar";
 import Canvas from "../ui/Canvas";
