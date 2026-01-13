@@ -40,5 +40,6 @@
     "analog": ["A0", "A1", "A2", "A3", "A4", "A5"],
     "power": ["GND1", "GND2", "5V", "3V3", "VIN"],
     "control": ["RESET", "IOREF"]
-  }
+  },
+  "internalPinsConnected": false
 }

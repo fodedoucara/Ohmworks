@@ -1768,5 +1768,6 @@
       "rail_bottom_neg_24",
       "rail_bottom_neg_25"
     ]
-  }
+  },
+  "internalPinsConnected": true
 }

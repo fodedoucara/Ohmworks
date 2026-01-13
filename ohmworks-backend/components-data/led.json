@@ -12,5 +12,6 @@
   "pins": {
     "a1": {},
     "b1": {}
-  }
+  },
+  "internalPinsConnected": false
 }
