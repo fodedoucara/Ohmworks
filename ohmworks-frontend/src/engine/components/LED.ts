@@ -19,8 +19,9 @@ export class LED implements ComponentBehavior {
 
     return [{
       type: "diode",
-      nodes: [anode, cathode],
-      value: this.forwardVoltage
+      anode,
+      cathode,
+      volts: this.forwardVoltage
     }];
   }
 

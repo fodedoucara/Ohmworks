@@ -13,8 +13,8 @@ export class Capacitor implements ComponentBehavior {
     private readonly capacitance: number
   ) {}
 
-  stamp(): Constraint[] {
-    return [];
+  stamp(netlist: Netlist): Constraint[] { 
+    return []; 
   }
 
   validate(): string[] {

@@ -12,13 +12,14 @@ export class Diode implements ComponentBehavior {
   ) {}
 
   stamp(netlist: Netlist): Constraint[] {
-    const a = netlist.getPin(this.id, "a1").node.id;
-    const b = netlist.getPin(this.id, "b1").node.id;
+    const anode = netlist.getPin(this.id, "a1").node.id;
+    const cathode = netlist.getPin(this.id, "b1").node.id;
 
     return [{
       type: "diode",
-      nodes: [a, b],
-      value: this.forwardVoltage
+      anode,
+      cathode,
+      volts: this.forwardVoltage
     }];
   }
 

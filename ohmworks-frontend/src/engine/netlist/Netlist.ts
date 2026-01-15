@@ -80,4 +80,23 @@ export class Netlist {
             pins: [...net.pins].map(p => `${p.componentID}.${p.pinID}`)
         }));
     }
+
+    
+    // ---- New Helpers for DCSolver ----
+
+    /**
+     * Returns all ElectricalNode IDs in the netlist
+     */
+    getAllNodeIDs(): string[] {
+        return [...this.nets.keys()];
+    }
+
+    /**
+     * Returns all PinRefs attached to a node
+     */
+    getPinsForNode(nodeID: string): PinRef[] {
+        const net = this.nets.get(nodeID);
+        if (!net) throw new Error(`Node ${nodeID} not found`);
+        return [...net.pins];
+    }
 }

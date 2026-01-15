@@ -1,6 +1,7 @@
 import { ComponentBehavior } from "./ComponentBehavior";
 import { Netlist } from "../netlist/Netlist";
-import { Constraint } from "../solver/Constraint";
+import { VoltageSourceConstraint, Constraint } from "../solver/Constraint";
+import { NodeID } from "../netlist/ElectricalNode";
 
 export class VoltageSource implements ComponentBehavior {
   readonly type = "voltage_source";
@@ -11,22 +12,27 @@ export class VoltageSource implements ComponentBehavior {
     private readonly voltage: number
   ) {}
 
-  stamp(netlist: Netlist): Constraint[] {
+  stamp(netlist: Netlist, ground?: NodeID): Constraint[] {
     const pos = netlist.getPin(this.id, "a1").node.id;
     const neg = netlist.getPin(this.id, "b1").node.id;
+
+    // If positive node is same as ground, swap
+    const [positive, negative] = pos === neg ? [pos, ground] : [pos, neg];
+
 
     return [{
-      type: "fixed_voltage",
-      nodes: [pos, neg],
-      value: this.voltage
-    }];
-  }
+            type: "voltage",
+            positive,
+            negative,
+            volts: this.voltage
+        } as VoltageSourceConstraint];
+    }
 
   validate(netlist: Netlist): string[] {
-    const pos = netlist.getPin(this.id, "a1").node.id;
-    const neg = netlist.getPin(this.id, "b1").node.id;
+    const positive = netlist.getPin(this.id, "a1").node.id;
+    const negative = netlist.getPin(this.id, "b1").node.id;
 
-    if (pos === neg) {
+    if (positive === negative) {
       return [`Voltage source ${this.id} is shorted`];
     }
     return [];

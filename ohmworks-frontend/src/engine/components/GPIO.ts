@@ -1,6 +1,6 @@
 import { ComponentBehavior } from "./ComponentBehavior";
 import { Netlist } from "../netlist/Netlist";
-import { Constraint } from "../solver/Constraint";
+import { VoltageSourceConstraint, Constraint } from "../solver/Constraint";
 
 export type GPIOMode = "input" | "output";
 export type GPIOState = "high" | "low";
@@ -22,13 +22,15 @@ export class GPIO implements ComponentBehavior {
     }
 
     const node = netlist.getPin(this.id, "a1").node.id;
+    const ground = netlist.getAllNodeIDs()[0];
 
     return [{
-      type: "fixed_voltage",
-      nodes: [node],
-      value: this.state === "high" ? this.highVoltage : 0
-    }];
-  }
+            type: "voltage",
+            positive: node,
+            negative: ground,
+            volts: this.state === "high" ? this.highVoltage : 0
+        } as VoltageSourceConstraint];
+    }
 
   validate(): string[] {
     return [];

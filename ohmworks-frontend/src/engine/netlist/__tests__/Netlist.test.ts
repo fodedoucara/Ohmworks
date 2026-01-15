@@ -76,4 +76,24 @@ describe("Netlist", () => {
         const net = nets.find(n => n.pins.includes("R1.2"));
         expect(net?.pins).toContain("LED1.1");
     });
+
+    
+    // ---- NEW TESTS FOR THE HELPER FUNCTIONS ----
+
+    it("getAllNodeIDs returns all current node IDs", () => {
+        netlist.addComponent("R1", ["1", "2"], false);
+        const nodeIDs = netlist.getAllNodeIDs();
+        expect(nodeIDs.length).toBe(2); // Each pin is its own node
+    });
+
+    it("getPinsForNode returns correct pins", () => {
+        netlist.addComponent("R1", ["1", "2"], false);
+        const nodeIDs = netlist.getAllNodeIDs();
+
+        const pinsNode0 = netlist.getPinsForNode(nodeIDs[0]);
+        expect(pinsNode0.map(p => `${p.componentID}.${p.pinID}`)).toContain("R1.1");
+
+        const pinsNode1 = netlist.getPinsForNode(nodeIDs[1]);
+        expect(pinsNode1.map(p => `${p.componentID}.${p.pinID}`)).toContain("R1.2");
+    });
 });
